@@ -1,0 +1,10 @@
+:root {
+  /* Colors */
+  --platinus-white: #fff;
+  --navbar-background-color: rgba(50, 23, 25, 0);
+  --navbar-collapse-background-color: rgba(50, 23, 25, 1);
+
+  /* Icons and images */
+  --platinus-banner-image: url(photos/zdj2.jpg);
+  --platinus-burger-icon: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
