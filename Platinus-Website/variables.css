@@ -1,10 +1,23 @@
 :root {
   /* Colors */
   --platinus-white: #fff;
-  --navbar-background-color: rgba(50, 23, 25, 0);
-  --navbar-collapse-background-color: rgba(50, 23, 25, 1);
+  --platinus-bg: #f4f6f8;
+  --platinus-text: #111827;
+  --platinus-dark: #0f172a;
+  --platinus-light: #f5f7fb;
+  --platinus-neutral: #ffffff;
+  --platinus-accent: #b42329;
+  --platinus-accent-strong: #7a1014;
+  --platinus-accent-surface: linear-gradient(135deg, #4c1a1d 0%, #2b1012 60%, #1c0d0f 100%);
+  --platinus-card: #ffffff;
+  --platinus-border: rgba(15, 23, 42, 0.12);
+  --platinus-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --hero-overlay: linear-gradient(120deg, rgba(10, 16, 24, 0.85), rgba(20, 28, 40, 0.6), rgba(12, 12, 16, 0.8));
+  --navbar-background-color: rgba(15, 23, 42, 0);
+  --navbar-collapse-background-color: rgba(15, 23, 42, 0.98);
 
   /* Icons and images */
-  --platinus-banner-image: url(photos/zdj2.jpg);
+  --platinus-banner-image: url(photos/zdj2.webp);
+  --platinus-burger-icon-dark: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(15,23,42, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
   --platinus-burger-icon: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
