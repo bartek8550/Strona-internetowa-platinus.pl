@@ -89,9 +89,7 @@ $body .= "—\nIP: {$ip}\nUA: {$ua}\n";
 $subject = '=?UTF-8?B?' . base64_encode($subjectBase) . '?=';
 
 // PHPMailer
-require __DIR__ . '/lib/PHPMailer/src/Exception.php';
-require __DIR__ . '/lib/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/lib/PHPMailer/src/SMTP.php';
+require __DIR__ . '/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
