@@ -34,21 +34,36 @@ $(window).on("scroll", updateNavbar);
 $(window).on("load", updateNavbar);
 $(document).ready(updateNavbar);
 
-/* ===== Promocje: płynna animacja <details> ===== */
-document.querySelectorAll('.promo-details').forEach((details) => {
+/* ===== Promocje: płynna animacja <details> + akordeon (otwarte tylko jedno) ===== */
+const promoDetailsList = Array.from(document.querySelectorAll('.promo-details'));
+
+promoDetailsList.forEach((details) => {
   const summary = details.querySelector('summary');
   const content = details.querySelector('.promo-details__content');
   if (!summary || !content) return;
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduceMotion.matches) return;
+
+  // Jeśli user ma reduced motion — zostaw natywne <details>, ale zrób akordeon
+  if (reduceMotion.matches) {
+    details.addEventListener('toggle', () => {
+      if (!details.open) return;
+      promoDetailsList.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+    });
+    return;
+  }
 
   details.classList.add('promo-details--animated');
 
   let isAnimating = false;
+  details.__promoAnimating = false;
 
   const openDetails = () => {
     isAnimating = true;
+    details.__promoAnimating = true;
+
     details.setAttribute('open', '');
 
     content.style.height = '0px';
@@ -65,6 +80,7 @@ document.querySelectorAll('.promo-details').forEach((details) => {
       content.style.height = 'auto';
       content.removeEventListener('transitionend', onEnd);
       isAnimating = false;
+      details.__promoAnimating = false;
     };
 
     content.addEventListener('transitionend', onEnd);
@@ -72,6 +88,7 @@ document.querySelectorAll('.promo-details').forEach((details) => {
 
   const closeDetails = () => {
     isAnimating = true;
+    details.__promoAnimating = true;
 
     content.style.height = content.scrollHeight + 'px';
 
@@ -86,20 +103,48 @@ document.querySelectorAll('.promo-details').forEach((details) => {
       details.removeAttribute('open');
       content.removeEventListener('transitionend', onEnd);
       isAnimating = false;
+      details.__promoAnimating = false;
     };
 
     content.addEventListener('transitionend', onEnd);
   };
+
+  // żeby inne elementy mogły zamknąć ten konkretny <details>
+  details.__promoClose = closeDetails;
 
   summary.addEventListener('click', (e) => {
     e.preventDefault();
     if (isAnimating) return;
 
     const isOpen = details.hasAttribute('open');
-    if (isOpen) closeDetails();
-    else openDetails();
+
+    if (!isOpen) {
+      // AKORDEON: zamknij wszystkie pozostałe otwarte <details>
+      promoDetailsList.forEach((other) => {
+        if (other === details) return;
+        if (!other.hasAttribute('open')) return;
+
+        if (typeof other.__promoClose === 'function' && !other.__promoAnimating) {
+          other.__promoClose(); // zamknij animacją
+        } else {
+          // fallback (bez animacji)
+          other.removeAttribute('open');
+          const otherContent = other.querySelector('.promo-details__content');
+          if (otherContent) {
+            otherContent.style.height = '0px';
+            otherContent.style.opacity = '0';
+            otherContent.style.transform = 'translateY(-4px)';
+          }
+        }
+      });
+
+      openDetails();
+    } else {
+      closeDetails();
+    }
   });
 });
+
 
 /* ===== Mobile menu: backdrop + blokada scrolla + zamykanie po kliknięciu ===== */
 document.addEventListener('DOMContentLoaded', () => {
@@ -219,5 +264,40 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = 'Wyślij wiadomość';
       form.submit();
     }
+  });
+});
+
+// --- Open contact modal from CTAs (buttons/links) ---
+document.addEventListener("DOMContentLoaded", () => {
+  const modalEl = document.getElementById("contactModal");
+  if (!modalEl || typeof bootstrap === "undefined") return;
+
+  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+
+  function openContactModal(e) {
+    // pozwól na fallback (bez JS) – ale jeśli JS działa, nie scrolluj
+    if (e) e.preventDefault();
+
+    // zamknij mobilne menu jeśli otwarte
+    const navCollapseEl = document.getElementById("navbarSupportedContent");
+    if (navCollapseEl && navCollapseEl.classList.contains("show")) {
+      bootstrap.Collapse.getOrCreateInstance(navCollapseEl).hide();
+    }
+
+    modal.show();
+
+    // focus na pierwsze pole po otwarciu
+    modalEl.addEventListener(
+      "shown.bs.modal",
+      () => {
+        const first = modalEl.querySelector("input, textarea, select, button");
+        if (first) first.focus();
+      },
+      { once: true }
+    );
+  }
+
+  document.querySelectorAll(".js-open-contact").forEach((el) => {
+    el.addEventListener("click", openContactModal);
   });
 });

@@ -276,15 +276,34 @@ body.nav-lock{
 }
 
 
-.navbar .nav-link.nav-cta:hover,
-.navbar .nav-link.nav-cta:focus{
-  background: var(--platinus-accent-strong);
-  color: #fff !important;
+@media (max-width: 767.98px){
+  .navbar .nav-link.nav-cta:hover,
+  .navbar .nav-link.nav-cta:focus{
+    background: var(--platinus-accent-strong);
+    color: #fff !important;
+  }
 }
 
 /* wyłącz underline na CTA */
 .navbar .navbar-nav .nav-item.nav-item-cta::after{
   display: none;
+}
+
+@media (min-width: 768px){
+  /* CTA ma zachowywać się jak reszta linków */
+  .navbar .navbar-nav .nav-item.nav-item-cta::after{
+    display: block;
+  }
+
+  .navbar .nav-link.nav-cta{
+    background: transparent !important;
+    /* color: inherit !important; */
+    font-weight: 600;
+  }
+}
+
+.navbar.scrolled .navbar-nav .nav-item::after{
+  background-color: var(--platinus-text);
 }
 
 .btn-primary{
@@ -1079,5 +1098,74 @@ body.nav-lock{
 @media (max-height: 740px){
   #home.banner-image{
     align-items: flex-start !important;
+  }
+}
+
+
+/* --- KSeF banner pod ofertą --- */
+.offer-ksef-banner{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:22px 22px;
+  border-radius:24px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+}
+
+/* === FIX: KSeF banner ma ciemny tekst mimo że jest w sekcji .Oferta (białe fonty) === */
+.offer-ksef-banner{
+  color: var(--platinus-text);
+}
+
+.offer-ksef-banner h3,
+.offer-ksef-banner h4,
+.offer-ksef-banner .h5{
+  color: var(--platinus-text);
+  margin: 0;
+}
+
+.offer-ksef-banner p{
+  color: #475569;
+  margin: 6px 0 0;
+}
+
+
+.offer-ksef-banner__icon{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  background: rgba(184,29,29,.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+}
+
+.offer-ksef-banner__icon i{
+  font-size:28px;
+  color:#b81d1d;
+}
+
+.offer-ksef-banner__content{
+  min-width:0;
+}
+
+.offer-ksef-banner__cta{
+  margin-left:auto;
+  flex:0 0 auto;
+}
+
+@media (max-width: 768px){
+  .offer-ksef-banner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .offer-ksef-banner__cta{
+    margin-left:0;
+    width:100%;
+  }
+  .offer-ksef-banner__cta .btn{
+    width:100%;
   }
 }

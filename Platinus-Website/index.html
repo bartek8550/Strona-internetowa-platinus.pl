@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Biuro rachunkowe Warszawa | Platinus.pl – księgowość, kadry i płace</title>
-    <meta name="description" content="Platinus.pl – biuro rachunkowe w Warszawie i obsługa zdalna w całej Polsce. Księgowość, kadry i płace, terminowe rozliczenia, stały opiekun, dokumenty online 24/7." />
-
+    <title>Biuro rachunkowe Warszawa | Platinus.pl – księgowość, kadry, KSeF</title>
+    <meta
+      name="description"
+      content="Platinus.pl – biuro rachunkowe w Warszawie i obsługa zdalna w całej Polsce. Księgowość, kadry i płace, stały opiekun, dokumenty online 24/7 oraz darmowy program do fakturowania zgodny z KSeF."
+    />
 
     <script src="https://kit.fontawesome.com/677aed9a73.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -18,7 +20,21 @@
       crossorigin="anonymous"
     />
 
-    <link rel="preload" href="photos/zdj2.webp" as="image" />
+    <!-- Preload LCP (hero image) – pod srcset -->
+    <link
+      rel="preload"
+      as="image"
+      imagesrcset="
+        photos/zdj2-768.webp 768w,
+        photos/zdj2-1280.webp 1280w,
+        photos/zdj2-1920.webp 1920w,
+        photos/zdj2-2560.webp 2560w,
+        photos/zdj2-3840.webp 3840w
+      "
+      imagesizes="100vw"
+      href="photos/zdj2-1920.webp"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -106,12 +122,13 @@
         <h1 class="hero-title">Profesjonalna księgowość i kadry dla firm</h1>
 
         <p class="hero-subtitle">
-          Księgowość oraz kadry i płace dla firm z Warszawy i całej Polski. Terminowo, jasno i z opieką księgowego, który zna Twoją firmę.
+          Księgowość oraz kadry i płace dla firm z Warszawy i całej Polski. Terminowo, jasno i ze stałym opiekunem, który zna Twoją firmę.
         </p>
 
-
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#kontakt">Umów konsultację</a>
+          <!-- otwiera modal -->
+          <a class="btn btn-primary btn-lg js-open-contact" href="#kontakt">Umów konsultację</a>
+          <!-- zostaje scroll -->
           <a class="btn btn-outline-light btn-lg" href="#oferta">Poznaj ofertę</a>
         </div>
 
@@ -119,6 +136,7 @@
           <span class="hero-pill">Terminowe rozliczenia</span>
           <span class="hero-pill">Stały opiekun</span>
           <span class="hero-pill">Dokumenty online 24/7</span>
+          <span class="hero-pill">Fakturowanie zgodne z KSeF</span>
         </div>
       </div>
     </div>
@@ -139,6 +157,7 @@
             <p class="about-lead">
               Od 2005 roku wspieramy przedsiębiorców w księgowości oraz obsłudze kadr i płac. Działamy terminowo, dbamy o bezpieczeństwo danych
               i jasno komunikujemy ustalenia. Obsługujemy firmy w Warszawie oraz zdalnie na terenie całej Polski.
+              W ramach współpracy zapewniamy też bezpłatny program do wystawiania faktur zgodny z KSeF.
             </p>
 
             <div class="about-kpis" aria-label="Najważniejsze informacje">
@@ -160,17 +179,13 @@
               <li>Przejrzyste zasady współpracy i czytelna wycena.</li>
               <li>Stały opiekun, który zna Twoją firmę i odpowiada na bieżąco.</li>
               <li>Wygodny obieg dokumentów i archiwum online dostępne 24/7.</li>
+              <li>Darmowy program do faktur zgodny z KSeF w ramach współpracy.</li>
             </ul>
           </div>
 
           <div class="col-lg-5">
             <figure class="about-media-card">
-              <img
-                src="photos/zdj3.jpg"
-                alt="Biuro rachunkowe Platinus.pl w Warszawie"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="photos/zdj3.jpg" alt="Biuro rachunkowe Platinus.pl w Warszawie" loading="lazy" decoding="async" />
               <figcaption class="about-media-caption">
                 Pracujemy jasno i konkretnie: stały opiekun, szybki kontakt i zasady bez niespodzianek.
               </figcaption>
@@ -234,7 +249,8 @@
               <h3 class="h5 mb-2">Szukasz biura rachunkowego w Warszawie lub zdalnie?</h3>
               <p>Porozmawiajmy o najlepszym modelu rozliczeń dla Twojej firmy.</p>
               <div class="d-flex flex-wrap gap-2 mt-3">
-                <a class="btn btn-primary" href="#kontakt">Skontaktuj się</a>
+                <!-- otwiera modal -->
+                <a class="btn btn-primary js-open-contact" href="#kontakt">Skontaktuj się</a>
                 <a class="btn btn-outline-light" href="#oferta">Poznaj ofertę</a>
               </div>
             </aside>
@@ -277,6 +293,7 @@
             <p class="offer-lead">
               Obsługujemy firmy w Warszawie stacjonarnie oraz zdalnie na terenie całej Polski — od KPiR i ryczałtu po pełne księgi.
               Pilnujemy terminów, porządkujemy dokumenty i pomagamy podejmować bezpieczne decyzje podatkowe.
+              W ramach współpracy zapewniamy także darmowy program do wystawiania faktur zgodny z KSeF.
             </p>
 
             <div class="offer-tags" aria-label="Najważniejsze korzyści">
@@ -284,10 +301,12 @@
               <span class="offer-tag">Stały opiekun</span>
               <span class="offer-tag">Dokumenty online 24/7</span>
               <span class="offer-tag">Bezpieczeństwo danych</span>
+              <span class="offer-tag">Fakturowanie KSeF</span>
             </div>
 
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <a class="btn btn-primary btn-lg" href="#kontakt">Umów konsultację</a>
+              <!-- otwiera modal -->
+              <a class="btn btn-primary btn-lg js-open-contact" href="#kontakt">Umów konsultację</a>
               <a class="btn btn-outline-light btn-lg" href="#cennik">Zobacz cennik</a>
             </div>
           </div>
@@ -299,9 +318,7 @@
               <meta itemprop="serviceType" content="Pełna księgowość" />
               <div class="offer-icon"><i class="fa-solid fa-book"></i></div>
               <h3 class="h5 mt-3" itemprop="name">Pełna księgowość (księgi handlowe)</h3>
-              <p itemprop="description">
-                Obsługa spółek i firm z rozbudowaną sprawozdawczością — od ewidencji po zamknięcia okresów.
-              </p>
+              <p itemprop="description">Obsługa spółek i firm z rozbudowaną sprawozdawczością — od ewidencji po zamknięcia okresów.</p>
               <ul class="offer-bullets">
                 <li>Księgi handlowe i uzgodnienia</li>
                 <li>Zamknięcia miesięczne/roczne</li>
@@ -315,9 +332,7 @@
               <meta itemprop="serviceType" content="KPiR i ryczałt" />
               <div class="offer-icon"><i class="fa-solid fa-receipt"></i></div>
               <h3 class="h5 mt-3" itemprop="name">KPiR i ryczałt</h3>
-              <p itemprop="description">
-                Rozliczenia jednoosobowych działalności i małych firm — prosto, czytelnie, bez niedomówień.
-              </p>
+              <p itemprop="description">Rozliczenia jednoosobowych działalności i małych firm — prosto, czytelnie, bez niedomówień.</p>
               <ul class="offer-bullets">
                 <li>KPiR, ryczałt, rozliczenia kosztów</li>
                 <li>Ewidencja środków trwałych</li>
@@ -331,9 +346,7 @@
               <meta itemprop="serviceType" content="VAT i JPK" />
               <div class="offer-icon"><i class="fa-solid fa-file-invoice"></i></div>
               <h3 class="h5 mt-3" itemprop="name">VAT, JPK i raportowanie</h3>
-              <p itemprop="description">
-                Przygotowujemy rejestry VAT i pliki JPK oraz pomagamy wyjaśniać rozliczenia — tak, abyś miał kontrolę i porządek.
-              </p>
+              <p itemprop="description">Przygotowujemy rejestry VAT i pliki JPK oraz pomagamy wyjaśniać rozliczenia — tak, abyś miał kontrolę i porządek.</p>
               <ul class="offer-bullets">
                 <li>Rejestry VAT i JPK</li>
                 <li>Zestawienia na potrzeby zarządu</li>
@@ -347,9 +360,7 @@
               <meta itemprop="serviceType" content="Kadry i płace" />
               <div class="offer-icon"><i class="fa-solid fa-people-group"></i></div>
               <h3 class="h5 mt-3" itemprop="name">Kadry i płace</h3>
-              <p itemprop="description">
-                Pełna obsługa pracowników i zleceniobiorców — umowy, listy płac, rozliczenia i dokumenty.
-              </p>
+              <p itemprop="description">Pełna obsługa pracowników i zleceniobiorców — umowy, listy płac, rozliczenia i dokumenty.</p>
               <ul class="offer-bullets">
                 <li>Umowy, aneksy, świadectwa pracy</li>
                 <li>Listy płac i rozliczenia</li>
@@ -363,9 +374,7 @@
               <meta itemprop="serviceType" content="ZUS" />
               <div class="offer-icon"><i class="fa-solid fa-shield"></i></div>
               <h3 class="h5 mt-3" itemprop="name">ZUS i zgłoszenia</h3>
-              <p itemprop="description">
-                Zgłoszenia, deklaracje i wsparcie w typowych sprawach — żebyś nie tracił czasu na formalności.
-              </p>
+              <p itemprop="description">Zgłoszenia, deklaracje i wsparcie w typowych sprawach — żebyś nie tracił czasu na formalności.</p>
               <ul class="offer-bullets">
                 <li>Zgłoszenia i wyrejestrowania</li>
                 <li>DRA i rozliczenia składek</li>
@@ -377,17 +386,34 @@
           <div class="col-md-6 col-lg-4">
             <article class="offer-card offer-card--media" itemscope itemtype="https://schema.org/Service">
               <meta itemprop="serviceType" content="Dokumenty online" />
-              <div class="offer-media-thumb" aria-hidden="true">
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-              </div>
+              <div class="offer-media-thumb" aria-hidden="true"><i class="fa-solid fa-cloud-arrow-up"></i></div>
               <div>
                 <h3 class="h5" itemprop="name">Dokumenty online i archiwum 24/7</h3>
-                <p itemprop="description" class="mb-0">
-                  Uporządkowany obieg dokumentów, szybki podgląd rozliczeń i wygodna współpraca zdalna.
-                </p>
+                <p itemprop="description" class="mb-0">Uporządkowany obieg dokumentów, szybki podgląd rozliczeń i wygodna współpraca zdalna.</p>
               </div>
             </article>
           </div>
+
+          <!-- Callout: KSeF (FULL WIDTH) -->
+          <div class="col-12">
+            <article class="offer-card offer-ksef-banner" aria-label="Bezpłatny program do fakturowania zgodny z KSeF">
+              <div class="offer-ksef-banner__icon" aria-hidden="true">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+              </div>
+
+              <div class="offer-ksef-banner__content">
+                <h3 class="h5 mb-1">Bezpłatny program do fakturowania zgodny z KSeF</h3>
+                <p class="mb-0">
+                  W ramach współpracy zapewniamy dostęp do prostego programu do wystawiania faktur zgodnych z KSeF — bez dodatkowych kosztów.
+                </p>
+              </div>
+
+              <div class="offer-ksef-banner__cta">
+                <button type="button" class="btn btn-primary js-open-contact">Zapytaj o szczegóły</button>
+              </div>
+            </article>
+          </div>
+          <!-- /Callout: KSeF -->
         </div>
 
         <div class="row mt-5">
@@ -399,23 +425,12 @@
             <div class="accordion offer-accordion mt-3" id="offerFaq">
               <div class="accordion-item">
                 <h4 class="accordion-header" id="offerFaqOne">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#offerFaqCollapseOne"
-                    aria-expanded="false"
-                    aria-controls="offerFaqCollapseOne"
-                  >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#offerFaqCollapseOne"
+                    aria-expanded="false" aria-controls="offerFaqCollapseOne">
                     Jak wygląda start współpracy i przekazanie dokumentów?
                   </button>
                 </h4>
-                <div
-                  id="offerFaqCollapseOne"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="offerFaqOne"
-                  data-bs-parent="#offerFaq"
-                >
+                <div id="offerFaqCollapseOne" class="accordion-collapse collapse" aria-labelledby="offerFaqOne" data-bs-parent="#offerFaq">
                   <div class="accordion-body">
                     Zaczynamy od krótkiej rozmowy i ustalenia zakresu obsługi. Dostajesz jasną listę dokumentów oraz sposób przekazywania
                     (online lub tradycyjnie). Następnie przejmujemy bieżące rozliczenia i pilnujemy terminów.
@@ -425,23 +440,12 @@
 
               <div class="accordion-item">
                 <h4 class="accordion-header" id="offerFaqTwo">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#offerFaqCollapseTwo"
-                    aria-expanded="false"
-                    aria-controls="offerFaqCollapseTwo"
-                  >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#offerFaqCollapseTwo"
+                    aria-expanded="false" aria-controls="offerFaqCollapseTwo">
                     Czy mogę rozliczać się całkowicie zdalnie?
                   </button>
                 </h4>
-                <div
-                  id="offerFaqCollapseTwo"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="offerFaqTwo"
-                  data-bs-parent="#offerFaq"
-                >
+                <div id="offerFaqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="offerFaqTwo" data-bs-parent="#offerFaq">
                   <div class="accordion-body">
                     Tak. Dokumenty możesz przekazywać online, a większość spraw załatwiamy mailowo i telefonicznie. Jeśli wolisz spotkanie —
                     umawiamy dogodny termin.
@@ -451,33 +455,39 @@
 
               <div class="accordion-item">
                 <h4 class="accordion-header" id="offerFaqThree">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#offerFaqCollapseThree"
-                    aria-expanded="false"
-                    aria-controls="offerFaqCollapseThree"
-                  >
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#offerFaqCollapseThree"
+                    aria-expanded="false" aria-controls="offerFaqCollapseThree">
                     Od czego zależy cena obsługi?
                   </button>
                 </h4>
-                <div
-                  id="offerFaqCollapseThree"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="offerFaqThree"
-                  data-bs-parent="#offerFaq"
-                >
+                <div id="offerFaqCollapseThree" class="accordion-collapse collapse" aria-labelledby="offerFaqThree" data-bs-parent="#offerFaq">
                   <div class="accordion-body">
                     Cena zależy głównie od formy rozliczeń (KPiR/ryczałt/pełna księgowość), liczby dokumentów i liczby pracowników. Wycena jest
                     przejrzysta — informujemy z góry, co obejmuje pakiet i kiedy może się zmienić (np. przy większej liczbie dokumentów).
                   </div>
                 </div>
               </div>
+
+              <!-- NOWE: FAQ KSeF -->
+              <div class="accordion-item">
+                <h4 class="accordion-header" id="offerFaqFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#offerFaqCollapseFour"
+                    aria-expanded="false" aria-controls="offerFaqCollapseFour">
+                    Czy pomagacie w fakturowaniu zgodnym z KSeF?
+                  </button>
+                </h4>
+                <div id="offerFaqCollapseFour" class="accordion-collapse collapse" aria-labelledby="offerFaqFour" data-bs-parent="#offerFaq">
+                  <div class="accordion-body">
+                    Tak. W ramach współpracy zapewniamy bezpłatny program do wystawiania faktur zgodnych z KSeF oraz pomagamy wdrożyć proces
+                    tak, żeby fakturowanie i księgowość były spójne i uporządkowane.
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="text-center mt-4">
-              <a class="btn btn-outline-light" href="#kontakt">Masz inne pytanie? Napisz do nas</a>
+              <!-- otwiera modal -->
+              <a class="btn btn-outline-light js-open-contact" href="#kontakt">Masz inne pytanie? Napisz do nas</a>
             </div>
           </div>
         </div>
@@ -498,64 +508,33 @@
             </p>
           </div>
           <div class="col-lg-4 text-lg-end">
-            <a class="btn btn-primary btn-lg" href="#kontakt">Zapytaj o wycenę</a>
+            <!-- otwiera modal -->
+            <a class="btn btn-primary btn-lg js-open-contact" href="#kontakt">Zapytaj o wycenę</a>
           </div>
         </div>
 
         <ul class="nav nav-pills pricing-tabs" id="pricingTabs" role="tablist" aria-label="Kategorie cennika">
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="tab-kpir"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-kpir"
-              type="button"
-              role="tab"
-              aria-controls="pane-kpir"
-              aria-selected="true"
-            >
+            <button class="nav-link active" id="tab-kpir" data-bs-toggle="tab" data-bs-target="#pane-kpir" type="button" role="tab"
+              aria-controls="pane-kpir" aria-selected="true">
               KPiR
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="tab-handlowe"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-handlowe"
-              type="button"
-              role="tab"
-              aria-controls="pane-handlowe"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="tab-handlowe" data-bs-toggle="tab" data-bs-target="#pane-handlowe" type="button" role="tab"
+              aria-controls="pane-handlowe" aria-selected="false">
               Księgi handlowe
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="tab-ryczalt"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-ryczalt"
-              type="button"
-              role="tab"
-              aria-controls="pane-ryczalt"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="tab-ryczalt" data-bs-toggle="tab" data-bs-target="#pane-ryczalt" type="button" role="tab"
+              aria-controls="pane-ryczalt" aria-selected="false">
               Ryczałt
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="tab-pit"
-              data-bs-toggle="tab"
-              data-bs-target="#pane-pit"
-              type="button"
-              role="tab"
-              aria-controls="pane-pit"
-              aria-selected="false"
-            >
+            <button class="nav-link" id="tab-pit" data-bs-toggle="tab" data-bs-target="#pane-pit" type="button" role="tab"
+              aria-controls="pane-pit" aria-selected="false">
               PIT-y
             </button>
           </li>
@@ -575,14 +554,8 @@
                   </div>
 
                   <div class="pricing-table">
-                    <div class="pricing-row">
-                      <span>Poniżej 20 dokumentów</span>
-                      <strong>250 zł</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Do 50 dokumentów</span>
-                      <strong>400 zł</strong>
-                    </div>
+                    <div class="pricing-row"><span>Poniżej 20 dokumentów</span><strong>250 zł</strong></div>
+                    <div class="pricing-row"><span>Do 50 dokumentów</span><strong>400 zł</strong></div>
                   </div>
                 </article>
               </div>
@@ -591,14 +564,11 @@
                 <aside class="pricing-card pricing-card--side" aria-label="Dodatki kadrowe">
                   <h3 class="h6 mb-2">Kadry i płace (miesięcznie)</h3>
                   <div class="pricing-mini">
-                    <div class="pricing-row">
-                      <span>Pracownik</span><strong>45 zł / osoba</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Zleceniobiorca</span><strong>30 zł / osoba</strong>
-                    </div>
+                    <div class="pricing-row"><span>Pracownik</span><strong>45 zł / osoba</strong></div>
+                    <div class="pricing-row"><span>Zleceniobiorca</span><strong>30 zł / osoba</strong></div>
                   </div>
-                  <a class="btn btn-outline-dark w-100 mt-3" href="#kontakt">Poproś o wycenę</a>
+                  <!-- otwiera modal -->
+                  <a class="btn btn-outline-dark w-100 mt-3 js-open-contact" href="#kontakt">Poproś o wycenę</a>
                 </aside>
               </div>
             </div>
@@ -617,18 +587,9 @@
                   </div>
 
                   <div class="pricing-table">
-                    <div class="pricing-row">
-                      <span>Do 50 dokumentów</span>
-                      <strong>800 zł</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Do 100 dokumentów</span>
-                      <strong>1300 zł</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Sprawozdanie finansowe</span>
-                      <strong>od 1000 zł</strong>
-                    </div>
+                    <div class="pricing-row"><span>Do 50 dokumentów</span><strong>800 zł</strong></div>
+                    <div class="pricing-row"><span>Do 100 dokumentów</span><strong>1300 zł</strong></div>
+                    <div class="pricing-row"><span>Sprawozdanie finansowe</span><strong>od 1000 zł</strong></div>
                   </div>
                 </article>
               </div>
@@ -637,14 +598,11 @@
                 <aside class="pricing-card pricing-card--side" aria-label="Dodatki kadrowe">
                   <h3 class="h6 mb-2">Kadry i płace (miesięcznie)</h3>
                   <div class="pricing-mini">
-                    <div class="pricing-row">
-                      <span>Pracownik</span><strong>45 zł / osoba</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Zleceniobiorca</span><strong>30 zł / osoba</strong>
-                    </div>
+                    <div class="pricing-row"><span>Pracownik</span><strong>45 zł / osoba</strong></div>
+                    <div class="pricing-row"><span>Zleceniobiorca</span><strong>30 zł / osoba</strong></div>
                   </div>
-                  <a class="btn btn-outline-dark w-100 mt-3" href="#kontakt">Zapytaj o wycenę</a>
+                  <!-- otwiera modal -->
+                  <a class="btn btn-outline-dark w-100 mt-3 js-open-contact" href="#kontakt">Zapytaj o wycenę</a>
                 </aside>
               </div>
             </div>
@@ -663,10 +621,7 @@
                   </div>
 
                   <div class="pricing-table">
-                    <div class="pricing-row">
-                      <span>Do 20 dokumentów</span>
-                      <strong>250 zł</strong>
-                    </div>
+                    <div class="pricing-row"><span>Do 20 dokumentów</span><strong>250 zł</strong></div>
                   </div>
                 </article>
               </div>
@@ -675,14 +630,11 @@
                 <aside class="pricing-card pricing-card--side" aria-label="Dodatki kadrowe">
                   <h3 class="h6 mb-2">Kadry i płace (miesięcznie)</h3>
                   <div class="pricing-mini">
-                    <div class="pricing-row">
-                      <span>Pracownik</span><strong>45 zł / osoba</strong>
-                    </div>
-                    <div class="pricing-row">
-                      <span>Zleceniobiorca</span><strong>30 zł / osoba</strong>
-                    </div>
+                    <div class="pricing-row"><span>Pracownik</span><strong>45 zł / osoba</strong></div>
+                    <div class="pricing-row"><span>Zleceniobiorca</span><strong>30 zł / osoba</strong></div>
                   </div>
-                  <a class="btn btn-outline-dark w-100 mt-3" href="#kontakt">Poproś o wycenę</a>
+                  <!-- otwiera modal -->
+                  <a class="btn btn-outline-dark w-100 mt-3 js-open-contact" href="#kontakt">Poproś o wycenę</a>
                 </aside>
               </div>
             </div>
@@ -701,10 +653,7 @@
                   </div>
 
                   <div class="pricing-table">
-                    <div class="pricing-row">
-                      <span>Zeznanie roczne</span>
-                      <strong>od 100 zł</strong>
-                    </div>
+                    <div class="pricing-row"><span>Zeznanie roczne</span><strong>od 100 zł</strong></div>
                   </div>
                 </article>
               </div>
@@ -712,10 +661,9 @@
               <div class="col-lg-4">
                 <aside class="pricing-card pricing-card--side" aria-label="Szybka konsultacja PIT">
                   <h3 class="h6 mb-2">Masz nietypową sytuację?</h3>
-                  <p class="pricing-muted mb-3">
-                    Skontaktuj się — powiemy od razu, jak przygotować dokumenty i ile to potrwa.
-                  </p>
-                  <a class="btn btn-primary w-100" href="#kontakt">Umów kontakt</a>
+                  <p class="pricing-muted mb-3">Napisz — powiemy od razu, jak przygotować dokumenty i jaki będzie koszt.</p>
+                  <!-- otwiera modal -->
+                  <a class="btn btn-primary w-100 js-open-contact" href="#kontakt">Umów kontakt</a>
                 </aside>
               </div>
             </div>
@@ -880,9 +828,7 @@
           <div class="col-lg-8">
             <p class="hero-eyebrow">Kontakt</p>
             <h2 id="kontakt-title" class="contact-title">Dane kontaktowe biura rachunkowego</h2>
-            <p class="contact-lead mb-0">
-              Skontaktuj się z nami telefonicznie lub mailowo. Możesz też od razu otworzyć mapę i wyznaczyć trasę do biura.
-            </p>
+            <p class="contact-lead mb-0">Skontaktuj się z nami telefonicznie lub mailowo. Możesz też od razu otworzyć mapę i wyznaczyć trasę do biura.</p>
           </div>
         </div>
 
