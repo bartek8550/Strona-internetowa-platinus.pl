@@ -1025,6 +1025,98 @@ body.nav-lock{
 .contact-modal .form-text{
   color: rgba(226, 232, 240, 0.75);
 }
+.contact-modal--info{
+  overflow: hidden;
+}
+.contact-modal__eyebrow{
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.68);
+}
+.contact-modal__lead{
+  max-width: 56ch;
+  margin-bottom: 22px;
+  color: rgba(226, 232, 240, 0.86);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+.contact-quick-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.contact-quick-card{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 18px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 100%),
+    rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.22);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-quick-card:hover,
+.contact-quick-card:focus-visible{
+  color: #fff;
+  transform: translateY(-4px);
+  border-color: rgba(180, 35, 41, 0.45);
+  box-shadow: 0 24px 44px rgba(0,0,0,0.28);
+}
+.contact-quick-card--static:hover{
+  transform: none;
+}
+.contact-quick-card__icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  background: rgba(180, 35, 41, 0.18);
+  color: var(--platinus-accent);
+  font-size: 1.15rem;
+}
+.contact-quick-card__label{
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.72);
+}
+.contact-quick-card__value{
+  margin-top: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.contact-quick-card__meta{
+  margin-top: 10px;
+  color: rgba(226, 232, 240, 0.76);
+  line-height: 1.55;
+}
+.contact-modal__note{
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(226, 232, 240, 0.78);
+}
+
+@media (max-width: 991px){
+  .contact-quick-grid{
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ===== FIX: Mobile menu (collapse) zawsze białe linki, nawet gdy navbar ma .scrolled ===== */
 @media (max-width: 767.98px){
@@ -1058,6 +1150,14 @@ body.nav-lock{
   /* burger na mobile po scrollu też biały */
   .navbar.scrolled .navbar-toggler-icon{
     background-image: var(--platinus-burger-icon) !important;
+  }
+
+  .contact-modal__lead{
+    font-size: 0.98rem;
+  }
+
+  .contact-quick-card{
+    padding: 16px;
   }
 }
 

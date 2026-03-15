@@ -190,7 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
   syncNavState();
 });
 
-/* ===== Formularz kontaktowy (AJAX + walidacja) ===== */
+/* ===== Formularz kontaktowy (AJAX + walidacja) =====
+   Tymczasowo wyłączone w UI. Zachowane do późniejszego przywrócenia wysyłki przez form.php.
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -266,38 +267,63 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+*/
 
-// --- Open contact modal from CTAs (buttons/links) ---
+// --- Open temporary contact modal from CTAs (buttons/links) ---
 document.addEventListener("DOMContentLoaded", () => {
   const modalEl = document.getElementById("contactModal");
   if (!modalEl || typeof bootstrap === "undefined") return;
 
   const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  const contactSection = document.getElementById("kontakt");
 
-  function openContactModal(e) {
-    // pozwól na fallback (bez JS) – ale jeśli JS działa, nie scrolluj
-    if (e) e.preventDefault();
-
-    // zamknij mobilne menu jeśli otwarte
+  function closeMobileMenu() {
     const navCollapseEl = document.getElementById("navbarSupportedContent");
     if (navCollapseEl && navCollapseEl.classList.contains("show")) {
       bootstrap.Collapse.getOrCreateInstance(navCollapseEl).hide();
     }
+  }
+
+  function openContactModal(e) {
+    // Pozwól na fallback bez JS: link nadal prowadzi do sekcji kontaktu.
+    if (e) e.preventDefault();
+
+    closeMobileMenu();
 
     modal.show();
 
-    // focus na pierwsze pole po otwarciu
     modalEl.addEventListener(
       "shown.bs.modal",
       () => {
-        const first = modalEl.querySelector("input, textarea, select, button");
+        const first = modalEl.querySelector("[data-contact-focus], a, button");
         if (first) first.focus();
       },
       { once: true }
     );
   }
 
+  function scrollToContact(e) {
+    if (e) e.preventDefault();
+
+    closeMobileMenu();
+    modal.hide();
+
+    const scroll = () => {
+      if (!contactSection) return;
+      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (window.location.hash !== "#kontakt") {
+        history.replaceState(null, "", "#kontakt");
+      }
+    };
+
+    modalEl.addEventListener("hidden.bs.modal", scroll, { once: true });
+  }
+
   document.querySelectorAll(".js-open-contact").forEach((el) => {
     el.addEventListener("click", openContactModal);
+  });
+
+  document.querySelectorAll(".js-contact-scroll").forEach((el) => {
+    el.addEventListener("click", scrollToContact);
   });
 });
