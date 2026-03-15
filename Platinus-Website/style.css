@@ -86,11 +86,11 @@ section{
 }
 .hero-eyebrow{
   text-transform: uppercase;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.22em;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   margin: 22px 0 12px;
-  opacity: 0.85;
+  opacity: 0.92;
 }
 .hero-title{
   font-size: clamp(2rem, 3.3vw, 3.4rem);
@@ -241,7 +241,7 @@ body.nav-lock{
 }
 .navbar .navbar-nav .nav-link{
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   font-size: 0.78rem;
   text-transform: uppercase;
 }
@@ -326,7 +326,7 @@ body.nav-lock{
 }
 .about-lead{
   font-size: 1.15rem;
-  color: rgba(226, 232, 240, 0.85);
+  color: rgba(226, 232, 240, 0.92);
 }
 .about-card{
   background: rgba(255, 255, 255, 0.05);
@@ -340,7 +340,7 @@ body.nav-lock{
 }
 .about-card p{
   font-size: 0.98rem;
-  color: rgba(226, 232, 240, 0.85);
+  color: rgba(226, 232, 240, 0.9);
 }
 .about-icon{
   width: 46px;
@@ -368,7 +368,7 @@ body.nav-lock{
   }
 }
 .about-callout p{
-  color: rgba(226, 232, 240, 0.85);
+  color: rgba(226, 232, 240, 0.9);
 }
 
 .logo{
@@ -393,8 +393,8 @@ body.nav-lock{
   text-align: center;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #64748b;
+  letter-spacing: 0.14em;
+  color: #526173;
 }
 .partners-logo img{
   max-height: 56px;
@@ -479,7 +479,7 @@ body.nav-lock{
   margin-top: 12px;
 }
 .offer-card p{
-  color: #475569;
+  color: #334155;
 }
 .offer-card:hover{
   transform: translateY(-4px);
@@ -505,7 +505,7 @@ body.nav-lock{
   position: relative;
   padding-left: 22px;
   margin-bottom: 8px;
-  color: #475569;
+  color: #3f4d63;
 }
 .offer-bullets li::before{
   content: "";
@@ -622,7 +622,7 @@ body.nav-lock{
   flex: 0 0 auto;
 }
 .pricing-muted{
-  color: #64748b;
+  color: #526173;
   font-size: 0.95rem;
 }
 .pricing-table{
@@ -644,7 +644,7 @@ body.nav-lock{
   padding: 9px 0;
 }
 .pricing-note{
-  color: #64748b;
+  color: #526173;
   font-size: 0.95rem;
 }
 
@@ -658,7 +658,7 @@ body.nav-lock{
   margin-bottom: 10px;
 }
 .promotions-lead{
-  color: #475569;
+  color: #3f4d63;
   font-size: 1.05rem;
   margin-bottom: 0;
 }
@@ -707,7 +707,7 @@ body.nav-lock{
   color: var(--platinus-accent);
 }
 .promo-summary{
-  color: #334155;
+  color: #2b394d;
   margin-bottom: 14px;
 }
 .promo-details{
@@ -758,7 +758,7 @@ body.nav-lock{
 .promo-details ul{
   margin: 0;
   padding-left: 18px;
-  color: #475569;
+  color: #445266;
 }
 .promo-details li{
   margin-bottom: 8px;
@@ -794,7 +794,7 @@ body.nav-lock{
   margin-bottom: 10px;
 }
 .contact-lead{
-  color: rgba(226, 232, 240, 0.88);
+  color: rgba(226, 232, 240, 0.93);
   font-size: 1.05rem;
 }
 .contact-card{
@@ -826,9 +826,9 @@ body.nav-lock{
 }
 .contact-label{
   font-size: 0.82rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.72);
+  color: rgba(226, 232, 240, 0.82);
   margin-bottom: 2px;
 }
 .contact-value{
@@ -849,7 +849,7 @@ body.nav-lock{
   gap: 10px;
 }
 .contact-note{
-  color: rgba(226, 232, 240, 0.78);
+  color: rgba(226, 232, 240, 0.86);
   font-size: 0.95rem;
 }
 .contact-map-card{
@@ -903,9 +903,9 @@ body.nav-lock{
 .about-kpi__label{
   display: block;
   font-size: 0.78rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.70);
+  color: rgba(226, 232, 240, 0.8);
 }
 .about-kpi__value{
   display: block;
@@ -951,7 +951,7 @@ body.nav-lock{
 }
 .about-media-caption{
   padding: 14px 16px;
-  color: rgba(226, 232, 240, 0.82);
+  color: rgba(226, 232, 240, 0.88);
   font-size: 0.95rem;
 }
 .about-process{
@@ -961,7 +961,7 @@ body.nav-lock{
   padding: 22px;
 }
 .about-process-lead{
-  color: rgba(226, 232, 240, 0.82);
+  color: rgba(226, 232, 240, 0.88);
 }
 .about-steps{
   margin: 0;
@@ -977,7 +977,7 @@ body.nav-lock{
 }
 .about-step-desc{
   display: block;
-  color: rgba(226, 232, 240, 0.78);
+  color: rgba(226, 232, 240, 0.85);
   margin-top: 2px;
 }
 @media (max-width: 991px){
@@ -1031,14 +1031,14 @@ body.nav-lock{
   margin: 0;
   font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.68);
+  color: rgba(226, 232, 240, 0.82);
 }
 .contact-modal__lead{
   max-width: 56ch;
   margin-bottom: 22px;
-  color: rgba(226, 232, 240, 0.86);
+  color: rgba(226, 232, 240, 0.92);
   font-size: 1.02rem;
   line-height: 1.7;
 }
@@ -1084,9 +1084,9 @@ body.nav-lock{
 .contact-quick-card__label{
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(226, 232, 240, 0.72);
+  color: rgba(226, 232, 240, 0.84);
 }
 .contact-quick-card__value{
   margin-top: 10px;
@@ -1096,7 +1096,7 @@ body.nav-lock{
 }
 .contact-quick-card__meta{
   margin-top: 10px;
-  color: rgba(226, 232, 240, 0.76);
+  color: rgba(226, 232, 240, 0.84);
   line-height: 1.55;
 }
 @media (max-width: 991px){
