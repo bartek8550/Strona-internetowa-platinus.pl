@@ -769,13 +769,14 @@ body.nav-lock{
 .promotions-footer-inner{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
   padding: 16px 18px;
   border-radius: 18px;
   background: rgba(15, 23, 42, 0.04);
   border: 1px solid rgba(15, 23, 42, 0.10);
+  text-align: center;
 }
 @media (prefers-reduced-motion: reduce){
   .promo-details--animated .promo-details__content{
@@ -1007,9 +1008,6 @@ body.nav-lock{
 .contact-modal .modal-header{
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
-.contact-modal .modal-footer{
-  border-top: 0;
-}
 .contact-modal .form-label{
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1074,9 +1072,6 @@ body.nav-lock{
   border-color: rgba(180, 35, 41, 0.45);
   box-shadow: 0 24px 44px rgba(0,0,0,0.28);
 }
-.contact-quick-card--static:hover{
-  transform: none;
-}
 .contact-quick-card__icon{
   width: 52px;
   height: 52px;
@@ -1107,15 +1102,6 @@ body.nav-lock{
   color: rgba(226, 232, 240, 0.76);
   line-height: 1.55;
 }
-.contact-modal__note{
-  margin-top: 18px;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: rgba(226, 232, 240, 0.78);
-}
-
 @media (max-width: 991px){
   .contact-quick-grid{
     grid-template-columns: 1fr;
@@ -1255,9 +1241,27 @@ body.nav-lock{
   min-width:0;
 }
 
-.offer-ksef-banner__cta{
+.offer-ksef-banner__accent{
   margin-left:auto;
   flex:0 0 auto;
+  display:flex;
+  gap:8px;
+}
+
+.offer-ksef-banner__dot{
+  width:12px;
+  height:12px;
+  border-radius:999px;
+  background: rgba(184, 29, 29, 0.26);
+  box-shadow: 0 0 0 1px rgba(184, 29, 29, 0.12);
+}
+
+.offer-ksef-banner__dot:nth-child(2){
+  background: rgba(184, 29, 29, 0.52);
+}
+
+.offer-ksef-banner__dot:nth-child(3){
+  background: #b81d1d;
 }
 
 @media (max-width: 768px){
@@ -1265,11 +1269,7 @@ body.nav-lock{
     flex-direction:column;
     align-items:flex-start;
   }
-  .offer-ksef-banner__cta{
+  .offer-ksef-banner__accent{
     margin-left:0;
-    width:100%;
-  }
-  .offer-ksef-banner__cta .btn{
-    width:100%;
   }
 }

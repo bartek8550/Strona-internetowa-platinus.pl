@@ -275,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!modalEl || typeof bootstrap === "undefined") return;
 
   const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-  const contactSection = document.getElementById("kontakt");
 
   function closeMobileMenu() {
     const navCollapseEl = document.getElementById("navbarSupportedContent");
@@ -302,28 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  function scrollToContact(e) {
-    if (e) e.preventDefault();
-
-    closeMobileMenu();
-    modal.hide();
-
-    const scroll = () => {
-      if (!contactSection) return;
-      contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (window.location.hash !== "#kontakt") {
-        history.replaceState(null, "", "#kontakt");
-      }
-    };
-
-    modalEl.addEventListener("hidden.bs.modal", scroll, { once: true });
-  }
-
   document.querySelectorAll(".js-open-contact").forEach((el) => {
     el.addEventListener("click", openContactModal);
-  });
-
-  document.querySelectorAll(".js-contact-scroll").forEach((el) => {
-    el.addEventListener("click", scrollToContact);
   });
 });
