@@ -16,6 +16,14 @@
   --navbar-background-color: rgba(15, 23, 42, 0);
   --navbar-collapse-background-color: rgba(15, 23, 42, 0.98);
 
+  /* Spacing scale */
+  --space-21: 21px;
+  --space-34: 34px;
+  --space-55: 55px;
+  --space-89: 89px;
+  --section-space-y: clamp(var(--space-55), 6vw, var(--space-89));
+  --section-divider-space-y: clamp(var(--space-21), 3vw, var(--space-34));
+
   /* Icons and images */
   --platinus-banner-image: url(photos/zdj2.webp);
   --platinus-burger-icon-dark: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(15,23,42, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
