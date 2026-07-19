@@ -50,7 +50,7 @@
       rel="preload"
       as="image"
       href="photos/zdj2-1280.webp"
-      imagesrcset="photos/zdj2-768.webp 768w, photos/zdj2-1280.webp 1280w, photos/zdj2-1920.webp 1920w"
+      imagesrcset="photos/zdj2-768.webp 768w, photos/zdj2-1280.webp 1280w, photos/zdj2-1920.webp 1920w, photos/zdj2-2560.webp 2560w, photos/zdj2-3840.webp 3840w"
       imagesizes="(max-width: 899px) 100vw, 52vw"
       fetchpriority="high"
     />
@@ -267,7 +267,9 @@
                 srcset="
                   photos/zdj2-768.webp   768w,
                   photos/zdj2-1280.webp 1280w,
-                  photos/zdj2-1920.webp 1920w
+                  photos/zdj2-1920.webp 1920w,
+                  photos/zdj2-2560.webp 2560w,
+                  photos/zdj2-3840.webp 3840w
                 "
                 sizes="(max-width: 899px) 100vw, 52vw"
               />
@@ -440,7 +442,12 @@
             <picture>
               <source
                 type="image/webp"
-                srcset="photos/zdj2-768.webp 768w, photos/zdj2-1280.webp 1280w"
+                srcset="
+                  photos/zdj2-768.webp   768w,
+                  photos/zdj2-1280.webp 1280w,
+                  photos/zdj2-1920.webp 1920w,
+                  photos/zdj2-2560.webp 2560w
+                "
                 sizes="(max-width: 899px) 100vw, 45vw"
               />
               <img
@@ -452,7 +459,6 @@
                 decoding="async"
               />
             </picture>
-            <p>ul. Jugosłowiańska 17B lok. 97, Warszawa</p>
           </div>
 
           <div class="trust-copy">
@@ -949,6 +955,7 @@
                   name="Imie"
                   type="text"
                   autocomplete="given-name"
+                  maxlength="80"
                   required
                   aria-describedby="imie-error"
                 />
@@ -963,6 +970,7 @@
                   name="Nazwisko"
                   type="text"
                   autocomplete="family-name"
+                  maxlength="80"
                   required
                   aria-describedby="nazwisko-error"
                 />
@@ -981,6 +989,7 @@
                   type="email"
                   autocomplete="email"
                   inputmode="email"
+                  maxlength="254"
                   required
                   aria-describedby="email-error"
                 />
@@ -994,6 +1003,7 @@
                   type="tel"
                   autocomplete="tel"
                   inputmode="tel"
+                  maxlength="32"
                   aria-describedby="telefon-help"
                 />
                 <p class="field-help" id="telefon-help">
@@ -1011,6 +1021,7 @@
                 id="tresc"
                 name="tresc"
                 rows="5"
+                maxlength="4000"
                 required
                 aria-describedby="tresc-error"
               ></textarea>

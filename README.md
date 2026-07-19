@@ -24,3 +24,6 @@ npm run build
 ```
 
 Build produkcyjny trafia do `Platinus-Website/dist/` i nie zawiera prywatnego pliku `.env`.
+
+Instrukcja publikacji i uruchomienia formularza na home.pl znajduje się w
+[`Platinus-Website/DEPLOY_HOME_PL.md`](Platinus-Website/DEPLOY_HOME_PL.md).

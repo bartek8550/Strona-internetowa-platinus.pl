@@ -15,8 +15,6 @@ if (
 const files = [
   ".htaccess",
   "404.html",
-  "composer.json",
-  "composer.lock",
   "form.php",
   "index.html",
   "llms.txt",
@@ -35,6 +33,8 @@ const photoFiles = [
   "zdj2-768.webp",
   "zdj2-1280.webp",
   "zdj2-1920.webp",
+  "zdj2-2560.webp",
+  "zdj2-3840.webp",
 ];
 
 await rm(dist, { recursive: true, force: true });
@@ -49,25 +49,7 @@ for (const file of photoFiles) {
 }
 
 await cp(join(root, "icons"), join(dist, "icons"), { recursive: true });
-await mkdir(join(dist, "vendor", "phpmailer", "phpmailer"), {
-  recursive: true,
-});
-await cp(
-  join(root, "vendor", "autoload.php"),
-  join(dist, "vendor", "autoload.php"),
-);
-await cp(join(root, "vendor", "composer"), join(dist, "vendor", "composer"), {
-  recursive: true,
-});
-await cp(
-  join(root, "vendor", "phpmailer", "phpmailer", "src"),
-  join(dist, "vendor", "phpmailer", "phpmailer", "src"),
-  { recursive: true },
-);
-await cp(
-  join(root, "vendor", "phpmailer", "phpmailer", "LICENSE"),
-  join(dist, "vendor", "phpmailer", "phpmailer", "LICENSE"),
-);
+await cp(join(root, "lib"), join(dist, "lib"), { recursive: true });
 
 async function summarize(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

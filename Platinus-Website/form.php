@@ -1,10 +1,15 @@
 <?php
 declare(strict_types=1);
 
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
 header('X-Content-Type-Options: nosniff');
 header('X-Frame-Options: DENY');
 header('Referrer-Policy: no-referrer');
 header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
+header('Cross-Origin-Resource-Policy: same-origin');
+header('X-Permitted-Cross-Domain-Policies: none');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Pragma: no-cache');
 header("Content-Security-Policy: default-src 'none'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'");
@@ -22,6 +27,16 @@ function load_env(string $path): array {
 
 function clean_header(string $v): string {
   return str_replace(["\r", "\n"], ' ', trim($v));
+}
+
+function post_string(string $key): string {
+  $value = $_POST[$key] ?? '';
+  return is_string($value) ? trim($value) : '';
+}
+
+function exceeds_length(string $value, int $maxLength): bool {
+  $length = function_exists('mb_strlen') ? mb_strlen($value, 'UTF-8') : strlen($value);
+  return $length > $maxLength;
 }
 
 function is_ajax(): bool {
@@ -158,17 +173,17 @@ $fromName = $env['MAIL_FROM_NAME'] ?? 'Formularz';
 $subjectBase = $env['MAIL_SUBJECT'] ?? 'Wiadomość ze strony';
 
 $smtpHost = $env['SMTP_HOST'] ?? '';
-$smtpPort = (int)($env['SMTP_PORT'] ?? 587);
+$smtpPort = env_int($env, 'SMTP_PORT', 587, 1, 65535);
 $smtpUser = $env['SMTP_USER'] ?? '';
 $smtpPass = $env['SMTP_PASS'] ?? '';
 $smtpSecureRaw = strtolower(trim((string)($env['SMTP_SECURE'] ?? 'tls')));
 $smtpSecure = $smtpSecureRaw === 'ssl' ? 'ssl' : 'tls';
 
-$imie = trim((string)($_POST['Imie'] ?? ''));
-$nazwisko = trim((string)($_POST['Nazwisko'] ?? ''));
-$email = trim((string)($_POST['email'] ?? ''));
-$telefon = trim((string)($_POST['telefon'] ?? ''));
-$tresc = trim((string)($_POST['tresc'] ?? ''));
+$imie = post_string('Imie');
+$nazwisko = post_string('Nazwisko');
+$email = post_string('email');
+$telefon = post_string('telefon');
+$tresc = post_string('tresc');
 $zgoda = (string)($_POST['zgoda'] ?? '') === '1';
 
 if ($imie === '' || $nazwisko === '' || $email === '' || $tresc === '') {
@@ -183,6 +198,16 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   fail_response('Podaj poprawny adres e-mail.');
 }
 
+if (
+  exceeds_length($imie, 80) ||
+  exceeds_length($nazwisko, 80) ||
+  exceeds_length($email, 254) ||
+  exceeds_length($telefon, 32) ||
+  exceeds_length($tresc, 4000)
+) {
+  fail_response('Jedno z pól jest zbyt długie. Skróć treść i spróbuj ponownie.');
+}
+
 if ($to === '' || $from === '' || $smtpHost === '' || $smtpUser === '' || $smtpPass === '') {
   fail_response('Brak konfiguracji wysyłki (sprawdź .env).');
 }
@@ -193,8 +218,8 @@ $nazwisko = clean_header($nazwisko);
 $email = clean_header($email);
 $telefon = clean_header($telefon);
 
-$ip = $_SERVER['REMOTE_ADDR'] ?? '';
-$ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
+$ip = clean_header(substr((string)($_SERVER['REMOTE_ADDR'] ?? ''), 0, 64));
+$ua = clean_header(substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 500));
 
 $body = "Nowa wiadomość z formularza Platinus.pl\n\n";
 $body .= "Imię i nazwisko: {$imie} {$nazwisko}\n";
@@ -203,14 +228,16 @@ $body .= "Telefon: " . ($telefon !== '' ? $telefon : '-') . "\n\n";
 $body .= "Wiadomość:\n{$tresc}\n\n";
 $body .= "—\nIP: {$ip}\nUA: {$ua}\n";
 
-$autoloadPath = __DIR__ . '/vendor/autoload.php';
-if (!is_file($autoloadPath)) {
-  fail_response('Brak bibliotek PHP (vendor). Uruchom composer install na hostingu.');
-}
-require $autoloadPath;
+$mailerPath = __DIR__ . '/lib/phpmailer';
+$mailerFiles = ['Exception.php', 'PHPMailer.php', 'SMTP.php'];
 
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
+foreach ($mailerFiles as $mailerFile) {
+  $path = $mailerPath . DIRECTORY_SEPARATOR . $mailerFile;
+  if (!is_file($path)) {
+    fail_response('Brak biblioteki wysyłki. Wgraj ponownie kompletną paczkę strony.');
+  }
+  require_once $path;
+}
 
 try {
   $mail = new PHPMailer(true);
@@ -219,6 +246,7 @@ try {
   $mail->isSMTP();
   $mail->Host = $smtpHost;
   $mail->SMTPAuth = true;
+  $mail->Timeout = 15;
   $mail->Username = $smtpUser;
   $mail->Password = $smtpPass;
   $mail->Port = $smtpPort;
