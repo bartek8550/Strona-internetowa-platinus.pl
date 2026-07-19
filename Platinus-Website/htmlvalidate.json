@@ -1,0 +1,22 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "attr-quotes": ["error", { "style": "double" }],
+    "close-order": "error",
+    "doctype-style": "off",
+    "element-permitted-content": "error",
+    "element-required-attributes": "error",
+    "form-dup-name": "error",
+    "heading-level": "error",
+    "input-missing-label": "error",
+    "no-dup-id": "error",
+    "no-inline-style": "error",
+    "tel-non-breaking": "off",
+    "void-style": "off",
+    "wcag/h30": "error",
+    "wcag/h32": "error",
+    "wcag/h37": "error",
+    "wcag/h63": "error",
+    "wcag/h67": "error"
+  }
+}

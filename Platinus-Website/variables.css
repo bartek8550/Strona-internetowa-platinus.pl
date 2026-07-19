@@ -1,31 +1,42 @@
 :root {
-  /* Colors */
-  --platinus-white: #fff;
-  --platinus-bg: #f4f6f8;
-  --platinus-text: #111827;
-  --platinus-dark: #0f172a;
-  --platinus-light: #f5f7fb;
-  --platinus-neutral: #ffffff;
-  --platinus-accent: #b42329;
-  --platinus-accent-strong: #7a1014;
-  --platinus-accent-surface: linear-gradient(135deg, #4c1a1d 0%, #2b1012 60%, #1c0d0f 100%);
-  --platinus-card: #ffffff;
-  --platinus-border: rgba(15, 23, 42, 0.12);
-  --platinus-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-  --hero-overlay: linear-gradient(120deg, rgba(10, 16, 24, 0.85), rgba(20, 28, 40, 0.6), rgba(12, 12, 16, 0.8));
-  --navbar-background-color: rgba(15, 23, 42, 0);
-  --navbar-collapse-background-color: rgba(15, 23, 42, 0.98);
-
-  /* Spacing scale */
-  --space-21: 21px;
-  --space-34: 34px;
-  --space-55: 55px;
-  --space-89: 89px;
-  --section-space-y: clamp(var(--space-55), 6vw, var(--space-89));
-  --section-divider-space-y: clamp(var(--space-21), 3vw, var(--space-34));
-
-  /* Icons and images */
-  --platinus-banner-image: url(photos/zdj2.webp);
-  --platinus-burger-icon-dark: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(15,23,42, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  --platinus-burger-icon: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  --color-ink: #181313;
+  --color-ink-soft: #5e5552;
+  --color-paper: #f4f0e9;
+  --color-paper-deep: #eae3d8;
+  --color-surface: #fffdfa;
+  --color-line: #d9d0c5;
+  --color-wine: #7c2634;
+  --color-wine-dark: #551723;
+  --color-wine-soft: #f0dde0;
+  --color-cream: #f8f4ee;
+  --color-white: #fff;
+  --color-success: #2d6a4f;
+  --color-error: #9f1d31;
+  --font-display: georgia, "Times New Roman", serif;
+  --font-sans: "Segoe UI", inter, arial, sans-serif;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: clamp(1.25rem, 1.6vw, 1.5rem);
+  --text-xl: clamp(1.8rem, 3vw, 2.75rem);
+  --text-2xl: clamp(2.4rem, 5vw, 4.75rem);
+  --space-1: 0.375rem;
+  --space-2: 0.625rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+  --space-8: 6.5rem;
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2.5rem;
+  --radius-pill: 999px;
+  --shadow-sm: 0 8px 24px rgb(24 19 19 / 8%);
+  --shadow-md: 0 20px 56px rgb(24 19 19 / 12%);
+  --container: 76rem;
+  --header-height: 5rem;
+  --transition: 180ms ease;
 }

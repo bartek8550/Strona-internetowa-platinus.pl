@@ -1,4 +1,8 @@
 {
+    "name": "platinus/website",
+    "description": "Strona internetowa biura rachunkowego Platinus z formularzem kontaktowym.",
+    "type": "project",
+    "license": "proprietary",
     "require": {
         "phpmailer/phpmailer": "^7.0"
     }
