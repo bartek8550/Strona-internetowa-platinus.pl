@@ -4,6 +4,8 @@ const websiteId = `${siteUrl}/#website`;
 
 const cikProfile =
   "https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333";
+const ctiKancelaria = "https://cti.org.pl/cti_optima_eszokbr.php";
+const ownerId = `${siteUrl}/andrzej-kowalczyk/#person`;
 
 const businessNode = {
   "@type": "AccountingService",
@@ -21,6 +23,7 @@ const businessNode = {
   taxID: "951-110-02-56",
   priceRange: "100–1300 zł+",
   sameAs: [cikProfile],
+  founder: { "@id": ownerId },
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "obsługa klienta",
@@ -72,7 +75,7 @@ function renderNavigation() {
       <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
     </button>
     <nav class="primary-nav" id="primary-nav" aria-label="Główna nawigacja" data-nav>
-      <a href="/ksiegowosc-online/">Księgowość online</a>
+      <a href="/uslugi/">Usługi</a>
       <a href="/cennik/">Cennik</a>
       <a href="/o-nas/">O nas</a>
       <a href="/poradnik/">Poradnik</a>
@@ -94,6 +97,8 @@ function renderFooter() {
         </div>
         <nav aria-label="Usługi w stopce">
           <p class="footer-title">Usługi</p>
+          <a href="/uslugi/">Wszystkie usługi</a>
+          <a href="/ksiegowosc-online/">Księgowość online</a>
           <a href="/pelna-ksiegowosc/">Pełna księgowość</a>
           <a href="/kpir-i-ryczalt/">KPiR i ryczałt</a>
           <a href="/kadry-i-place/">Kadry i płace</a>
@@ -102,6 +107,8 @@ function renderFooter() {
         <nav aria-label="Informacje w stopce">
           <p class="footer-title">Platinus</p>
           <a href="/o-nas/">O nas</a>
+          <a href="/andrzej-kowalczyk/">Właściciel biura</a>
+          <a href="/opinie-i-case-studies/">Jak pracujemy</a>
           <a href="/cennik/">Cennik</a>
           <a href="/poradnik/">Poradnik</a>
           <a href="/polityka-prywatnosci/">Polityka prywatności</a>
@@ -161,6 +168,7 @@ function pageType(page) {
   if (page.kind === "about") return "AboutPage";
   if (page.kind === "contact") return "ContactPage";
   if (page.kind === "collection") return "CollectionPage";
+  if (page.kind === "person") return "ProfilePage";
   return "WebPage";
 }
 
@@ -194,12 +202,12 @@ function renderSchema(page) {
 
   graph.push(webpage);
 
-  if (page.kind === "about") {
+  if (page.kind === "person") {
     graph.push({
       "@type": "Person",
-      "@id": `${canonical}#andrzej-kowalczyk`,
+      "@id": ownerId,
       name: "Andrzej Kowalczyk",
-      jobTitle: "Certyfikowany księgowy",
+      jobTitle: "Właściciel biura rachunkowego Platinus",
       worksFor: { "@id": businessId },
       hasCredential: {
         "@type": "EducationalOccupationalCredential",
@@ -207,7 +215,7 @@ function renderSchema(page) {
       },
       sameAs: cikProfile,
     });
-    webpage.mainEntity = { "@id": `${canonical}#andrzej-kowalczyk` };
+    webpage.mainEntity = { "@id": ownerId };
   }
 
   if (page.kind === "service") {
@@ -277,6 +285,29 @@ function renderPage(page) {
         .map((item) => `<li>${item}</li>`)
         .join("")}</ul></div>`
     : "";
+  const profile = page.profile
+    ? `<aside class="profile-panel" aria-label="${escapeHtml(page.profile.label)}">
+        <div class="profile-panel__top">
+          <span class="profile-monogram" aria-hidden="true">AK</span>
+          <div><p class="profile-panel__label">${escapeHtml(page.profile.label)}</p><p class="profile-panel__name">Andrzej Kowalczyk</p><p class="profile-panel__role">${escapeHtml(page.profile.role)}</p></div>
+        </div>
+        <ul>${page.profile.facts.map((item) => `<li>${item}</li>`).join("")}</ul>
+        ${page.profile.link ? `<a href="${escapeHtml(page.profile.link.url)}"${page.profile.link.external ? ' rel="external"' : ""}>${escapeHtml(page.profile.link.label)} <span aria-hidden="true">→</span></a>` : ""}
+      </aside>`
+    : "";
+  const cards = page.cards?.length
+    ? `<section class="section page-card-section" aria-labelledby="page-cards-title">
+        <div class="container">
+          <div class="section-heading section-heading--split"><div><p class="eyebrow">${escapeHtml(page.cardsEyebrow ?? "Wybierz temat")}</p><h2 id="page-cards-title">${escapeHtml(page.cardsTitle ?? "Znajdź właściwy zakres")}</h2></div><p>${escapeHtml(page.cardsLead ?? "Przejdź do strony, która najlepiej odpowiada sytuacji Twojej firmy.")}</p></div>
+          <div class="topic-card-grid">${page.cards
+            .map(
+              (card, index) =>
+                `<article class="topic-card"><span class="topic-card__number">${String(index + 1).padStart(2, "0")}</span><p class="topic-card__label">${escapeHtml(card.label)}</p><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p><a class="text-link" href="${escapeHtml(card.url)}">${escapeHtml(card.linkLabel ?? "Dowiedz się więcej")} <span aria-hidden="true">→</span></a></article>`,
+            )
+            .join("")}</div>
+        </div>
+      </section>`
+    : "";
   const faq = page.faq?.length
     ? `<section class="section page-faq" aria-labelledby="faq-title">
         <div class="container content-narrow">
@@ -325,7 +356,7 @@ function renderPage(page) {
     <link rel="stylesheet" href="/style.css" />
     <script type="application/ld+json">${renderSchema(page)}</script>
   </head>
-  <body class="subpage">
+  <body class="subpage subpage--${escapeHtml(page.kind)}">
     <a class="skip-link" href="#main-content">Przejdź do treści</a>
     <header class="site-header" data-header><div class="container header-inner">${renderNavigation()}</div></header>
     <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
@@ -344,10 +375,11 @@ function renderPage(page) {
                 <a class="button button--ghost" href="tel:+48664496913">Zadzwoń: 664 496 913</a>
               </div>
             </div>
-            ${highlights}
+            ${profile || highlights}
           </div>
         </div>
       </section>
+      ${cards}
       <section class="section page-content">
         <div class="container content-layout">
           <article class="prose">${page.sections.map(renderSection).join("")}</article>
@@ -369,6 +401,123 @@ function renderPage(page) {
 }
 
 pages.push(
+  {
+    slug: "uslugi",
+    kind: "collection",
+    shortTitle: "Usługi",
+    title: "Usługi księgowe dla firm Warszawa i online | Platinus",
+    description:
+      "Poznaj zakres usług Platinus: księgowość uproszczona i pełna, VAT, JPK, ZUS, kadry i płace oraz obsługa firm online.",
+    eyebrow: "Oferta Platinus",
+    h1: "Księgowość dopasowana do sposobu działania firmy",
+    lead: "W jednym miejscu zebraliśmy główne zakresy obsługi. Poszczególne strony wyjaśniają ogólne zasady współpracy i pomagają przygotować pierwszą rozmowę — ostateczny zakres zawsze ustalamy dla konkretnej firmy.",
+    highlights: [
+      "Księgowość uproszczona i pełna",
+      "Kadry, płace, ZUS, VAT i JPK",
+      "Obsługa w Warszawie oraz online",
+      "Jasny zakres przed rozpoczęciem pracy",
+    ],
+    cardsEyebrow: "Zakres obsługi",
+    cardsTitle: "Wybierz temat, który dotyczy Twojej firmy",
+    cardsLead:
+      "Nie musisz znać wszystkich nazw usług. Zacznij od formy działalności albo obszaru, który chcesz uporządkować.",
+    cards: [
+      {
+        label: "Model współpracy",
+        title: "Księgowość online",
+        text: "Elektroniczne dokumenty, stały kontakt i obsługa firm z całej Polski.",
+        url: "/ksiegowosc-online/",
+      },
+      {
+        label: "Księgi rachunkowe",
+        title: "Pełna księgowość",
+        text: "Ogólne informacje o prowadzeniu ksiąg, zamknięciach i współpracy z zarządem.",
+        url: "/pelna-ksiegowosc/",
+      },
+      {
+        label: "Uproszczona księgowość",
+        title: "KPiR i ryczałt",
+        text: "Obsługa popularnych form ewidencji dla jednoosobowych działalności i mniejszych firm.",
+        url: "/kpir-i-ryczalt/",
+      },
+      {
+        label: "Zespół",
+        title: "Kadry i płace",
+        text: "Dokumentacja pracowników i zleceniobiorców oraz przygotowywanie wynagrodzeń.",
+        url: "/kadry-i-place/",
+      },
+      {
+        label: "Rozliczenia",
+        title: "VAT, JPK i raportowanie",
+        text: "Porządkowanie danych potrzebnych do ewidencji, plików JPK i uzgodnionych zestawień.",
+        url: "/vat-jpk-i-raportowanie/",
+      },
+      {
+        label: "Ubezpieczenia",
+        title: "ZUS i zgłoszenia",
+        text: "Ogólne informacje o zgłoszeniach i danych potrzebnych do bieżących rozliczeń.",
+        url: "/zus-i-zgloszenia/",
+      },
+      {
+        label: "Fakturowanie",
+        title: "KSeF",
+        text: "Przygotowanie ról, dokumentów i sposobu pracy z fakturami elektronicznymi.",
+        url: "/ksef/",
+      },
+      {
+        label: "Forma działalności",
+        title: "Jednoosobowa działalność",
+        text: "Księgowość dla przedsiębiorcy, który chce mieć prosty i regularny obieg informacji.",
+        url: "/ksiegowosc-jdg/",
+      },
+      {
+        label: "Forma działalności",
+        title: "Spółka z o.o.",
+        text: "Prowadzenie ksiąg spółki oraz ogólne zasady współpracy z zarządem.",
+        url: "/ksiegowosc-spolki-zoo/",
+      },
+      {
+        label: "Branża",
+        title: "E-commerce",
+        text: "Księgowość sklepu internetowego z uwzględnieniem wielu źródeł dokumentów.",
+        url: "/ksiegowosc-dla-ecommerce/",
+      },
+      {
+        label: "Branża",
+        title: "IT i usługi cyfrowe",
+        text: "Ogólne zasady obsługi firm realizujących projekty i usługi technologiczne.",
+        url: "/ksiegowosc-dla-it/",
+      },
+      {
+        label: "Branża",
+        title: "Lekarze i działalność medyczna",
+        text: "Uporządkowana księgowość dla osób prowadzących indywidualną działalność medyczną.",
+        url: "/ksiegowosc-dla-lekarzy/",
+      },
+    ],
+    sections: [
+      {
+        heading: "Jak wybrać właściwy zakres",
+        paragraphs: [
+          "Najprostszym punktem wyjścia jest forma prawna firmy, sposób opodatkowania, liczba dokumentów i informacja o zatrudnieniu. Na tej podstawie można określić, które obszary są potrzebne na co dzień, a które pojawiają się tylko okresowo. Nie ma potrzeby samodzielnie dopasowywać każdej nazwy usługi przed kontaktem z biurem.",
+          "Podczas pierwszej rozmowy porządkujemy sytuację i oddzielamy stałą obsługę od prac dodatkowych. Dzięki temu przedsiębiorca wie, za co odpowiada biuro, jakie informacje pozostają po jego stronie i w jaki sposób najlepiej przekazywać dokumenty.",
+        ],
+      },
+      {
+        heading: "Obsługa stacjonarna, zdalna albo hybrydowa",
+        paragraphs: [
+          "Firmy z Warszawy mogą korzystać ze spotkań w biurze, a przedsiębiorcy z innych miejsc prowadzić współpracę zdalnie. Możliwy jest również model hybrydowy, w którym większość dokumentów trafia elektronicznie, a ważniejsze sprawy są omawiane podczas wcześniej umówionego spotkania.",
+          "Kanał współpracy nie zmienia podstawowej zasady: potrzebny jest stały rytm przekazywania danych i osoba odpowiedzialna za kompletność informacji po stronie klienta. Biuro wskazuje z kolei kontakt do osoby prowadzącej obsługę.",
+        ],
+      },
+    ],
+    related: [
+      { label: "Cennik", url: "/cennik/" },
+      { label: "Jak wygląda współpraca", url: "/opinie-i-case-studies/" },
+      { label: "O biurze", url: "/o-nas/" },
+      { label: "Kontakt", url: "/kontakt/" },
+    ],
+  },
   {
     slug: "ksiegowosc-online",
     kind: "service",
@@ -405,7 +554,14 @@ pages.push(
           "ewidencję środków trwałych oraz wartości niematerialnych i prawnych,",
           "naliczanie wynagrodzeń, dokumentację kadrową i rozliczenia ZUS,",
           "zestawienia i informacje potrzebne do bieżącego zarządzania firmą,",
-          "dostęp do programu do fakturowania i elektronicznego archiwum dokumentów.",
+          "dostęp do uzgodnionych narzędzi do fakturowania i elektronicznego obiegu dokumentów.",
+        ],
+      },
+      {
+        heading: "Program Kancelaria w pracy zdalnej",
+        paragraphs: [
+          `W elektronicznym obiegu dokumentów korzystamy z systemu eSZOK oraz modułu Kancelaria z OCR. Program wspiera odbieranie, porządkowanie i odczytywanie dokumentów, a następnie ich dalszą obsługę w środowisku Comarch ERP Optima. Więcej informacji o rozwiązaniu publikuje <a href="${ctiKancelaria}" rel="external">producent systemu — Centrum Technologii Informatycznej</a>.`,
+          "Dla klienta najważniejszy jest prosty sposób przekazania dokumentu i możliwość ustalenia, czy materiał dotarł do biura. Technologia pomaga ograniczyć ręczne przepisywanie danych i utrzymać wspólne miejsce pracy, ale każdy dokument nadal wymaga właściwego opisu oraz weryfikacji. Dokładny sposób korzystania z programu ustalamy przy rozpoczęciu współpracy, ponieważ zależy on od zakresu obsługi i konfiguracji konta.",
         ],
       },
       {
@@ -457,7 +613,7 @@ pages.push(
       {
         question: "Jak przekazuje się dokumenty?",
         answer:
-          "Najczęściej elektronicznie przez uzgodniony system i archiwum. Jeżeli potrzebny jest inny obieg, ustalamy go indywidualnie.",
+          "Najczęściej elektronicznie przez uzgodniony system. W pracy zdalnej Platinus korzysta z eSZOK i modułu Kancelaria z OCR. Dokładny obieg ustalamy przy rozpoczęciu współpracy.",
       },
       {
         question: "Czy księgowość online obejmuje kadry i płace?",
@@ -680,6 +836,192 @@ pages.push(
       { label: "Księgowość online", url: "/ksiegowosc-online/" },
       { label: "Cennik", url: "/cennik/" },
       { label: "Kadry i płace", url: "/kadry-i-place/" },
+    ],
+  },
+  {
+    slug: "vat-jpk-i-raportowanie",
+    kind: "service",
+    serviceType: "Obsługa VAT, JPK i raportowanie księgowe",
+    shortTitle: "VAT, JPK i raportowanie",
+    title: "VAT, JPK i raportowanie dla firm | Platinus",
+    description:
+      "Ogólne informacje o obsłudze VAT, przygotowaniu plików JPK i raportowaniu księgowym dla firm z Warszawy oraz online.",
+    eyebrow: "Ewidencje i dane",
+    h1: "VAT, JPK i raportowanie bez chaosu w dokumentach",
+    lead: "Porządkujemy dane potrzebne do bieżących ewidencji, plików JPK i uzgodnionych zestawień. Zakres zależy od sposobu działania firmy oraz rodzaju prowadzonej księgowości.",
+    highlights: [
+      "Rejestry sprzedaży i zakupów",
+      "Przygotowanie danych do plików JPK",
+      "Uzgodnione zestawienia dla firmy",
+      "Obsługa stacjonarna i online",
+    ],
+    sections: [
+      {
+        heading: "Dobra ewidencja zaczyna się od kompletnych informacji",
+        paragraphs: [
+          "Obsługa VAT i JPK nie polega wyłącznie na zebraniu faktur w jednym folderze. Dokument powinien trafić do biura w odpowiednim czasie, mieć czytelne dane i — jeśli nie wynika to z jego treści — krótki opis związku z działalnością. Znaczenie mogą mieć również korekty, płatności, umowy oraz informacje o sposobie wykorzystania zakupu.",
+          "Przed rozpoczęciem współpracy ustalamy, skąd pochodzą dokumenty sprzedażowe i zakupowe oraz kto po stronie firmy potwierdza ich kompletność. Dzięki temu biuro nie musi zgadywać, czy brakujący numer oznacza rzeczywisty brak, korektę czy dokument znajdujący się w innym systemie. Prosta odpowiedzialność po obu stronach ogranicza późniejsze wyjaśnienia.",
+        ],
+      },
+      {
+        heading: "Co może obejmować bieżąca obsługa",
+        paragraphs: [
+          "Zakres jest powiązany z rodzajem prowadzonej księgowości i rzeczywistymi obowiązkami firmy. W standardowej współpracy może obejmować porządkowanie danych sprzedażowych i zakupowych, prowadzenie odpowiednich rejestrów, przygotowanie plików wymaganych w danym modelu oraz przekazanie przedsiębiorcy informacji potrzebnych do dalszych działań.",
+          "Nie każda firma potrzebuje takich samych zestawień. Jedna oczekuje jedynie podstawowej informacji o rozliczeniu, inna chce regularnie analizować należności, zobowiązania albo wybrane grupy kosztów. Przed startem warto więc oddzielić obowiązki ewidencyjne od dodatkowego raportowania zarządczego i opisać oba zakresy w czytelny sposób.",
+        ],
+        items: [
+          "porządkowanie dokumentów sprzedaży i zakupu,",
+          "prowadzenie uzgodnionych ewidencji,",
+          "przygotowanie danych i plików JPK w odpowiednim zakresie,",
+          "wyjaśnianie zauważonych braków lub niespójności,",
+          "przekazywanie podstawowych informacji o rozliczeniu,",
+          "przygotowanie dodatkowych zestawień, jeżeli obejmuje je umowa.",
+        ],
+      },
+      {
+        heading: "Sprzedaż z kilku systemów",
+        paragraphs: [
+          "Sklep internetowy, platforma sprzedażowa, kasa, program abonamentowy i tradycyjne faktury mogą tworzyć dane w różnych miejscach. W takiej sytuacji najpierw ustalamy pełną listę źródeł, sposób numeracji oraz osobę odpowiedzialną za eksport. Dopiero potem można zbudować powtarzalny obieg, który nie pomija jednego z kanałów.",
+          "Zmiana programu sprzedażowego albo uruchomienie nowej platformy powinna zostać zgłoszona przed pierwszym rozliczeniem. Pozwala to sprawdzić format danych i ustalić, czy dotychczasowy sposób pracy nadal wystarcza. Ta zasada dotyczy także rozpoczęcia sprzedaży zagranicznej lub pojawienia się nowych rodzajów dokumentów.",
+        ],
+      },
+      {
+        heading: "JPK jako rezultat uporządkowanego procesu",
+        paragraphs: [
+          "Plik JPK jest wynikiem danych zgromadzonych w ewidencji, dlatego jego jakość zależy od wcześniejszego obiegu dokumentów. Jeśli sprzedaż, zakupy i korekty są przekazywane różnymi kanałami bez wspólnej kontroli, samo wygenerowanie pliku nie rozwiązuje problemu. Najpierw potrzebna jest kompletność i spójność materiałów.",
+          "Biuro przygotowuje pliki w zakresie wynikającym z prowadzonej obsługi, a klient przekazuje informacje o zdarzeniach, których nie można rozpoznać na podstawie samego dokumentu. W razie nietypowej transakcji warto skontaktować się wcześniej. Pozwala to ustalić, jakie dane trzeba zachować i kto powinien potwierdzić ich poprawność.",
+        ],
+      },
+      {
+        heading: "Raportowanie dopasowane do potrzeb",
+        paragraphs: [
+          "Raport może być prostym podsumowaniem albo bardziej szczegółowym zestawieniem przygotowywanym według ustalonego układu. Zanim zostanie dodany do stałej obsługi, trzeba określić odbiorcę, częstotliwość i dane, które mają wspierać decyzje. Ogólna prośba o rozbudowany raport bez wskazania celu często prowadzi do przygotowania materiału, z którego firma później nie korzysta.",
+          "Jeżeli określone informacje mają być analizowane regularnie, ich sposób opisywania powinien być znany od początku. Dotyczy to między innymi projektów, działów, punktów sprzedaży czy kategorii kosztów. Wprowadzenie takiego podziału po wielu miesiącach może wymagać dodatkowej pracy, dlatego warto omówić go przy wycenie.",
+        ],
+      },
+      {
+        heading: "Rozpoczęcie współpracy i wycena",
+        paragraphs: [
+          "Do wstępnej rozmowy wystarczy ogólna informacja o formie działalności, sposobie prowadzenia księgowości, statusie VAT, liczbie dokumentów oraz systemach, z których pochodzi sprzedaż. Warto również wskazać, czy występują transakcje zagraniczne i jakich zestawień potrzebuje właściciel lub zarząd.",
+          "Cena zależy od skali i różnorodności danych, częstotliwości dodatkowych raportów oraz stopnia uporządkowania dokumentów. Ostateczny zakres i opłatę potwierdzamy przed rozpoczęciem pracy. Orientacyjne ceny podstawowej księgowości znajdują się na osobnej stronie cennika.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Czy obsługa VAT jest osobną usługą?",
+        answer:
+          "Najczęściej jest częścią prowadzenia księgowości. Dokładny zakres zależy od sytuacji firmy i jest potwierdzany przed rozpoczęciem współpracy.",
+      },
+      {
+        question: "Czy Platinus przygotowuje pliki JPK?",
+        answer:
+          "Tak, w zakresie wynikającym z prowadzonej obsługi i obowiązków danej firmy.",
+      },
+      {
+        question: "Czy można zamówić dodatkowe raporty?",
+        answer:
+          "Można ustalić dodatkowe zestawienia, ich częstotliwość i układ. Taki zakres powinien zostać opisany przed rozpoczęciem regularnego raportowania.",
+      },
+    ],
+    related: [
+      { label: "Pełna księgowość", url: "/pelna-ksiegowosc/" },
+      { label: "KPiR i ryczałt", url: "/kpir-i-ryczalt/" },
+      { label: "Księgowość e-commerce", url: "/ksiegowosc-dla-ecommerce/" },
+      { label: "Cennik", url: "/cennik/" },
+    ],
+  },
+  {
+    slug: "zus-i-zgloszenia",
+    kind: "service",
+    serviceType: "Obsługa ZUS i zgłoszeń",
+    shortTitle: "ZUS i zgłoszenia",
+    title: "ZUS i zgłoszenia dla firm | Platinus",
+    description:
+      "Ogólne informacje o obsłudze zgłoszeń, danych do rozliczeń ZUS oraz współpracy przedsiębiorcy z biurem rachunkowym.",
+    eyebrow: "Bieżące obowiązki firmy",
+    h1: "ZUS i zgłoszenia w uporządkowanym rytmie",
+    lead: "Pomagamy prowadzić bieżącą obsługę zgłoszeń i rozliczeń w zakresie ustalonym dla przedsiębiorcy, pracowników oraz zleceniobiorców.",
+    highlights: [
+      "Obsługa przedsiębiorcy i zatrudnionych osób",
+      "Zgłoszenia i zmiany danych",
+      "Połączenie z księgowością lub kadrami",
+      "Jasne terminy przekazywania informacji",
+    ],
+    sections: [
+      {
+        heading: "Zakres zależy od sytuacji firmy",
+        paragraphs: [
+          "Inny zakres jest potrzebny jednoosobowej działalności bez pracowników, a inny firmie zatrudniającej osoby na różnych podstawach. Dlatego przed rozpoczęciem współpracy zbieramy podstawowe informacje o przedsiębiorcy, zatrudnieniu i dotychczasowym sposobie obsługi. Pozwala to określić, które zadania są cykliczne, a które pojawiają się tylko przy konkretnej zmianie.",
+          "Strona przedstawia ogólny model współpracy, nie katalog wszystkich możliwych sytuacji. Przy nietypowym przypadku najważniejsze jest wcześniejsze przekazanie informacji oraz dokumentów. Biuro może wtedy ocenić, czy dana czynność mieści się w stałej obsłudze i jakie dane będą potrzebne do jej wykonania.",
+        ],
+      },
+      {
+        heading: "Co może obejmować obsługa",
+        paragraphs: [
+          "Stała współpraca może łączyć dane dotyczące przedsiębiorcy z informacjami o osobach zatrudnionych. Zakres bywa częścią księgowości, obsługi kadrowo-płacowej albo osobno uzgodnionego pakietu. Ważne, aby odpowiedzialność za przekazanie zmian była jednoznaczna i nie zależała od przypadkowej wiadomości wysłanej do niewłaściwej osoby.",
+        ],
+        items: [
+          "przygotowanie zgłoszeń i zmian w uzgodnionym zakresie,",
+          "bieżące dane potrzebne do rozliczeń przedsiębiorcy,",
+          "informacje związane z zatrudnieniem i zakończeniem współpracy,",
+          "uwzględnianie przekazanych nieobecności oraz zmian wynagrodzenia,",
+          "przygotowanie informacji potrzebnych do wykonania płatności,",
+          "wyjaśnianie braków zauważonych w przekazanych materiałach.",
+        ],
+      },
+      {
+        heading: "Informacja musi dotrzeć przed zmianą",
+        paragraphs: [
+          "Zatrudnienie nowej osoby, zmiana rodzaju umowy, przerwa w działalności albo zakończenie współpracy wpływają na dokumenty i terminy. Najbezpieczniej zgłaszać takie zdarzenia przed ich planowaną datą. Wiadomość przekazana już po fakcie może wymagać korekty albo dodatkowego wyjaśnienia.",
+          "Po stronie firmy warto wskazać jedną osobę, która zbiera zmiany i potwierdza ich kompletność. Biuro powinno otrzymywać informację w ustalonym formacie, najlepiej wraz z datą oraz wskazaniem osoby, której dotyczy. Taki prosty standard ogranicza ryzyko pomylenia planowanej zmiany z ostateczną decyzją.",
+          "W praktyce pomaga krótka miesięczna lista kontrolna. Może zawierać nowe osoby, zakończone umowy, nieobecności, zmiany danych i inne zdarzenia uzgodnione z biurem. Nawet jeśli w danym miesiącu nic się nie zmieniło, potwierdzenie tego faktu zamyka obieg i pozwala rozpocząć przygotowanie rozliczeń. Lista nie zastępuje wymaganych dokumentów, ale porządkuje komunikację oraz ogranicza sytuacje, w których ważna wiadomość pozostaje tylko w rozmowie telefonicznej.",
+        ],
+      },
+      {
+        heading: "Połączenie z kadrami i płacami",
+        paragraphs: [
+          "Jeżeli Platinus prowadzi także kadry i płace, dane o zatrudnieniu mogą być obsługiwane w jednym procesie. Firma przekazuje wtedy listę zmian, a biuro wykorzystuje ją w dokumentacji oraz przy przygotowaniu wynagrodzeń i rozliczeń. Szczegółowy podział obowiązków zostaje ustalony przy zawieraniu umowy.",
+          "Samo zgłoszenie nie zastępuje dokumentacji pracowniczej ani decyzji pracodawcy. Biuro pracuje na podstawie zatwierdzonych danych i nie powinno samodzielnie rozstrzygać, jaka umowa lub warunki są właściwe dla konkretnej osoby. Jeżeli sytuacja wymaga dodatkowej analizy, jest ona omawiana osobno.",
+        ],
+      },
+      {
+        heading: "Obsługa przedsiębiorcy",
+        paragraphs: [
+          "Osoba prowadząca działalność powinna informować biuro o zmianach, które mogą mieć znaczenie dla bieżących rozliczeń. Dotyczy to między innymi rozpoczęcia lub zawieszenia działalności, zmiany danych, równoległego zatrudnienia albo innego zdarzenia wpływającego na dotychczasowy model. Biuro nie zawsze może rozpoznać taką zmianę na podstawie samych faktur.",
+          "Regularny kontakt pozwala utrzymać spójność danych księgowych i zgłoszeniowych. Nie wymaga rozbudowanego systemu — wystarczy uzgodniony kanał oraz zasada, że ważne zmiany trafiają do osoby prowadzącej obsługę możliwie wcześnie i w jednoznacznej formie.",
+        ],
+      },
+      {
+        heading: "Jak przygotować zapytanie",
+        paragraphs: [
+          "W pierwszej wiadomości podaj formę działalności, informację o zatrudnieniu i zakres, którego potrzebujesz. Jeżeli firma już działa, napisz również, czy obsługa ma zostać przejęta od innego biura oraz od jakiego momentu. Na tym etapie nie wysyłaj pełnej dokumentacji zawierającej dane osobowe.",
+          "Po zapoznaniu się z ogólną sytuacją wskażemy, jakie informacje są potrzebne do wyceny i w jaki sposób bezpiecznie przekazać materiały. Cena zależy od liczby obsługiwanych osób, częstotliwości zmian i powiązania usługi z księgowością lub kadrami i płacami.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Czy ZUS może być częścią księgowości?",
+        answer:
+          "Tak. Zakres dotyczący przedsiębiorcy lub zatrudnionych osób może zostać połączony z księgowością i kadrami, zależnie od uzgodnionej umowy.",
+      },
+      {
+        question: "Kiedy zgłaszać zmianę dotyczącą pracownika?",
+        answer:
+          "Najlepiej przed planowaną zmianą i zgodnie z terminem ustalonym z biurem. Pozwala to przygotować właściwe dokumenty bez pracy pod presją.",
+      },
+      {
+        question: "Czy obsługa jest dostępna online?",
+        answer:
+          "Tak. Informacje i dokumenty mogą być przekazywane zdalnie, jeżeli strony ustalą właściwy oraz bezpieczny sposób pracy.",
+      },
+    ],
+    related: [
+      { label: "Kadry i płace", url: "/kadry-i-place/" },
+      { label: "Księgowość JDG", url: "/ksiegowosc-jdg/" },
+      { label: "Księgowość online", url: "/ksiegowosc-online/" },
+      { label: "Kontakt", url: "/kontakt/" },
     ],
   },
   {
@@ -986,6 +1328,289 @@ pages.push(
     ],
   },
   {
+    slug: "ksiegowosc-dla-ecommerce",
+    kind: "service",
+    serviceType: "Księgowość dla e-commerce",
+    shortTitle: "Księgowość e-commerce",
+    title: "Księgowość dla e-commerce i sklepów online | Platinus",
+    description:
+      "Ogólne informacje o księgowości sklepów internetowych: źródła sprzedaży, płatności, dokumenty i współpraca online.",
+    eyebrow: "Księgowość branżowa",
+    h1: "Księgowość dla e-commerce i sprzedaży online",
+    lead: "Sprzedaż internetowa łączy dokumenty z wielu miejsc. Pomagamy ułożyć ich regularny przepływ, aby księgowość otrzymywała kompletny i czytelny zestaw danych.",
+    highlights: [
+      "Sklepy i platformy sprzedażowe",
+      "Wiele źródeł płatności i dokumentów",
+      "Obsługa w modelu online",
+      "Zakres dopasowany do skali sprzedaży",
+    ],
+    sections: [
+      {
+        heading: "Najpierw mapa sprzedaży",
+        paragraphs: [
+          "W e-commerce dokumenty mogą powstawać w sklepie, na platformie sprzedażowej, w programie do faktur i w systemie płatności. Pierwszym krokiem jest więc opisanie wszystkich kanałów oraz wskazanie, jakie dane tworzy każdy z nich. Dzięki temu można ustalić, które raporty i dokumenty powinny trafiać do biura oraz kto odpowiada za ich pobranie.",
+          "Nie zakładamy, że każdy sklep działa tak samo. Firma sprzedająca kilka produktów z własnej strony ma inny obieg niż przedsiębiorca korzystający z wielu platform, magazynu i zewnętrznej logistyki. Zakres obsługi jest budowany na podstawie rzeczywistego procesu, a nie samej etykiety e-commerce.",
+        ],
+      },
+      {
+        heading: "Jakie informacje pomagają rozpocząć współpracę",
+        paragraphs: [
+          "Do pierwszej rozmowy warto przygotować listę kanałów sprzedaży, operatorów płatności, rachunków bankowych i programów używanych do fakturowania. Pomocna jest również informacja o magazynie, zwrotach, sprzedaży zagranicznej i zatrudnieniu. Nie trzeba od razu wysyłać pełnych eksportów — na początku wystarczy ogólny schemat.",
+          "Na tej podstawie ustalamy częstotliwość przekazywania danych i sposób potwierdzania kompletności miesiąca. Jeżeli część sprzedaży jest dokumentowana inaczej niż pozostała, opisujemy ją osobno. Jasna lista źródeł ogranicza sytuacje, w których jeden raport zostaje pominięty, ponieważ nie był widoczny w głównym systemie.",
+        ],
+        items: [
+          "sklep internetowy i używane platformy sprzedażowe,",
+          "programy do fakturowania oraz numeracja dokumentów,",
+          "operatorzy płatności i rachunki bankowe,",
+          "sposób obsługi zwrotów oraz korekt,",
+          "magazyn, logistyka i sprzedaż poza Polską, jeżeli występują,",
+          "osoba odpowiedzialna za miesięczny komplet danych.",
+        ],
+      },
+      {
+        heading: "Płatność nie zawsze jest dokumentem sprzedaży",
+        paragraphs: [
+          "Dane od operatora płatności pokazują przepływ pieniędzy, ale nie zawsze zastępują dokumentację sprzedaży. Dlatego potrzebne jest powiązanie raportów płatniczych, wyciągów bankowych i danych ze sklepu. Biuro powinno wiedzieć, czy przelew dotyczy jednej transakcji, zbiorczej wypłaty, prowizji czy zwrotu.",
+          "W uporządkowanym procesie firma zachowuje raporty w stałym miejscu i przekazuje je w uzgodnionym terminie. Jeżeli operator lub platforma zmienia format eksportu, warto poinformować o tym przed rozliczeniem. Pozwala to sprawdzić, czy dotychczasowy sposób pracy nadal dostarcza wszystkie potrzebne informacje.",
+        ],
+      },
+      {
+        heading: "Zwroty, korekty i sytuacje wyjątkowe",
+        paragraphs: [
+          "Sprzedaż online naturalnie wiąże się ze zwrotami, korektami i płatnościami rozliczanymi w innym momencie niż zamówienie. Firma powinna mieć jedną zasadę opisywania takich zdarzeń, aby księgowość mogła rozpoznać ich związek z wcześniejszą sprzedażą. Sam zapis na rachunku bankowym zwykle nie pokazuje pełnego kontekstu.",
+          "Warto również opisać przypadki ręczne: sprzedaż poza głównym sklepem, dokument wystawiony w innym programie albo zwrot obsłużony bez standardowego raportu. Im więcej wyjątków, tym ważniejsza jest osoba odpowiedzialna za miesięczne potwierdzenie, że wszystkie źródła zostały przekazane.",
+        ],
+      },
+      {
+        heading: "Księgowość online dla sklepu",
+        paragraphs: [
+          "E-commerce dobrze współpracuje z elektronicznym obiegiem, ponieważ większość danych już powstaje cyfrowo. Dokumenty można przekazywać zdalnie, a pytania wyjaśniać mailowo lub telefonicznie. Najważniejsze jest wspólne ustalenie nazw plików, terminów i miejsca, w którym pojawiają się informacje dodatkowe.",
+          `Platinus korzysta w pracy zdalnej z systemu eSZOK oraz modułu Kancelaria z OCR, który wspiera obsługę dokumentów i współpracę ze środowiskiem Comarch ERP Optima. Opis rozwiązania znajduje się na <a href="${ctiKancelaria}" rel="external">stronie producenta</a>. Dokładny sposób wykorzystania narzędzia jest ustalany przy wdrożeniu klienta.`,
+        ],
+      },
+      {
+        heading: "Zakres i cena obsługi",
+        paragraphs: [
+          "Na wycenę wpływa forma działalności, rodzaj księgowości, liczba kanałów sprzedaży, liczba dokumentów, transakcje zagraniczne, magazyn i zatrudnienie. Sam obrót sklepu nie opisuje pracochłonności — istotne są również liczba wypłat od operatorów i jakość dostępnych raportów.",
+          "Po poznaniu procesu potwierdzamy stały zakres oraz elementy rozliczane osobno. Jeżeli sklep dopiero powstaje, warto skontaktować się przed wyborem wszystkich narzędzi. Pozwala to uwzględnić sposób przekazywania danych bez obiecywania integracji, której dany system nie obsługuje.",
+          "Po uruchomieniu współpracy warto wrócić do ustaleń, gdy sklep dodaje kolejny kanał, operatora płatności lub magazyn. Nowe źródło danych powinno zostać włączone do miesięcznej listy, zanim pojawi się pierwsza sprzedaż. Dzięki temu zakres obsługi rozwija się razem z firmą, a nie dopiero po zauważeniu braku w dokumentach.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Czy obsługujecie sklepy działające całkowicie online?",
+        answer:
+          "Tak. Dokumenty i bieżące informacje mogą być przekazywane zdalnie po ustaleniu źródeł danych oraz miesięcznego procesu.",
+      },
+      {
+        question: "Co podać do wyceny e-commerce?",
+        answer:
+          "Formę działalności, rodzaj księgowości, liczbę kanałów sprzedaży, operatorów płatności, przybliżoną liczbę dokumentów i informację o sprzedaży zagranicznej.",
+      },
+      {
+        question: "Czy każdy sklep wymaga takiego samego obiegu?",
+        answer:
+          "Nie. Obieg zależy od używanych platform, płatności, fakturowania, magazynu oraz sposobu obsługi zwrotów.",
+      },
+    ],
+    related: [
+      { label: "Księgowość online", url: "/ksiegowosc-online/" },
+      { label: "VAT, JPK i raportowanie", url: "/vat-jpk-i-raportowanie/" },
+      { label: "KPiR i ryczałt", url: "/kpir-i-ryczalt/" },
+      { label: "Kontakt", url: "/kontakt/" },
+    ],
+  },
+  {
+    slug: "ksiegowosc-dla-it",
+    kind: "service",
+    serviceType: "Księgowość dla branży IT",
+    shortTitle: "Księgowość dla IT",
+    title: "Księgowość dla IT i usług cyfrowych | Platinus",
+    description:
+      "Ogólne informacje o księgowości firm IT, programistów, usług cyfrowych i zespołów pracujących projektowo lub zdalnie.",
+    eyebrow: "Księgowość branżowa",
+    h1: "Księgowość dla IT i usług cyfrowych",
+    lead: "Obsługę dopasowujemy do formy firmy, sposobu rozliczania projektów i obiegu dokumentów — bez zakładania, że każda działalność technologiczna działa według jednego schematu.",
+    highlights: [
+      "Jednoosobowe działalności i spółki",
+      "Usługi projektowe i abonamentowe",
+      "Kontrahenci krajowi i zagraniczni",
+      "Pełna współpraca online",
+    ],
+    sections: [
+      {
+        heading: "Branża IT obejmuje różne modele pracy",
+        paragraphs: [
+          "Programista świadczący usługi jednemu klientowi ma inne potrzeby niż agencja, software house albo spółka rozwijająca własny produkt. Dlatego pierwsza rozmowa dotyczy nie tylko nazwy branży, ale też sposobu zawierania umów, rozliczania projektów, wystawiania faktur i ponoszenia kosztów. Pozwala to dobrać właściwy rytm obsługi.",
+          "Treści na tej stronie mają charakter ogólny. Nie przesądzamy sposobu rozliczenia konkretnej umowy ani wydatku bez poznania dokumentów i rzeczywistego celu. Klient powinien przekazywać kontekst, którego nie widać na fakturze, szczególnie przy usługach, licencjach i współpracy z podwykonawcami.",
+        ],
+      },
+      {
+        heading: "Informacje potrzebne na początku",
+        paragraphs: [
+          "Do wstępnej wyceny warto opisać formę działalności, rodzaj prowadzonej księgowości i przybliżoną liczbę dokumentów. Znaczenie ma również to, czy firma sprzedaje usługi w Polsce, czy poza krajem, zatrudnia zespół, korzysta z podwykonawców albo rozlicza wiele równoległych projektów.",
+          "Jeżeli przedsiębiorstwo używa systemu do zarządzania projektami, czasu pracy albo fakturowania, nie oznacza to automatycznie, że wszystkie dane muszą trafiać do księgowości. Ustalamy, które informacje są rzeczywiście potrzebne oraz w jakiej formie można je przekazywać bez tworzenia dodatkowej pracy po stronie zespołu.",
+        ],
+        items: [
+          "forma prawna i sposób prowadzenia księgowości,",
+          "rodzaj świadczonych usług lub sprzedawanych produktów cyfrowych,",
+          "kraje, w których znajdują się kontrahenci,",
+          "liczba pracowników, zleceniobiorców i podwykonawców,",
+          "używane programy do fakturowania oraz rachunki bankowe,",
+          "potrzeba raportów według projektów lub innych kategorii.",
+        ],
+      },
+      {
+        heading: "Dokumentowanie kosztów i zakupów",
+        paragraphs: [
+          "Firmy technologiczne często korzystają z usług abonamentowych, sprzętu, licencji, chmury i narzędzi kupowanych od wielu dostawców. Dokument powinien być zachowany w czytelnej formie i — gdy to potrzebne — opisany informacją o jego związku z działalnością. Potwierdzenie płatności nie zawsze zastępuje właściwy dokument.",
+          "Przed większym zakupem albo zmianą modelu korzystania z narzędzia warto poinformować biuro. Nie chodzi o uzyskiwanie zgody na decyzję biznesową, lecz o wcześniejsze ustalenie, jakie materiały należy zachować i czy zdarzenie wymaga dodatkowego opisu. Pomaga to uniknąć poszukiwania dokumentów po zamknięciu okresu.",
+        ],
+      },
+      {
+        heading: "Projekty, zespoły i raporty",
+        paragraphs: [
+          "Firma pracująca projektowo może potrzebować prostego podziału kosztów i przychodów. Taki raport nie powstaje jednak automatycznie z samej księgowości. Wcześniej trzeba uzgodnić nazwy projektów, sposób opisywania dokumentów oraz osobę odpowiedzialną za przekazanie informacji, której nie zawiera faktura.",
+          "Nie każda działalność IT potrzebuje rozbudowanej analityki. Dla mniejszej firmy wystarczające może być standardowe podsumowanie, natomiast większy zespół może oczekiwać regularnych zestawień. Zakres raportowania opisujemy oddzielnie, aby nie mieszać obowiązkowej ewidencji z dodatkowymi informacjami zarządczymi.",
+        ],
+      },
+      {
+        heading: "Współpraca całkowicie zdalna",
+        paragraphs: [
+          "Firmy IT zwykle pracują już na dokumentach elektronicznych, dlatego księgowość online może być naturalnym rozwiązaniem. Ustalamy jedno miejsce przekazywania materiałów, miesięczny termin i kontakt do osoby prowadzącej obsługę. Pytania można omawiać mailowo lub telefonicznie bez regularnych wizyt w biurze.",
+          `W pracy zdalnej wykorzystujemy eSZOK i moduł Kancelaria z OCR. Narzędzie wspiera odbieranie oraz przetwarzanie dokumentów i współpracuje z Comarch ERP Optima. <a href="${ctiKancelaria}" rel="external">Producent opisuje funkcje systemu na swojej stronie</a>. Konkretny obieg i dostępne elementy ustalamy dla danego klienta.`,
+        ],
+      },
+      {
+        heading: "Wycena i zmiany w trakcie współpracy",
+        paragraphs: [
+          "Cena zależy od formy działalności, rodzaju księgowości, liczby dokumentów, zatrudnienia, transakcji zagranicznych i dodatkowych raportów. Wstępną propozycję przygotowujemy po poznaniu podstawowego modelu pracy, a ostateczny zakres potwierdzamy przed startem.",
+          "Rozwój firmy może zmienić potrzeby: pojawia się pierwszy pracownik, nowy rynek, spółka albo produkt sprzedawany w innym modelu. Takie zmiany warto zgłaszać z wyprzedzeniem. Pozwala to zaktualizować obieg dokumentów i zakres umowy bez odkrywania nowych obowiązków dopiero podczas miesięcznego rozliczenia.",
+          "Przy przejęciu obsługi od innego biura ustalamy datę rozpoczęcia i listę materiałów potrzebnych do zachowania ciągłości. Bieżąca księgowość oraz ewentualne porządkowanie wcześniejszych okresów są omawiane oddzielnie. Pozwala to realistycznie określić czas i odpowiedzialność każdej strony.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question:
+          "Czy obsługujecie programistów na jednoosobowej działalności?",
+        answer:
+          "Tak. Zakres może obejmować księgowość uproszczoną, rozliczenia przedsiębiorcy i inne uzgodnione elementy obsługi.",
+      },
+      {
+        question: "Czy księgowość dla IT może działać całkowicie online?",
+        answer:
+          "Tak. Dokumenty i bieżący kontakt mogą być obsługiwane zdalnie dla firm z całej Polski.",
+      },
+      {
+        question: "Czy przygotowujecie raporty według projektów?",
+        answer:
+          "Taki zakres można uzgodnić, jeżeli firma zapewni spójny sposób opisywania dokumentów i określi potrzebny układ raportu.",
+      },
+    ],
+    related: [
+      { label: "Księgowość JDG", url: "/ksiegowosc-jdg/" },
+      { label: "Księgowość spółki z o.o.", url: "/ksiegowosc-spolki-zoo/" },
+      { label: "Księgowość online", url: "/ksiegowosc-online/" },
+      { label: "Cennik", url: "/cennik/" },
+    ],
+  },
+  {
+    slug: "ksiegowosc-dla-lekarzy",
+    kind: "service",
+    serviceType: "Księgowość dla lekarzy i działalności medycznej",
+    shortTitle: "Księgowość dla lekarzy",
+    title: "Księgowość dla lekarzy i działalności medycznej | Platinus",
+    description:
+      "Ogólne informacje o księgowości dla lekarzy prowadzących działalność: dokumenty, koszty, miejsca pracy i obsługa online.",
+    eyebrow: "Księgowość branżowa",
+    h1: "Księgowość dla lekarzy i indywidualnych praktyk",
+    lead: "Pomagamy uporządkować dokumenty i bieżące rozliczenia osób prowadzących działalność medyczną. Zakres dopasowujemy do formy działalności i sposobu wykonywania usług.",
+    highlights: [
+      "Indywidualne działalności i spółki",
+      "Jedno albo kilka miejsc wykonywania usług",
+      "Księgowość oraz uzgodniona obsługa ZUS",
+      "Możliwość pełnej współpracy online",
+    ],
+    sections: [
+      {
+        heading: "Każda działalność medyczna działa trochę inaczej",
+        paragraphs: [
+          "Lekarz może prowadzić własny gabinet, świadczyć usługi w kilku placówkach albo łączyć działalność z inną formą pracy. Te różnice wpływają na rodzaj dokumentów i sposób organizacji księgowości. Dlatego nie stosujemy jednego szablonu wyłącznie na podstawie nazwy zawodu.",
+          "Na początku ustalamy formę prawną, sposób prowadzenia ewidencji, źródła przychodów i podstawowe grupy wydatków. Jeżeli działalność obejmuje dodatkowe usługi, zatrudnienie albo współpracę z innymi osobami, również należy je opisać. Pozwala to przygotować zakres odpowiadający rzeczywistej sytuacji.",
+        ],
+      },
+      {
+        heading: "Co warto podać w pierwszej wiadomości",
+        paragraphs: [
+          "Do wstępnej rozmowy wystarczą informacje ogólne. Napisz, czy działalność już działa, jaka forma księgowości jest obecnie prowadzona i ile dokumentów pojawia się przeciętnie w miesiącu. Wskaż także, czy usługi są wykonywane we własnym gabinecie, w placówkach zewnętrznych czy w obu modelach.",
+          "Na pierwszym etapie nie przesyłaj dokumentacji pacjentów ani innych danych objętych szczególną poufnością. Zapytanie o księgowość powinno dotyczyć organizacji firmy, a nie informacji medycznych. Po ustaleniu współpracy biuro wskaże bezpieczny sposób przekazywania potrzebnych materiałów finansowych i kadrowych.",
+        ],
+        items: [
+          "forma działalności i obecny sposób rozliczeń,",
+          "przybliżona liczba dokumentów sprzedażowych i kosztowych,",
+          "liczba miejsc wykonywania usług,",
+          "informacja o zatrudnieniu lub współpracownikach,",
+          "używany sposób wystawiania dokumentów,",
+          "potrzeba obsługi stacjonarnej, zdalnej lub hybrydowej.",
+        ],
+      },
+      {
+        heading: "Dokumenty związane z prowadzeniem praktyki",
+        paragraphs: [
+          "Księgowość pracuje na dokumentach dotyczących działalności: sprzedaży, zakupów, wyposażenia, najmu, usług i innych kosztów. Jeżeli z samej faktury nie wynika sposób wykorzystania wydatku, przedsiębiorca powinien dodać krótki opis. Biuro nie powinno samodzielnie domyślać się związku zakupu z wykonywaną działalnością.",
+          "Przy większych zakupach, zmianie miejsca pracy albo uruchomieniu nowego zakresu usług warto skontaktować się wcześniej. Pozwala to ustalić, jakie dokumenty należy zachować i czy obecny obieg nadal wystarcza. Taka rozmowa nie zastępuje indywidualnej analizy prawnej czy medycznej, ale pomaga uporządkować stronę księgową.",
+        ],
+      },
+      {
+        heading: "Kilka miejsc i źródeł przychodów",
+        paragraphs: [
+          "Jeżeli usługi są wykonywane w kilku placówkach, dokumenty mogą powstawać w różnym rytmie. Dobrze jest ustalić jedną miesięczną listę źródeł i potwierdzać jej kompletność. Dzięki temu biuro wie, że otrzymało materiały ze wszystkich miejsc, a nie tylko z placówki, która przesłała je jako pierwsza.",
+          "W przypadku zmiany współpracy z placówką lub rozpoczęcia pracy w nowym miejscu warto poinformować biuro przed pierwszym rozliczeniem. Może zmienić się sposób dokumentowania przychodu, płatności albo kosztów. Wczesna informacja pozwala przygotować właściwy proces bez zbędnych korekt.",
+        ],
+      },
+      {
+        heading: "Obsługa online przy napiętym grafiku",
+        paragraphs: [
+          "Dokumenty mogą być przekazywane elektronicznie, a bieżące pytania omawiane mailowo i telefonicznie. To rozwiązanie dla osób, które nie chcą planować regularnych wizyt w biurze. Możliwy jest również model hybrydowy z okazjonalnym spotkaniem w Warszawie po wcześniejszym uzgodnieniu terminu.",
+          `W pracy zdalnej Platinus wykorzystuje eSZOK i moduł Kancelaria z OCR do obsługi elektronicznych dokumentów. System współpracuje z Comarch ERP Optima, a jego ogólny opis udostępnia <a href="${ctiKancelaria}" rel="external">producent rozwiązania</a>. Zakres dostępu i sposób przekazywania plików potwierdzamy podczas rozpoczęcia współpracy.`,
+        ],
+      },
+      {
+        heading: "Wycena obsługi",
+        paragraphs: [
+          "Cena zależy od formy księgowości, liczby dokumentów, liczby źródeł przychodu, zatrudnienia oraz dodatkowych elementów obsługi. Wstępne informacje pozwalają przygotować propozycję bez konieczności wysyłania pełnej dokumentacji przed pierwszą rozmową.",
+          "Przed startem potwierdzamy miesięczny zakres, sposób przekazywania danych i zadania rozliczane osobno. Jeżeli działalność rozwija się lub zmienia model, zakres można odpowiednio zaktualizować. Najważniejsze jest wcześniejsze zgłoszenie zmiany, aby nie opierać kolejnego rozliczenia na nieaktualnych założeniach.",
+          "Jeżeli księgowość jest przejmowana w trakcie roku, uzgadniamy moment rozpoczęcia i materiały potrzebne od poprzedniego biura. Ewentualne braki w dokumentacji historycznej są omawiane osobno, aby bieżąca obsługa miała jasny punkt startu i nie była mylona z dodatkowymi pracami porządkowymi.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Czy księgowość dla lekarza może być prowadzona online?",
+        answer:
+          "Tak. Dokumenty firmowe mogą być przekazywane elektronicznie, a kontakt prowadzony mailowo i telefonicznie.",
+      },
+      {
+        question: "Czy w zapytaniu trzeba wysyłać dokumentację medyczną?",
+        answer:
+          "Nie. Do wyceny potrzebne są ogólne informacje o działalności i dokumentach finansowych, a nie dane pacjentów.",
+      },
+      {
+        question: "Czy możliwa jest obsługa ZUS?",
+        answer:
+          "Może być częścią uzgodnionej współpracy. Zakres zależy od sytuacji przedsiębiorcy i ewentualnego zatrudnienia.",
+      },
+    ],
+    related: [
+      { label: "Księgowość JDG", url: "/ksiegowosc-jdg/" },
+      { label: "ZUS i zgłoszenia", url: "/zus-i-zgloszenia/" },
+      { label: "Księgowość online", url: "/ksiegowosc-online/" },
+      { label: "Kontakt", url: "/kontakt/" },
+    ],
+  },
+  {
     slug: "ksef",
     kind: "service",
     serviceType: "Wsparcie w fakturowaniu zgodnym z KSeF",
@@ -1192,27 +1817,34 @@ pages.push(
     description:
       "Poznaj Platinus: biuro rachunkowe z Warszawy działające od 2005 roku. Certyfikat księgowy nr 10544/2005, OC oraz obsługa stacjonarna i online.",
     eyebrow: "Platinus od 2005 roku",
-    h1: "Doświadczenie, które można zweryfikować",
-    lead: "Za działalność Platinus odpowiada Andrzej Kowalczyk, posiadający certyfikat księgowy nr 10544/2005. Biuro łączy lokalną obsługę w Warszawie z księgowością online dla firm z całej Polski.",
-    highlights: [
-      "Działalność od 2005 roku",
-      "Certyfikat księgowy nr 10544/2005",
-      "Ubezpieczenie OC wskazane w profilu C.I.K.",
-      "NIP 951-110-02-56, REGON 140220457",
-    ],
+    h1: "Biuro rachunkowe oparte na stałej relacji",
+    lead: "Platinus działa w Warszawie od 2005 roku. Łączymy osobistą odpowiedzialność właściciela, stały kontakt z opiekunem i możliwość prowadzenia współpracy online z firmami z całej Polski.",
+    profile: {
+      label: "Biuro prowadzi",
+      role: "Właściciel Platinus od 2005 roku",
+      facts: [
+        "certyfikat księgowy nr 10544/2005",
+        "ubezpieczenie OC wskazane w profilu C.I.K.",
+        "odpowiedzialność za działalność biura",
+      ],
+      link: {
+        label: "Poznaj Andrzeja Kowalczyka",
+        url: "/andrzej-kowalczyk/",
+      },
+    },
     sections: [
       {
         heading: "Biuro rachunkowe z historią od 2005 roku",
         paragraphs: [
-          "Platinus powstał w odpowiedzi na potrzeby mikro, małych i średnich przedsiębiorstw szukających kompleksowej obsługi księgowej oraz kadrowo-płacowej. Od początku działalności biuro pracuje z firmami usługowymi, handlowymi i produkcyjnymi, prowadząc zarówno uproszczone ewidencje, jak i księgi rachunkowe.",
+          "Platinus prowadzi obsługę księgową oraz kadrowo-płacową przedsiębiorców o różnej formie działalności. Pracujemy zarówno z uproszczonymi ewidencjami, jak i księgami rachunkowymi. Zakres jest ustalany indywidualnie, ponieważ potrzeby jednoosobowej firmy różnią się od potrzeb spółki lub pracodawcy.",
           "Siedziba znajduje się przy ul. Jugosłowiańskiej 17B lok. 97 w Warszawie. Klienci mogą współpracować stacjonarnie, hybrydowo albo całkowicie zdalnie. Model pracy dobieramy do sposobu przekazywania dokumentów i realnych potrzeb firmy, zamiast narzucać jeden schemat każdemu przedsiębiorcy.",
         ],
       },
       {
-        heading: "Osoba odpowiedzialna i potwierdzone kwalifikacje",
+        heading: "Biuro prowadzi Andrzej Kowalczyk",
         paragraphs: [
-          `Za działalność biura odpowiada Andrzej Kowalczyk. Publiczny <a href="${cikProfile}" rel="external">profil Centrum Informacji Księgowej</a> wskazuje certyfikat księgowy nr 10544/2005, doświadczenie od 30 sierpnia 2005 roku oraz ubezpieczenie OC w PZU. Dane źródłowe zostały sprawdzone 22 lipca 2026 roku.`,
-          "Nie publikujemy nieweryfikowalnych tytułów ani sztucznych ocen. Informacje o kwalifikacjach łączymy z linkiem do niezależnego profilu, aby klient mógł sam sprawdzić ich źródło. W przypadku dokumentów, których aktualność wymaga okresowego potwierdzenia, zachęcamy do bezpośredniego kontaktu przed podpisaniem umowy.",
+          "Za działalność Platinus odpowiada Andrzej Kowalczyk. Informacja o właścicielu nie jest osobnym hasłem reklamowym — pokazuje, kto stoi za biurem i odpowiada za sposób organizacji jego pracy. Na dedykowanej stronie zebraliśmy krótki opis roli, numer certyfikatu oraz odnośnik do zewnętrznego źródła.",
+          'Przejdź do strony <a href="/andrzej-kowalczyk/">Andrzej Kowalczyk — właściciel biura Platinus</a>, aby zobaczyć poświadczenia i informację o ubezpieczeniu OC w jednym, naturalnym miejscu.',
         ],
       },
       {
@@ -1223,9 +1855,9 @@ pages.push(
         ],
       },
       {
-        heading: "Technologia wspierająca, a nie zastępująca kontakt",
+        heading: "Technologia wspierająca kontakt",
         paragraphs: [
-          "W codziennej pracy wykorzystujemy rozwiązania Comarch oraz systemy do elektronicznego przekazywania i archiwizacji dokumentów. Klient może korzystać z programu do fakturowania i dostępu do materiałów online. Technologia ogranicza powtarzalne czynności, ale nie zastępuje rozmowy z osobą prowadzącą obsługę.",
+          "W codziennej pracy wykorzystujemy rozwiązania wspierające elektroniczne przekazywanie i archiwizację dokumentów. Technologia ogranicza powtarzalne czynności, ale nie zastępuje rozmowy z osobą prowadzącą obsługę ani właściwego opisu sytuacji firmy.",
           "Szczególnie w nietypowych sytuacjach ważny jest kontekst: cel transakcji, sposób działania firmy i komplet dokumentów. Dlatego zachęcamy do zgłaszania planowanych zmian z wyprzedzeniem, zamiast przekazywania informacji dopiero po zakończeniu miesiąca.",
         ],
       },
@@ -1233,7 +1865,7 @@ pages.push(
         heading: "Standard współpracy",
         paragraphs: [
           "Przed rozpoczęciem obsługi potwierdzamy zakres, cenę i sposób dostarczania dokumentów. Ustalamy również dane kontaktowe po obu stronach i terminy cyklicznych informacji. Jeśli pojawia się zadanie wykraczające poza stałą umowę, opisujemy je przed wykonaniem.",
-          "Nie publikujemy opinii ani nazw klientów bez ich zgody. Zależy nam, aby dowody wiarygodności były prawdziwe i możliwe do zweryfikowania. Dlatego na stronie pokazujemy dane rejestrowe, certyfikat, źródło zewnętrzne, cennik i konkretny model pracy, a kolejne referencje będziemy dodawać dopiero po uzyskaniu zgód.",
+          "Stawiamy na informacje, które klient może sprawdzić: dane rejestrowe, osobę prowadzącą biuro, certyfikat, informację o OC i publiczny cennik. Nie publikujemy sztucznych ocen ani historii współpracy bez zgody zainteresowanych firm.",
         ],
       },
     ],
@@ -1241,7 +1873,7 @@ pages.push(
       {
         question: "Od kiedy działa Platinus?",
         answer:
-          "Biuro działa od 2005 roku. Profil C.I.K. wskazuje datę rozpoczęcia doświadczenia 30 sierpnia 2005 roku.",
+          "Biuro działa od 2005 roku. Informację o doświadczeniu publikuje również profil Platinus w Centrum Informacji Księgowej.",
       },
       {
         question: "Kto odpowiada za działalność biura?",
@@ -1251,7 +1883,7 @@ pages.push(
       {
         question: "Czy biuro ma ubezpieczenie OC?",
         answer:
-          "Taką informację wraz ze wskazaniem PZU publikuje profil Platinus w Centrum Informacji Księgowej, zweryfikowany 22 lipca 2026 roku.",
+          "Informację o ubezpieczeniu OC w PZU publikuje profil Platinus w Centrum Informacji Księgowej. Aktualny dokument można potwierdzić przed zawarciem umowy.",
       },
       {
         question: "Czy firma obsługuje klientów spoza Warszawy?",
@@ -1260,9 +1892,107 @@ pages.push(
       },
     ],
     related: [
+      { label: "Andrzej Kowalczyk — właściciel", url: "/andrzej-kowalczyk/" },
       { label: "Standard współpracy i źródła", url: "/opinie-i-case-studies/" },
       { label: "Księgowość online", url: "/ksiegowosc-online/" },
       { label: "Cennik", url: "/cennik/" },
+      { label: "Kontakt", url: "/kontakt/" },
+    ],
+  },
+  {
+    slug: "andrzej-kowalczyk",
+    kind: "person",
+    shortTitle: "Andrzej Kowalczyk",
+    title: "Andrzej Kowalczyk — właściciel biura Platinus",
+    description:
+      "Andrzej Kowalczyk prowadzi biuro rachunkowe Platinus. Poznaj jego rolę, certyfikat księgowy nr 10544/2005 i informację o OC.",
+    eyebrow: "Właściciel biura Platinus",
+    h1: "Andrzej Kowalczyk",
+    lead: "Prowadzi Platinus od 2005 roku i odpowiada za działalność biura. W tym miejscu zebraliśmy informacje o jego roli oraz poświadczeniach, aby nie mieszać ich przypadkowo z opisem pojedynczej usługi.",
+    profile: {
+      label: "Odpowiedzialność merytoryczna",
+      role: "Właściciel biura rachunkowego",
+      facts: [
+        "Platinus działa od 2005 roku",
+        "certyfikat księgowy nr 10544/2005",
+        "OC w PZU wskazane przez C.I.K.",
+      ],
+      link: {
+        label: "Zweryfikuj profil w C.I.K.",
+        url: cikProfile,
+        external: true,
+      },
+    },
+    sections: [
+      {
+        heading: "Rola w Platinus",
+        paragraphs: [
+          "Andrzej Kowalczyk jest właścicielem i osobą odpowiedzialną za działalność biura rachunkowego Platinus. Oznacza to odpowiedzialność za organizację obsługi, standard współpracy i sposób, w jaki biuro komunikuje zakres usług klientom. Na co dzień poszczególne firmy mogą kontaktować się ze swoim opiekunem, ale za biurem stoi wskazana z imienia i nazwiska osoba.",
+          "Taka informacja jest szczególnie ważna przy wyborze biura rachunkowego. Przedsiębiorca powinien wiedzieć, jaki podmiot zawiera z nim umowę, kto prowadzi działalność i gdzie można zweryfikować podstawowe dane. Dlatego profil właściciela został oddzielony od kart usług i umieszczony obok historii firmy.",
+        ],
+      },
+      {
+        heading: "Certyfikat księgowy nr 10544/2005",
+        paragraphs: [
+          `Publiczny <a href="${cikProfile}" rel="external">profil w Centrum Informacji Księgowej</a> wskazuje, że Andrzej Kowalczyk posiada certyfikat księgowy nr 10544/2005. Numer podajemy wprost, aby zainteresowana osoba mogła porównać informację z niezależnym źródłem, zamiast opierać się wyłącznie na ogólnym haśle o doświadczeniu.`,
+          "Certyfikat jest jednym z elementów oceny biura. Równie ważne są jasna umowa, sposób kontaktu, ubezpieczenie, zakres odpowiedzialności oraz praktyczny obieg dokumentów. Te kwestie omawiamy przed rozpoczęciem współpracy, aby klient wiedział, jak będzie wyglądała codzienna obsługa.",
+        ],
+      },
+      {
+        heading: "Ubezpieczenie odpowiedzialności cywilnej",
+        paragraphs: [
+          "Profil Platinus w Centrum Informacji Księgowej wskazuje ubezpieczenie OC w PZU. Informację pokazujemy tutaj, ponieważ naturalnie wiąże się z odpowiedzialnością osoby prowadzącej biuro, a nie z pojedynczą kartą oferty na stronie głównej.",
+          "Przed podpisaniem umowy klient może zapytać o aktualny zakres ochrony i dokument potwierdzający ubezpieczenie. Strona internetowa przedstawia ogólną informację, natomiast szczegółowe warunki polisy powinny być oceniane na podstawie aktualnego dokumentu, a nie skróconego opisu marketingowego.",
+        ],
+      },
+      {
+        heading: "Podejście do współpracy",
+        paragraphs: [
+          "Platinus opiera współpracę na ustaleniu zakresu przed rozpoczęciem pracy. Najpierw poznajemy formę działalności, liczbę dokumentów, zatrudnienie i sposób ich przekazywania. Następnie potwierdzamy cenę, osoby kontaktowe i podstawowe terminy. Dzięki temu klient nie musi domyślać się, co obejmuje miesięczna obsługa.",
+          "W bieżącej pracy ważna jest również odpowiedzialność po stronie przedsiębiorcy. Biuro potrzebuje kompletnych dokumentów i informacji o zmianach, których nie widać na fakturze. Jasny podział ról pozwala ograniczyć pytania zadawane tuż przed terminem i sprawniej wyjaśniać nietypowe zdarzenia.",
+        ],
+      },
+      {
+        heading: "Warszawa i obsługa online",
+        paragraphs: [
+          "Siedziba Platinus znajduje się przy ul. Jugosłowiańskiej 17B lok. 97 w Warszawie. Spotkanie można umówić wcześniej telefonicznie lub mailowo. Klienci spoza Warszawy mogą prowadzić współpracę zdalnie, przekazując dokumenty elektronicznie i kontaktując się ze swoim opiekunem.",
+          "Model online nie oznacza anonimowej usługi. Narzędzia pomagają uporządkować dokumenty, natomiast pytania dotyczące firmy omawiane są z osobą prowadzącą obsługę. Szczegóły elektronicznego obiegu opisujemy na stronie księgowości online.",
+        ],
+      },
+      {
+        heading: "Jak zweryfikować informacje",
+        paragraphs: [
+          `Dane o certyfikacie i OC można sprawdzić w <a href="${cikProfile}" rel="external">profilu Platinus w C.I.K.</a>. Dane przedsiębiorcy, adres, NIP i REGON publikujemy także na stronie kontaktowej oraz w stopce serwisu. Jeśli zewnętrzny katalog pokazuje inny adres, warto porównać datę aktualizacji i skontaktować się bezpośrednio z biurem.`,
+          "Nie dodajemy ocen ani dodatkowych tytułów, których nie możemy wiarygodnie udokumentować. Jeśli w przyszłości pojawi się zaakceptowany życiorys, zdjęcie lub nowe poświadczenie, powinno zostać dodane właśnie na tej stronie, a nie przypadkowo między opisami usług.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Kto prowadzi biuro rachunkowe Platinus?",
+        answer:
+          "Biuro prowadzi Andrzej Kowalczyk, właściciel działalności PLATINUS.PL.",
+      },
+      {
+        question: "Jaki numer ma certyfikat księgowy?",
+        answer:
+          "Publiczny profil C.I.K. wskazuje certyfikat księgowy nr 10544/2005.",
+      },
+      {
+        question: "Czy biuro posiada OC?",
+        answer:
+          "Profil C.I.K. wskazuje ubezpieczenie OC w PZU. Aktualny zakres ochrony można potwierdzić bezpośrednio przed zawarciem umowy.",
+      },
+      {
+        question: "Gdzie można zweryfikować dane?",
+        answer:
+          "Na stronie Centrum Informacji Księgowej, do której prowadzi odnośnik w profilu, oraz bezpośrednio w dokumentach udostępnianych przez biuro.",
+      },
+    ],
+    related: [
+      { label: "O biurze Platinus", url: "/o-nas/" },
+      { label: "Wszystkie usługi", url: "/uslugi/" },
+      { label: "Księgowość online", url: "/ksiegowosc-online/" },
       { label: "Kontakt", url: "/kontakt/" },
     ],
   },
@@ -1424,46 +2154,46 @@ pages.push(
   {
     slug: "opinie-i-case-studies",
     kind: "trust",
-    shortTitle: "Wiarygodność",
-    title: "Wiarygodność i standard współpracy | Platinus",
+    shortTitle: "Jak pracujemy",
+    title: "Jak pracujemy i budujemy zaufanie | Platinus",
     description:
-      "Zweryfikowane informacje o Platinus: działalność od 2005 roku, certyfikat księgowy, OC, jawny cennik i zasady publikowania opinii klientów.",
-    eyebrow: "Dowody zamiast obietnic",
-    h1: "Wiarygodność i standard współpracy",
-    lead: "Nie publikujemy wymyślonych ocen ani anonimowych sukcesów. Pokazujemy informacje, które można sprawdzić, oraz jasno wskazujemy, jak będziemy dodawać przyszłe referencje.",
+      "Poznaj standard współpracy Platinus, informacje możliwe do zweryfikowania i zasady rzetelnego publikowania opinii klientów.",
+    eyebrow: "Przejrzyste zasady",
+    h1: "Jak pracujemy i budujemy zaufanie",
+    lead: "Zaufanie do biura rachunkowego powinno wynikać z jasnej umowy, wskazanej osoby odpowiedzialnej, ubezpieczenia i przewidywalnego sposobu współpracy. Te elementy opisujemy bez sztucznych ocen.",
     highlights: [
       "Działalność od 2005 roku",
       "Certyfikat księgowy nr 10544/2005",
       "OC potwierdzone w profilu C.I.K.",
-      "Brak sztucznych ocen i aggregateRating",
+      "Jawny cennik i pełne dane firmy",
     ],
     sections: [
       {
         heading: "Co można zweryfikować już teraz",
         paragraphs: [
-          `Profil Platinus w <a href="${cikProfile}" rel="external">Centrum Informacji Księgowej</a> podaje aktualny adres, NIP, REGON, certyfikat księgowy nr 10544/2005, doświadczenie od 2005 roku i ubezpieczenie OC w PZU. Źródło zostało sprawdzone 22 lipca 2026 roku.`,
+          `Profil Platinus w <a href="${cikProfile}" rel="external">Centrum Informacji Księgowej</a> podaje adres, NIP, REGON, certyfikat księgowy nr 10544/2005, doświadczenie od 2005 roku i ubezpieczenie OC w PZU. Informacje o właścicielu zebraliśmy również na osobnej stronie Andrzeja Kowalczyka.`,
           "Na stronie publikujemy również pełne dane przedsiębiorcy, orientacyjny cennik i konkretny zakres usług. To informacje bardziej użyteczne niż ogólne hasło o najwyższej jakości bez możliwości sprawdzenia.",
         ],
       },
       {
-        heading: "Dlaczego nie ma sztucznych opinii",
+        heading: "Opinie publikujemy tylko za zgodą",
         paragraphs: [
           "Opinia ma wartość tylko wtedy, gdy pochodzi od prawdziwego klienta i została opublikowana za jego zgodą. Nie tworzymy przykładowych cytatów, nie przepisujemy ocen bez źródła i nie dodajemy danych strukturalnych aggregateRating bez widocznych, weryfikowalnych recenzji.",
-          "Po uzyskaniu zgód ta strona może zostać uzupełniona o nazwę firmy, opis zakresu współpracy, mierzalny efekt i podpis klienta. Do tego czasu pozostaje zbiorem potwierdzonych źródeł oraz standardów pracy.",
+          "Jeżeli pojawią się referencje zaakceptowane przez klientów, zostaną pokazane wraz z kontekstem usługi i czytelnym źródłem. Do tego czasu opieramy tę stronę na informacjach o sposobie pracy oraz danych, które można niezależnie zweryfikować.",
         ],
       },
       {
-        heading: "Jak powinno wyglądać przyszłe case study",
+        heading: "Co warto sprawdzić przed wyborem biura",
         paragraphs: [
-          "Rzetelny opis współpracy powinien wyjaśniać sytuację początkową, rzeczywisty zakres pracy, czas wdrożenia i rezultat. Nie może sugerować gwarancji takiego samego efektu u każdego klienta. Dane finansowe i nazwa firmy mogą zostać pokazane tylko po wyraźnym uzgodnieniu.",
+          "Przedsiębiorca powinien porównywać nie tylko cenę, ale również zakres odpowiedzialności, sposób kontaktu i zasady prac dodatkowych. Dobra oferta pozwala ustalić, co dzieje się przy brakującym dokumencie, zmianie sytuacji firmy albo potrzebie przygotowania dodatkowego zestawienia.",
         ],
         items: [
-          "krótki opis branży i skali firmy,",
-          "problem lub cel zgłoszony przed rozpoczęciem współpracy,",
-          "konkretny zakres obsługi wykonanej przez biuro,",
-          "czas wdrożenia i sposób przekazywania dokumentów,",
-          "mierzalny rezultat bez ujawniania danych poufnych,",
-          "zgoda klienta na publikację nazwy, cytatu i logo.",
+          "pełne dane firmy i osoba odpowiedzialna za działalność,",
+          "potwierdzenie ubezpieczenia OC,",
+          "zakres ujęty w umowie oraz sposób wyceny prac dodatkowych,",
+          "osoba kontaktowa i zasady zastępstwa,",
+          "sposób przekazywania oraz zabezpieczania dokumentów,",
+          "jasne zasady zakończenia współpracy i przekazania danych.",
         ],
       },
       {
@@ -1474,10 +2204,10 @@ pages.push(
         ],
       },
       {
-        heading: "Jak pomóc w budowaniu wiarygodnych referencji",
+        heading: "Poufność jest ważniejsza niż materiał marketingowy",
         paragraphs: [
-          "Jeżeli jesteś klientem Platinus i chcesz opisać współpracę, napisz na biuro@platinus.pl. Uzgodnimy zakres informacji, zgodę na publikację i możliwość anonimizacji. Nie prosimy o ujawnianie danych finansowych, które powinny pozostać poufne.",
-          "Referencje będą publikowane z datą, źródłem oraz informacją o zakresie usługi. Dzięki temu kolejni przedsiębiorcy otrzymają konkretny materiał, a nie anonimową ocenę oderwaną od kontekstu.",
+          "Nie ujawniamy nazw klientów, danych finansowych ani szczegółów współpracy bez jednoznacznej zgody. Anonimowa opowieść bez możliwości weryfikacji nie powinna być przedstawiana jako dowód konkretnego rezultatu.",
+          "Jeżeli klient dobrowolnie zgodzi się na referencję, jej zakres powinien zostać uzgodniony z wyprzedzeniem. Możliwe jest pominięcie danych poufnych i opisanie wyłącznie ogólnego modelu współpracy.",
         ],
       },
     ],

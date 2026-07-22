@@ -17,6 +17,14 @@ osób ani materiałów pobranych z zewnętrznych serwisów.
 
 Repozytorium nie zawiera informacji o autorach ani pierwotnych licencjach tych plików. Przed publikacją właściciel strony powinien potwierdzić prawo do wykorzystywania zdjęcia oraz znaków partnerów. W projekcie nie są używane pozostałe zdjęcia stockowe znajdujące się w katalogu `photos/`.
 
+## Źródła informacji o narzędziach
+
+Opis pracy zdalnej odwołuje się do eSZOK i modułu Kancelaria z OCR. Informacje
+o przetwarzaniu dokumentów, OCR i współpracy z Comarch ERP Optima zweryfikowano
+na oficjalnej stronie producenta CTI:
+`https://cti.org.pl/cti_optima_eszokbr.php`. Z witryny producenta nie pobrano
+grafik ani innych plików.
+
 # Biblioteki
 
 - **PHPMailer 7.1.1** — Copyright (c) 2012–2026 Marcus Bointon, Jim Jagielski

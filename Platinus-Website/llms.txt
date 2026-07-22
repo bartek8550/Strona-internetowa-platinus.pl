@@ -6,14 +6,23 @@ Oficjalna strona: https://platinus.pl/
 
 ## Usługi
 
+- wszystkie usługi: https://platinus.pl/uslugi/
 - księgowość online: https://platinus.pl/ksiegowosc-online/
 - pełna księgowość i księgi handlowe: https://platinus.pl/pelna-ksiegowosc/
 - KPiR i ryczałt: https://platinus.pl/kpir-i-ryczalt/
 - kadry i płace: https://platinus.pl/kadry-i-place/
+- VAT, JPK i raportowanie: https://platinus.pl/vat-jpk-i-raportowanie/
+- ZUS i zgłoszenia: https://platinus.pl/zus-i-zgloszenia/
 - księgowość spółki z o.o.: https://platinus.pl/ksiegowosc-spolki-zoo/
 - księgowość jednoosobowej działalności: https://platinus.pl/ksiegowosc-jdg/
+- księgowość e-commerce: https://platinus.pl/ksiegowosc-dla-ecommerce/
+- księgowość dla IT: https://platinus.pl/ksiegowosc-dla-it/
+- księgowość dla lekarzy: https://platinus.pl/ksiegowosc-dla-lekarzy/
 - wsparcie KSeF: https://platinus.pl/ksef/
 - cennik: https://platinus.pl/cennik/
+
+W pracy zdalnej Platinus korzysta z eSZOK i modułu Kancelaria z OCR. Informacje
+o rozwiązaniu: https://cti.org.pl/cti_optima_eszokbr.php
 
 ## Wiarygodność
 
@@ -23,7 +32,8 @@ Oficjalna strona: https://platinus.pl/
 - profil C.I.K. wskazuje ubezpieczenie OC w PZU
 - źródło: https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333
 - informacje o biurze: https://platinus.pl/o-nas/
-- zasady publikowania opinii i case studies: https://platinus.pl/opinie-i-case-studies/
+- profil właściciela: https://platinus.pl/andrzej-kowalczyk/
+- standard współpracy i zasady opinii: https://platinus.pl/opinie-i-case-studies/
 
 ## Poradnik
 

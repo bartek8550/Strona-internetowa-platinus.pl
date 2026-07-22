@@ -123,6 +123,9 @@
             "email": "biuro@platinus.pl",
             "taxID": "951-110-02-56",
             "priceRange": "100–1300 zł+",
+            "founder": {
+              "@id": "https://platinus.pl/andrzej-kowalczyk/#person"
+            },
             "sameAs": [
               "https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333"
             ],
@@ -161,6 +164,19 @@
                 }
               ]
             }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://platinus.pl/andrzej-kowalczyk/#person",
+            "name": "Andrzej Kowalczyk",
+            "jobTitle": "Właściciel biura rachunkowego Platinus",
+            "url": "https://platinus.pl/andrzej-kowalczyk/",
+            "worksFor": { "@id": "https://platinus.pl/#business" },
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Certyfikat księgowy nr 10544/2005"
+            },
+            "sameAs": "https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333"
           },
           {
             "@type": "FAQPage",
@@ -238,7 +254,7 @@
           aria-label="Główna nawigacja"
           data-nav
         >
-          <a href="#oferta">Oferta</a>
+          <a href="/uslugi/">Usługi</a>
           <a href="/cennik/">Cennik</a>
           <a href="/o-nas/">O nas</a>
           <a href="/poradnik/">Poradnik</a>
@@ -406,8 +422,8 @@
                 <li>Zestawienia na potrzeby zarządu</li>
                 <li>Weryfikacja dokumentów</li>
               </ul>
-              <a class="text-link" href="/ksiegowosc-spolki-zoo/"
-                >Księgowość dla spółek <span aria-hidden="true">→</span></a
+              <a class="text-link" href="/vat-jpk-i-raportowanie/"
+                >Poznaj obsługę VAT i JPK <span aria-hidden="true">→</span></a
               >
             </article>
 
@@ -440,8 +456,8 @@
                 <li>DRA i rozliczenia składek</li>
                 <li>Wsparcie w korespondencji</li>
               </ul>
-              <a class="text-link" href="/ksiegowosc-jdg/"
-                >Księgowość małych firm <span aria-hidden="true">→</span></a
+              <a class="text-link" href="/zus-i-zgloszenia/"
+                >Poznaj obsługę ZUS <span aria-hidden="true">→</span></a
               >
             </article>
 
@@ -521,24 +537,6 @@
               sposób komunikacji.
             </p>
 
-            <aside
-              class="credential-card"
-              aria-label="Potwierdzone kwalifikacje"
-            >
-              <p class="credential-card__label">Potwierdzone kwalifikacje</p>
-              <p>
-                Za działalność biura odpowiada Andrzej Kowalczyk — certyfikat
-                księgowy nr <strong>10544/2005</strong>. Profil C.I.K. wskazuje
-                również ubezpieczenie OC w PZU.
-              </p>
-              <a
-                href="https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333"
-                rel="external"
-                >Zweryfikuj dane w Centrum Informacji Księgowej
-                <span aria-hidden="true">→</span></a
-              >
-            </aside>
-
             <div class="benefit-list">
               <article>
                 <span>01</span>
@@ -581,10 +579,24 @@
                 </div>
               </article>
             </div>
-            <a class="text-link text-link--light" href="/o-nas/"
-              >Poznaj historię i standard pracy
-              <span aria-hidden="true">→</span></a
-            >
+            <div class="leadership-note">
+              <span class="leadership-note__monogram" aria-hidden="true"
+                >AK</span
+              >
+              <div>
+                <p class="leadership-note__label">
+                  Biuro z osobistą odpowiedzialnością
+                </p>
+                <p>
+                  Platinus prowadzi Andrzej Kowalczyk. Informacje o jego
+                  doświadczeniu, certyfikacie księgowym i ubezpieczeniu OC
+                  zebraliśmy w jednym, właściwym miejscu.
+                </p>
+                <a class="text-link text-link--light" href="/andrzej-kowalczyk/"
+                  >Poznaj właściciela biura <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -637,46 +649,68 @@
               Technologia, która upraszcza codzienną współpracę
             </h2>
           </div>
-          <div class="technology-logos">
-            <a
-              href="https://www.iksiegowosc24.pl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="photos/logo-iksiegowosc24v2.webp"
-                width="612"
-                height="90"
-                alt="iKsięgowość24"
-                loading="lazy"
-              />
-            </a>
-            <a
-              href="https://www.erpxt.pl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="photos/comarch-erp-xtv2.webp"
-                width="612"
-                height="90"
-                alt="Comarch ERP XT"
-                loading="lazy"
-              />
-            </a>
-            <a
-              href="https://www.ibard.com/pl/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="photos/comarch-ibradv2.webp"
-                width="612"
-                height="90"
-                alt="Comarch IBARD"
-                loading="lazy"
-              />
-            </a>
+          <div class="technology-stack">
+            <article class="technology-feature">
+              <div class="technology-feature__mark" aria-hidden="true">K</div>
+              <div>
+                <p class="eyebrow">Praca zdalna</p>
+                <h3>eSZOK i moduł Kancelaria z OCR</h3>
+                <p>
+                  W obsłudze dokumentów online korzystamy z programu Kancelaria,
+                  który wspiera porządkowanie, odczyt i przekazywanie dokumentów
+                  do systemu księgowego. Klient nadal ma kontakt z człowiekiem —
+                  program porządkuje proces, ale nie zastępuje opiekuna.
+                </p>
+                <a
+                  class="text-link"
+                  href="https://cti.org.pl/cti_optima_eszokbr.php"
+                  rel="external"
+                  >Przeczytaj o systemie u producenta
+                  <span aria-hidden="true">→</span></a
+                >
+              </div>
+            </article>
+            <div class="technology-logos">
+              <a
+                href="https://www.iksiegowosc24.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="photos/logo-iksiegowosc24v2.webp"
+                  width="612"
+                  height="90"
+                  alt="iKsięgowość24"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.erpxt.pl"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="photos/comarch-erp-xtv2.webp"
+                  width="612"
+                  height="90"
+                  alt="Comarch ERP XT"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.ibard.com/pl/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="photos/comarch-ibradv2.webp"
+                  width="612"
+                  height="90"
+                  alt="Comarch IBARD"
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1044,8 +1078,10 @@
         </div>
         <nav aria-label="Nawigacja w stopce">
           <p class="footer-title">Strona</p>
-          <a href="/ksiegowosc-online/">Księgowość online</a
+          <a href="/uslugi/">Wszystkie usługi</a
+          ><a href="/ksiegowosc-online/">Księgowość online</a
           ><a href="/cennik/">Cennik</a><a href="/o-nas/">O nas</a
+          ><a href="/andrzej-kowalczyk/">Właściciel biura</a
           ><a href="/poradnik/">Poradnik</a>
         </nav>
         <div>

@@ -23,8 +23,9 @@ Po rozpakowaniu bezpośrednio w katalogu domeny powinny znajdować się między 
 
 - `.htaccess`, `index.html`, `404.html`, `style.css`, `variables.css`, `script.js`;
 - `robots.txt`, `sitemap.xml`, `llms.txt`;
-- katalogi `icons/`, `photos/`, `ksiegowosc-online/`, `pelna-ksiegowosc/`,
-  `kpir-i-ryczalt/`, `kadry-i-place/`, `poradnik/` oraz pozostałe podstrony.
+- katalogi `icons/`, `photos/`, `uslugi/`, `ksiegowosc-online/`,
+  `pelna-ksiegowosc/`, `vat-jpk-i-raportowanie/`, `zus-i-zgloszenia/`,
+  `andrzej-kowalczyk/`, `poradnik/` oraz pozostałe podstrony.
 
 Usuń ze starej wersji publicznego katalogu pliki i katalogi, których nie ma w
 `dist`, w szczególności `form.php`, `.env`, `lib/`, `vendor/`, `composer.json`
@@ -45,7 +46,7 @@ usuwa `index.html` z adresów. Na hostingu nadal trzeba:
 
 1. Otwórz `https://platinus.pl/` oraz kilka podstron, np. `/o-nas/`,
    `/ksiegowosc-online/` i `/poradnik/`.
-2. Sprawdź `https://platinus.pl/sitemap.xml` — powinna zawierać 20 adresów.
+2. Sprawdź `https://platinus.pl/sitemap.xml` — powinna zawierać 27 adresów.
 3. Sprawdź faviconę i manifest w `/icons/`.
 4. Wejdź przez `http://`, wariant `www` i adres kończący się `index.html` — każdy
    powinien wykonać pojedyncze przekierowanie 301 do HTTPS bez `www`.
