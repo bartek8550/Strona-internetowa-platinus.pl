@@ -69,7 +69,7 @@ const revealSelectors = [
   ".faq-intro",
   ".faq-list details",
   ".contact-copy",
-  ".contact-form",
+  ".contact-email",
 ];
 
 const revealItems = Array.from(
@@ -84,7 +84,7 @@ revealItems.forEach((item, index) => {
 document.querySelector(".trust-media")?.classList.add("reveal-from-left");
 document.querySelector(".trust-copy")?.classList.add("reveal-from-right");
 document.querySelector(".contact-copy")?.classList.add("reveal-from-left");
-document.querySelector(".contact-form")?.classList.add("reveal-from-right");
+document.querySelector(".contact-email")?.classList.add("reveal-from-right");
 
 function showRevealItem(item) {
   item.classList.add("is-visible");
@@ -138,9 +138,7 @@ function updateMotionDetails() {
 
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress =
-    scrollable > 0
-      ? Math.max(0, Math.min(1, window.scrollY / scrollable))
-      : 0;
+    scrollable > 0 ? Math.max(0, Math.min(1, window.scrollY / scrollable)) : 0;
   header?.style.setProperty("--scroll-progress", String(progress));
 
   if (reducedMotion.matches) return;
@@ -167,111 +165,3 @@ function requestMotionUpdate() {
 updateMotionDetails();
 window.addEventListener("scroll", requestMotionUpdate, { passive: true });
 window.addEventListener("resize", requestMotionUpdate, { passive: true });
-
-const contactForm = document.querySelector("[data-contact-form]");
-
-if (contactForm) {
-  const timestamp = contactForm.querySelector("[data-form-timestamp]");
-  const formStatus = contactForm.querySelector("[data-form-status]");
-  const submitButton = contactForm.querySelector("[data-submit]");
-  const requiredFields = Array.from(contactForm.querySelectorAll("[required]"));
-
-  if (timestamp) timestamp.value = String(Date.now());
-
-  function getErrorMessage(field) {
-    if (field.validity.valueMissing) {
-      return field.type === "checkbox"
-        ? "Zaznacz zgodę, aby wysłać zapytanie."
-        : "Uzupełnij to pole.";
-    }
-
-    if (field.validity.typeMismatch) return "Podaj poprawny adres e-mail.";
-    return "Sprawdź poprawność wpisanych danych.";
-  }
-
-  function validateField(field) {
-    const errorElement = document.getElementById(`${field.id}-error`);
-    const valid = field.checkValidity();
-
-    field.setAttribute("aria-invalid", String(!valid));
-    if (errorElement)
-      errorElement.textContent = valid ? "" : getErrorMessage(field);
-    return valid;
-  }
-
-  function setStatus(message, type = "") {
-    if (!formStatus) return;
-    formStatus.textContent = message;
-    formStatus.className = `form-status${type ? ` is-${type}` : ""}`;
-  }
-
-  requiredFields.forEach((field) => {
-    const eventName = field.type === "checkbox" ? "change" : "blur";
-    field.addEventListener(eventName, () => validateField(field));
-    field.addEventListener("input", () => {
-      if (field.getAttribute("aria-invalid") === "true") validateField(field);
-    });
-  });
-
-  contactForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    const invalidFields = requiredFields.filter(
-      (field) => !validateField(field),
-    );
-    if (invalidFields.length > 0) {
-      setStatus("Sprawdź formularz — część pól wymaga uzupełnienia.", "error");
-      invalidFields[0].focus();
-      return;
-    }
-
-    if (!submitButton) return;
-
-    setStatus("Wysyłamy zapytanie…");
-    submitButton.disabled = true;
-    submitButton.textContent = "Wysyłanie…";
-
-    try {
-      const response = await fetch(contactForm.action, {
-        method: "POST",
-        body: new FormData(contactForm),
-        headers: { Accept: "application/json" },
-      });
-      const data = await response.json();
-
-      if (!response.ok || !data.ok) {
-        throw new Error(data.message || "Nie udało się wysłać wiadomości.");
-      }
-
-      setStatus(
-        data.message || "Wiadomość została wysłana. Odezwiemy się wkrótce.",
-        "success",
-      );
-      contactForm.reset();
-      requiredFields.forEach((field) => field.removeAttribute("aria-invalid"));
-      if (timestamp) timestamp.value = String(Date.now());
-    } catch (error) {
-      const message =
-        error instanceof Error
-          ? error.message
-          : "Nie udało się wysłać wiadomości.";
-      setStatus(
-        `${message} Możesz też napisać na biuro@platinus.pl lub zadzwonić.`,
-        "error",
-      );
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "Wyślij zapytanie";
-    }
-  });
-
-  const query = new URLSearchParams(window.location.search);
-  if (query.get("sent") === "1") {
-    setStatus("Wiadomość została wysłana. Odezwiemy się wkrótce.", "success");
-  } else if (query.get("sent") === "0") {
-    setStatus(
-      "Nie udało się wysłać wiadomości. Spróbuj ponownie lub skontaktuj się bezpośrednio.",
-      "error",
-    );
-  }
-}

@@ -227,7 +227,11 @@
           <a class="nav-client" href="https://eszok.platinus.pl/public/login"
             >Panel klienta</a
           >
-          <a class="button button--small" href="#formularz">Poproś o wycenę</a>
+          <a
+            class="button button--small"
+            href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99"
+            >Napisz po wycenę</a
+          >
         </nav>
       </div>
     </header>
@@ -249,7 +253,11 @@
               opiekunem.
             </p>
             <div class="hero-actions">
-              <a class="button" href="#formularz">Poproś o wycenę</a>
+              <a
+                class="button"
+                href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99"
+                >Napisz po wycenę</a
+              >
               <a class="button button--ghost" href="tel:+48664496913"
                 >Zadzwoń: 664 496 913</a
               >
@@ -704,8 +712,10 @@
               <span>Kadry i płace</span
               ><strong>Zleceniobiorca: 30 zł / osoba miesięcznie</strong>
             </div>
-            <a class="button button--dark" href="#formularz"
-              >Zapytaj o dokładną wycenę</a
+            <a
+              class="button button--dark"
+              href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99"
+              >Napisz po dokładną wycenę</a
             >
           </div>
           <p class="pricing-note">
@@ -836,7 +846,7 @@
             <h2 id="faq-title">Co warto wiedzieć przed pierwszą rozmową?</h2>
             <p>
               Jeśli Twojej sytuacji nie ma na liście, zadzwoń lub opisz ją w
-              formularzu.
+              wiadomości e-mail.
             </p>
             <a class="text-link" href="tel:+48664496913"
               >+48 664 496 913 <span aria-hidden="true">→</span></a
@@ -920,144 +930,24 @@
             >
           </div>
 
-          <form
-            class="contact-form"
-            id="formularz"
-            action="form.php"
-            method="post"
-            novalidate
-            data-contact-form
-          >
-            <div class="form-heading">
-              <p class="eyebrow">Zapytanie o ofertę</p>
-              <h3>Napisz kilka zdań o swojej firmie</h3>
-              <p>Pola oznaczone gwiazdką są wymagane.</p>
-            </div>
-
-            <div class="hp-field" hidden>
-              <label for="website">Strona internetowa</label>
-              <input
-                id="website"
-                type="text"
-                name="website"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-            <input type="hidden" name="form_ts" value="" data-form-timestamp />
-            <input type="hidden" name="ajax" value="1" />
-
-            <div class="form-row">
-              <div class="field">
-                <label for="imie">Imię <span aria-hidden="true">*</span></label>
-                <input
-                  id="imie"
-                  name="Imie"
-                  type="text"
-                  autocomplete="given-name"
-                  maxlength="80"
-                  required
-                  aria-describedby="imie-error"
-                />
-                <p class="field-error" id="imie-error"></p>
-              </div>
-              <div class="field">
-                <label for="nazwisko"
-                  >Nazwisko <span aria-hidden="true">*</span></label
-                >
-                <input
-                  id="nazwisko"
-                  name="Nazwisko"
-                  type="text"
-                  autocomplete="family-name"
-                  maxlength="80"
-                  required
-                  aria-describedby="nazwisko-error"
-                />
-                <p class="field-error" id="nazwisko-error"></p>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="email"
-                  >E-mail <span aria-hidden="true">*</span></label
-                >
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autocomplete="email"
-                  inputmode="email"
-                  maxlength="254"
-                  required
-                  aria-describedby="email-error"
-                />
-                <p class="field-error" id="email-error"></p>
-              </div>
-              <div class="field">
-                <label for="telefon">Telefon</label>
-                <input
-                  id="telefon"
-                  name="telefon"
-                  type="tel"
-                  autocomplete="tel"
-                  inputmode="tel"
-                  maxlength="32"
-                  aria-describedby="telefon-help"
-                />
-                <p class="field-help" id="telefon-help">
-                  Opcjonalnie, jeśli wolisz kontakt telefoniczny.
-                </p>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="tresc"
-                >Jakiej obsługi potrzebujesz?
-                <span aria-hidden="true">*</span></label
-              >
-              <textarea
-                id="tresc"
-                name="tresc"
-                rows="5"
-                maxlength="4000"
-                required
-                aria-describedby="tresc-error"
-              ></textarea>
-              <p class="field-error" id="tresc-error"></p>
-            </div>
-
-            <div class="field field--checkbox">
-              <input
-                id="zgoda"
-                name="zgoda"
-                type="checkbox"
-                value="1"
-                required
-                aria-describedby="zgoda-error"
-              />
-              <label for="zgoda"
-                >Wyrażam zgodę na kontakt w sprawie przesłanego zapytania.
-                <span aria-hidden="true">*</span></label
-              >
-              <p class="field-error" id="zgoda-error"></p>
-            </div>
-
-            <div
-              class="form-status"
-              role="status"
-              aria-live="polite"
-              data-form-status
-            ></div>
-            <button class="button button--submit" type="submit" data-submit>
-              Wyślij zapytanie
-            </button>
-            <p class="form-alternative">
-              Możesz też napisać bezpośrednio na
-              <a href="mailto:biuro@platinus.pl">biuro@platinus.pl</a>.
+          <div class="contact-email">
+            <p class="eyebrow">Zapytanie o ofertę</p>
+            <h3>Napisz kilka zdań o swojej firmie</h3>
+            <p>
+              Wyślij nam wiadomość bezpośrednio na adres
+              <strong>biuro@platinus.pl</strong>. Aby ułatwić przygotowanie
+              wyceny, podaj formę działalności, przybliżoną liczbę dokumentów i
+              zakres potrzebnej obsługi.
             </p>
-          </form>
+            <a
+              class="button"
+              href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99"
+              >Napisz na biuro@platinus.pl</a
+            >
+            <p class="contact-email__note">
+              Kliknięcie otworzy nową wiadomość w Twoim programie pocztowym.
+            </p>
+          </div>
         </div>
       </section>
     </main>

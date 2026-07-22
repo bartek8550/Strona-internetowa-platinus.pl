@@ -15,7 +15,6 @@ if (
 const files = [
   ".htaccess",
   "404.html",
-  "form.php",
   "index.html",
   "llms.txt",
   "robots.txt",
@@ -49,7 +48,6 @@ for (const file of photoFiles) {
 }
 
 await cp(join(root, "icons"), join(dist, "icons"), { recursive: true });
-await cp(join(root, "lib"), join(dist, "lib"), { recursive: true });
 
 async function summarize(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
