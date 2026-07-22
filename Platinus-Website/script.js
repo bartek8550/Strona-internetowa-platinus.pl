@@ -20,9 +20,6 @@ function setMenu(open) {
   document.body.classList.toggle("nav-open", open);
 }
 
-updateHeader();
-window.addEventListener("scroll", updateHeader, { passive: true });
-
 menuToggle?.addEventListener("click", () => {
   const open = menuToggle.getAttribute("aria-expanded") !== "true";
   setMenu(open);
@@ -55,65 +52,6 @@ document.querySelectorAll("[data-current-year]").forEach((element) => {
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-const revealSelectors = [
-  ".section-heading",
-  ".service-card",
-  ".ksef-callout",
-  ".trust-media",
-  ".trust-copy",
-  ".process-list li",
-  ".technology-inner > *",
-  ".price-card",
-  ".price-extras",
-  ".promo-card",
-  ".faq-intro",
-  ".faq-list details",
-  ".contact-copy",
-  ".contact-email",
-];
-
-const revealItems = Array.from(
-  document.querySelectorAll(revealSelectors.join(",")),
-);
-
-revealItems.forEach((item, index) => {
-  item.classList.add("reveal-item");
-  item.style.setProperty("--reveal-delay", `${(index % 4) * 65}ms`);
-});
-
-document.querySelector(".trust-media")?.classList.add("reveal-from-left");
-document.querySelector(".trust-copy")?.classList.add("reveal-from-right");
-document.querySelector(".contact-copy")?.classList.add("reveal-from-left");
-document.querySelector(".contact-email")?.classList.add("reveal-from-right");
-
-function showRevealItem(item) {
-  item.classList.add("is-visible");
-  window.setTimeout(() => {
-    item.classList.remove(
-      "reveal-item",
-      "reveal-from-left",
-      "reveal-from-right",
-    );
-  }, 1050);
-}
-
-if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-  revealItems.forEach(showRevealItem);
-} else {
-  const revealObserver = new window.IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        showRevealItem(entry.target);
-        observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: "0px 0px -8%", threshold: 0.08 },
-  );
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-}
-
 const glowTargets = document.querySelectorAll(
   ".service-card, .price-card, .promo-card, .technology-logos a",
 );
@@ -135,6 +73,7 @@ let motionFrame = 0;
 
 function updateMotionDetails() {
   motionFrame = 0;
+  updateHeader();
 
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress =

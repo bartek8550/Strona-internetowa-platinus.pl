@@ -6,13 +6,35 @@ Oficjalna strona: https://platinus.pl/
 
 ## Usługi
 
-- pełna księgowość i księgi handlowe
-- KPiR i ryczałt
-- VAT, JPK i raportowanie
-- kadry i płace
-- ZUS i zgłoszenia
-- dokumenty online i archiwum 24/7
-- program do fakturowania zgodny z KSeF w ramach współpracy
+- księgowość online: https://platinus.pl/ksiegowosc-online/
+- pełna księgowość i księgi handlowe: https://platinus.pl/pelna-ksiegowosc/
+- KPiR i ryczałt: https://platinus.pl/kpir-i-ryczalt/
+- kadry i płace: https://platinus.pl/kadry-i-place/
+- księgowość spółki z o.o.: https://platinus.pl/ksiegowosc-spolki-zoo/
+- księgowość jednoosobowej działalności: https://platinus.pl/ksiegowosc-jdg/
+- wsparcie KSeF: https://platinus.pl/ksef/
+- cennik: https://platinus.pl/cennik/
+
+## Wiarygodność
+
+- działalność od 2005 roku
+- za działalność odpowiada Andrzej Kowalczyk
+- certyfikat księgowy nr 10544/2005
+- profil C.I.K. wskazuje ubezpieczenie OC w PZU
+- źródło: https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333
+- informacje o biurze: https://platinus.pl/o-nas/
+- zasady publikowania opinii i case studies: https://platinus.pl/opinie-i-case-studies/
+
+## Poradnik
+
+Centrum wiedzy: https://platinus.pl/poradnik/
+
+- koszt księgowości spółki z o.o.
+- zmiana biura rachunkowego w trakcie roku
+- elektroniczny obieg dokumentów
+- porównanie księgowości online i lokalnej
+- zakres pełnej księgowości
+- przygotowanie firmy do KSeF
 
 ## Kontakt
 
