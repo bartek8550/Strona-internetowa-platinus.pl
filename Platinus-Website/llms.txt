@@ -4,6 +4,15 @@
 
 Oficjalna strona: https://platinus.pl/
 
+## Wersje językowe
+
+- polska, domyślna: https://platinus.pl/
+- angielska: https://platinus.pl/en/
+- niemiecka: https://platinus.pl/de/
+
+Każda z 27 stron ma pełny odpowiednik angielski i niemiecki. Przełącznik języka
+zachowuje bieżący temat.
+
 ## Usługi
 
 - wszystkie usługi: https://platinus.pl/uslugi/
@@ -34,6 +43,9 @@ o rozwiązaniu: https://cti.org.pl/cti_optima_eszokbr.php
 - informacje o biurze: https://platinus.pl/o-nas/
 - profil właściciela: https://platinus.pl/andrzej-kowalczyk/
 - standard współpracy i zasady opinii: https://platinus.pl/opinie-i-case-studies/
+- publiczna ocena Google: 5,0 na podstawie 5 opinii, stan sprawdzony 2026-07-23
+- serwis pokazuje oznaczone streszczenia trzech opinii i odsyła do źródła Google;
+  nie publikuje danych strukturalnych aggregateRating
 
 ## Poradnik
 

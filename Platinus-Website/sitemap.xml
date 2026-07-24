@@ -1,111 +1,651 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://platinus.pl/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/uslugi/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/uslugi/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/uslugi/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/uslugi/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/uslugi/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/uslugi/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/uslugi/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-online/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-online/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-online/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-online/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-online/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-online/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/pelna-ksiegowosc/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/pelna-ksiegowosc/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/pelna-ksiegowosc/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/kpir-i-ryczalt/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/kpir-i-ryczalt/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/kpir-i-ryczalt/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kpir-i-ryczalt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kpir-i-ryczalt/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/vat-jpk-i-raportowanie/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/vat-jpk-i-raportowanie/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/vat-jpk-i-raportowanie/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/vat-jpk-i-raportowanie/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/vat-jpk-i-raportowanie/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/zus-i-zgloszenia/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/zus-i-zgloszenia/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/zus-i-zgloszenia/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/zus-i-zgloszenia/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/zus-i-zgloszenia/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/kadry-i-place/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kadry-i-place/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/kadry-i-place/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kadry-i-place/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/kadry-i-place/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kadry-i-place/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kadry-i-place/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-spolki-zoo/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-spolki-zoo/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-spolki-zoo/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-jdg/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-jdg/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-jdg/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-jdg/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-jdg/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-dla-ecommerce/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-dla-ecommerce/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-dla-ecommerce/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-ecommerce/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-ecommerce/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-dla-it/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-dla-it/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-dla-it/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-it/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-it/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksiegowosc-dla-lekarzy/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksiegowosc-dla-lekarzy/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksiegowosc-dla-lekarzy/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksiegowosc-dla-lekarzy/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksiegowosc-dla-lekarzy/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/ksef/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksef/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/ksef/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksef/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/ksef/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/ksef/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/cennik/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/cennik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/cennik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/cennik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/cennik/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/cennik/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/cennik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/cennik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/cennik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/cennik/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/cennik/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/cennik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/cennik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/cennik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/cennik/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/o-nas/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/o-nas/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/o-nas/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/o-nas/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/o-nas/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/o-nas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/o-nas/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/andrzej-kowalczyk/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/andrzej-kowalczyk/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/andrzej-kowalczyk/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/andrzej-kowalczyk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/andrzej-kowalczyk/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/kontakt/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kontakt/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/kontakt/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kontakt/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/kontakt/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/kontakt/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/kontakt/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/opinie-i-case-studies/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/opinie-i-case-studies/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/opinie-i-case-studies/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/opinie-i-case-studies/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/opinie-i-case-studies/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/opinie-i-case-studies/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/opinie-i-case-studies/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/polityka-prywatnosci/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/polityka-prywatnosci/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/polityka-prywatnosci/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/polityka-prywatnosci/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/polityka-prywatnosci/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/polityka-prywatnosci/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/polityka-prywatnosci/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ile-kosztuje-ksiegowosc-spolki-zoo/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/jak-zmienic-biuro-rachunkowe/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/jak-zmienic-biuro-rachunkowe/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-zmienic-biuro-rachunkowe/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/jak-przekazywac-dokumenty-online/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/jak-przekazywac-dokumenty-online/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przekazywac-dokumenty-online/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przekazywac-dokumenty-online/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/ksiegowosc-online-czy-lokalna/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/ksiegowosc-online-czy-lokalna/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/ksiegowosc-online-czy-lokalna/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/co-obejmuje-pelna-ksiegowosc/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/co-obejmuje-pelna-ksiegowosc/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/co-obejmuje-pelna-ksiegowosc/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
   <url>
     <loc>https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/</loc>
-    <lastmod>2026-07-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/en/poradnik/jak-przygotowac-firme-do-ksef/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <lastmod>2026-07-24</lastmod>
+  </url>
+  <url>
+    <loc>https://platinus.pl/de/poradnik/jak-przygotowac-firme-do-ksef/</loc>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://platinus.pl/en/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://platinus.pl/de/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://platinus.pl/poradnik/jak-przygotowac-firme-do-ksef/" />
+    <lastmod>2026-07-24</lastmod>
   </url>
 </urlset>

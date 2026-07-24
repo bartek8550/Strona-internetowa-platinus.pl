@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "format": "prettier --write index.html 404.html style.css variables.css script.js site-pages.mjs package.json eslint.config.js htmlvalidate.json stylelint.config.js build.mjs THIRD_PARTY_ASSETS.md DEPLOY_HOME_PL.md SEO_GEO_ACTIONS.md",
-    "format:check": "prettier --check index.html 404.html style.css variables.css script.js site-pages.mjs package.json eslint.config.js htmlvalidate.json stylelint.config.js build.mjs THIRD_PARTY_ASSETS.md DEPLOY_HOME_PL.md SEO_GEO_ACTIONS.md",
+    "format": "prettier --write index.html 404.html style.css variables.css script.js site-pages.mjs localized-pages.mjs localized-home.mjs verify-build.mjs package.json eslint.config.js htmlvalidate.json stylelint.config.js build.mjs THIRD_PARTY_ASSETS.md DEPLOY_HOME_PL.md SEO_GEO_ACTIONS.md AGENTS.md",
+    "format:check": "prettier --check index.html 404.html style.css variables.css script.js site-pages.mjs localized-pages.mjs localized-home.mjs verify-build.mjs package.json eslint.config.js htmlvalidate.json stylelint.config.js build.mjs THIRD_PARTY_ASSETS.md DEPLOY_HOME_PL.md SEO_GEO_ACTIONS.md AGENTS.md",
     "lint:html": "node build.mjs && html-validate --config htmlvalidate.json \"dist/**/*.html\"",
     "lint:css": "stylelint style.css variables.css",
-    "lint:js": "eslint script.js build.mjs site-pages.mjs",
+    "lint:js": "eslint script.js build.mjs site-pages.mjs localized-pages.mjs localized-home.mjs verify-build.mjs",
+    "verify": "node verify-build.mjs",
     "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
     "build": "node build.mjs"
   },

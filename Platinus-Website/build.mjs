@@ -2,7 +2,9 @@ import { cp, mkdir, readdir, rm, stat, writeFile } from "node:fs/promises";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { pages, renderPage, siteUrl } from "./site-pages.mjs";
+import { renderLocalizedHome } from "./localized-home.mjs";
+import { localizePage } from "./localized-pages.mjs";
+import { localizedPath, pages, renderPage, siteUrl } from "./site-pages.mjs";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const dist = resolve(root, "dist");
@@ -57,19 +59,48 @@ for (const page of pages) {
   await writeFile(join(directory, "index.html"), renderPage(page), "utf8");
 }
 
+for (const locale of ["en", "de"]) {
+  const localeRoot = join(dist, locale);
+  await mkdir(localeRoot, { recursive: true });
+  await writeFile(
+    join(localeRoot, "index.html"),
+    renderLocalizedHome(locale),
+    "utf8",
+  );
+
+  for (const page of pages) {
+    const directory = join(localeRoot, ...page.slug.split("/"));
+    await mkdir(directory, { recursive: true });
+    await writeFile(
+      join(directory, "index.html"),
+      renderPage(localizePage(page, locale), locale),
+      "utf8",
+    );
+  }
+}
+
 const lastModified = new Date().toISOString().slice(0, 10);
 const sitemapUrls = ["", ...pages.map((page) => page.slug)]
-  .map((slug) => {
-    const url = slug ? `${siteUrl}/${slug}/` : `${siteUrl}/`;
-    return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastModified}</lastmod>\n  </url>`;
-  })
+  .flatMap((slug) =>
+    ["pl", "en", "de"].map((locale) => {
+      const url = `${siteUrl}${localizedPath(slug, locale)}`;
+      const alternates = ["pl", "en", "de"]
+        .map(
+          (alternate) =>
+            `    <xhtml:link rel="alternate" hreflang="${alternate}" href="${siteUrl}${localizedPath(slug, alternate)}" />`,
+        )
+        .join("\n");
+      return `  <url>\n    <loc>${url}</loc>\n${alternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${localizedPath(slug, "pl")}" />\n    <lastmod>${lastModified}</lastmod>\n  </url>`;
+    }),
+  )
   .join("\n");
 
-await writeFile(
-  join(dist, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`,
-  "utf8",
-);
+const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapUrls}\n</urlset>\n`;
+
+await Promise.all([
+  writeFile(join(dist, "sitemap.xml"), sitemapContent, "utf8"),
+  writeFile(join(root, "sitemap.xml"), sitemapContent, "utf8"),
+]);
 
 async function summarize(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

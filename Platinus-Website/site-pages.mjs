@@ -6,6 +6,151 @@ const cikProfile =
   "https://www.cik.org.pl/biuro/biuro-rachunkowe-platinus-pl-andrzej-kowalczyk-2333";
 const ctiKancelaria = "https://cti.org.pl/cti_optima_eszokbr.php";
 const ownerId = `${siteUrl}/andrzej-kowalczyk/#person`;
+const googleReviews =
+  "https://www.google.com/maps/place/Biuro+Rachunkowe+Platinus/@52.221398,21.092259,17z/data=!4m8!3m7!1s0x471ed2ecb85b0b9b:0x589261f194729252!8m2!3d52.221398!4d21.092259!9m1!1b1!16s%2Fg%2F1tcyw59j";
+
+const localeConfig = {
+  pl: {
+    html: "pl",
+    og: "pl_PL",
+    home: "Strona główna",
+    navLabel: "Główna nawigacja",
+    services: "Usługi",
+    pricing: "Cennik",
+    about: "O nas",
+    guide: "Poradnik",
+    contact: "Kontakt",
+    client: "Panel klienta",
+    quote: "Zapytaj o wycenę",
+    menu: "Menu",
+    skip: "Przejdź do treści",
+    related: "Zobacz także",
+    highlights: "Najważniejsze informacje",
+    cardsEyebrow: "Wybierz temat",
+    cardsTitle: "Znajdź właściwy zakres",
+    cardsLead:
+      "Przejdź do strony, która najlepiej odpowiada sytuacji Twojej firmy.",
+    more: "Dowiedz się więcej",
+    faq: "Najczęstsze pytania",
+    talk: "Porozmawiajmy",
+    ctaTitle: "Potrzebujesz dopasowanej wyceny?",
+    ctaText:
+      "Przejdź do strony kontaktowej i napisz, jaką działalność prowadzisz oraz jakiego zakresu obsługi potrzebujesz.",
+    ctaButton: "Przejdź do kontaktu",
+    call: "Zadzwoń: 664 496 913",
+    footerServices: "Usługi",
+    footerInfo: "Platinus",
+    owner: "Właściciel biura",
+    work: "Jak pracujemy",
+    privacy: "Polityka prywatności",
+    allServices: "Wszystkie usługi",
+    remote: "Księgowość online",
+    full: "Pełna księgowość",
+    small: "KPiR i ryczałt",
+    payroll: "Kadry i płace",
+    rights: "Wszelkie prawa zastrzeżone.",
+    back: "Strona główna",
+    footerLead:
+      "Księgowość, kadry i płace dla firm z Warszawy oraz zdalnie w całej Polsce.",
+    breadcrumb: "Okruszki",
+    language: "Wybierz język",
+    articleMeta:
+      "Autor: Platinus.pl · Opublikowano: 22 lipca 2026 · Aktualizacja: 23 lipca 2026",
+  },
+  en: {
+    html: "en",
+    og: "en_GB",
+    home: "Home",
+    navLabel: "Main navigation",
+    services: "Services",
+    pricing: "Pricing",
+    about: "About us",
+    guide: "Guides",
+    contact: "Contact",
+    client: "Client portal",
+    quote: "Request a quote",
+    menu: "Menu",
+    skip: "Skip to content",
+    related: "Related pages",
+    highlights: "At a glance",
+    cardsEyebrow: "Explore",
+    cardsTitle: "Choose the right area",
+    cardsLead: "Open the page that best matches your company’s situation.",
+    more: "Learn more",
+    faq: "Frequently asked questions",
+    talk: "Let’s talk",
+    ctaTitle: "Need a tailored quote?",
+    ctaText:
+      "Visit the contact page and tell us what your business does and which accounting services you need.",
+    ctaButton: "Go to contact",
+    call: "Call: +48 664 496 913",
+    footerServices: "Services",
+    footerInfo: "Platinus",
+    owner: "Office owner",
+    work: "How we work",
+    privacy: "Privacy policy",
+    allServices: "All services",
+    remote: "Online accounting",
+    full: "Full accounting",
+    small: "KPiR and lump-sum tax",
+    payroll: "HR and payroll",
+    rights: "All rights reserved.",
+    back: "Home",
+    footerLead:
+      "Accounting, HR and payroll for Warsaw-based companies and remote clients throughout Poland.",
+    breadcrumb: "Breadcrumb",
+    language: "Choose language",
+    articleMeta:
+      "Author: Platinus.pl · Published: 22 July 2026 · Updated: 23 July 2026",
+  },
+  de: {
+    html: "de",
+    og: "de_DE",
+    home: "Startseite",
+    navLabel: "Hauptnavigation",
+    services: "Leistungen",
+    pricing: "Preise",
+    about: "Über uns",
+    guide: "Ratgeber",
+    contact: "Kontakt",
+    client: "Kundenportal",
+    quote: "Angebot anfragen",
+    menu: "Menü",
+    skip: "Zum Inhalt springen",
+    related: "Weitere Themen",
+    highlights: "Auf einen Blick",
+    cardsEyebrow: "Themen",
+    cardsTitle: "Den passenden Bereich wählen",
+    cardsLead:
+      "Öffnen Sie die Seite, die am besten zur Situation Ihres Unternehmens passt.",
+    more: "Mehr erfahren",
+    faq: "Häufige Fragen",
+    talk: "Sprechen wir miteinander",
+    ctaTitle: "Benötigen Sie ein individuelles Angebot?",
+    ctaText:
+      "Öffnen Sie die Kontaktseite und beschreiben Sie kurz Ihr Unternehmen und den gewünschten Leistungsumfang.",
+    ctaButton: "Zur Kontaktseite",
+    call: "Anrufen: +48 664 496 913",
+    footerServices: "Leistungen",
+    footerInfo: "Platinus",
+    owner: "Kanzleiinhaber",
+    work: "So arbeiten wir",
+    privacy: "Datenschutz",
+    allServices: "Alle Leistungen",
+    remote: "Online-Buchhaltung",
+    full: "Doppelte Buchführung",
+    small: "KPiR und Pauschalsteuer",
+    payroll: "Personal und Lohn",
+    rights: "Alle Rechte vorbehalten.",
+    back: "Startseite",
+    footerLead:
+      "Buchhaltung, Personal und Lohn für Unternehmen in Warschau und online in ganz Polen.",
+    breadcrumb: "Brotkrümelnavigation",
+    language: "Sprache wählen",
+    articleMeta:
+      "Autor: Platinus.pl · Veröffentlicht: 22. Juli 2026 · Aktualisiert: 23. Juli 2026",
+  },
+};
 
 const businessNode = {
   "@type": "AccountingService",
@@ -65,89 +210,145 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function renderNavigation() {
+function localizedPath(slug = "", locale = "pl") {
+  const clean = String(slug).replace(/^\/+|\/+$/g, "");
+  const prefix = locale === "pl" ? "" : `/${locale}`;
+  return clean ? `${prefix}/${clean}/` : `${prefix}/`;
+}
+
+function localizeHref(href, locale = "pl") {
+  if (!href?.startsWith("/") || href.startsWith("//")) return href;
+  const clean = href.replace(/^\/+|\/+$/g, "");
+  if (!clean) return localizedPath("", locale);
+  if (/^(?:en|de)(?:\/|$)/.test(clean)) return `/${clean}/`;
+  return localizedPath(clean, locale);
+}
+
+function renderLanguageAlternates(slug = "") {
+  return `<link rel="alternate" hreflang="pl" href="${siteUrl}${localizedPath(slug, "pl")}" />
+    <link rel="alternate" hreflang="en" href="${siteUrl}${localizedPath(slug, "en")}" />
+    <link rel="alternate" hreflang="de" href="${siteUrl}${localizedPath(slug, "de")}" />
+    <link rel="alternate" hreflang="x-default" href="${siteUrl}${localizedPath(slug, "pl")}" />`;
+}
+
+function renderLanguageSwitcher(locale = "pl", slug = "") {
+  const labels = {
+    pl: "Polski",
+    en: "English",
+    de: "Deutsch",
+  };
+
+  return `<div class="language-switcher" role="group" aria-label="${localeConfig[locale].language}">
+    ${Object.entries(labels)
+      .map(
+        ([code, label]) =>
+          `<a href="${localizedPath(slug, code)}" lang="${code}" hreflang="${code}" aria-label="${label}" title="${label}"${code === locale ? ' aria-current="true"' : ""}><span class="language-switcher__code">${code.toUpperCase()}</span></a>`,
+      )
+      .join("")}
+  </div>`;
+}
+
+function renderNavigation(locale = "pl", slug = "") {
+  const ui = localeConfig[locale];
   return `
-    <a class="brand" href="/" aria-label="Platinus.pl — strona główna">
+    <a class="brand" href="${localizedPath("", locale)}" aria-label="Platinus.pl — ${ui.home}">
       <img src="/photos/platinus-logo-480.webp" width="480" height="150" alt="Platinus.pl" />
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
-      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__label">${ui.menu}</span>
       <span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span></span>
     </button>
-    <nav class="primary-nav" id="primary-nav" aria-label="Główna nawigacja" data-nav>
-      <a href="/uslugi/">Usługi</a>
-      <a href="/cennik/">Cennik</a>
-      <a href="/o-nas/">O nas</a>
-      <a href="/poradnik/">Poradnik</a>
-      <a href="/kontakt/">Kontakt</a>
-      <a class="nav-client" href="https://eszok.platinus.pl/public/login">Panel klienta</a>
-      <a class="button button--small" href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99">Napisz po wycenę</a>
+    <nav class="primary-nav" id="primary-nav" aria-label="${ui.navLabel}" data-nav>
+      <a href="${localizedPath("uslugi", locale)}">${ui.services}</a>
+      <a href="${localizedPath("cennik", locale)}">${ui.pricing}</a>
+      <a href="${localizedPath("o-nas", locale)}">${ui.about}</a>
+      <a href="${localizedPath("poradnik", locale)}">${ui.guide}</a>
+      <a href="${localizedPath("kontakt", locale)}">${ui.contact}</a>
+      <a class="nav-client" href="https://eszok.platinus.pl/public/login">${ui.client}</a>
+      ${renderLanguageSwitcher(locale, slug)}
+      <a class="button button--small" href="${localizedPath("kontakt", locale)}">${ui.quote}</a>
     </nav>`;
 }
 
-function renderFooter() {
+function renderFooter(locale = "pl") {
+  const ui = localeConfig[locale];
   return `
     <footer class="site-footer">
       <div class="container footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="/" aria-label="Platinus.pl — strona główna">
+          <a class="brand" href="${localizedPath("", locale)}" aria-label="Platinus.pl — ${ui.home}">
             <img src="/photos/platinus-logo-480.webp" width="480" height="150" alt="Platinus.pl" loading="lazy" />
           </a>
-          <p>Księgowość, kadry i płace dla firm z Warszawy oraz zdalnie w całej Polsce.</p>
+          <p>${ui.footerLead}</p>
         </div>
-        <nav aria-label="Usługi w stopce">
-          <p class="footer-title">Usługi</p>
-          <a href="/uslugi/">Wszystkie usługi</a>
-          <a href="/ksiegowosc-online/">Księgowość online</a>
-          <a href="/pelna-ksiegowosc/">Pełna księgowość</a>
-          <a href="/kpir-i-ryczalt/">KPiR i ryczałt</a>
-          <a href="/kadry-i-place/">Kadry i płace</a>
-          <a href="/ksef/">KSeF</a>
+        <nav aria-label="${ui.footerServices}">
+          <p class="footer-title">${ui.footerServices}</p>
+          <a href="${localizedPath("uslugi", locale)}">${ui.allServices}</a>
+          <a href="${localizedPath("ksiegowosc-online", locale)}">${ui.remote}</a>
+          <a href="${localizedPath("pelna-ksiegowosc", locale)}">${ui.full}</a>
+          <a href="${localizedPath("kpir-i-ryczalt", locale)}">${ui.small}</a>
+          <a href="${localizedPath("kadry-i-place", locale)}">${ui.payroll}</a>
+          <a href="${localizedPath("ksef", locale)}">KSeF</a>
         </nav>
-        <nav aria-label="Informacje w stopce">
-          <p class="footer-title">Platinus</p>
-          <a href="/o-nas/">O nas</a>
-          <a href="/andrzej-kowalczyk/">Właściciel biura</a>
-          <a href="/opinie-i-case-studies/">Jak pracujemy</a>
-          <a href="/cennik/">Cennik</a>
-          <a href="/poradnik/">Poradnik</a>
-          <a href="/polityka-prywatnosci/">Polityka prywatności</a>
+        <nav aria-label="${ui.footerInfo}">
+          <p class="footer-title">${ui.footerInfo}</p>
+          <a href="${localizedPath("o-nas", locale)}">${ui.about}</a>
+          <a href="${localizedPath("andrzej-kowalczyk", locale)}">${ui.owner}</a>
+          <a href="${localizedPath("opinie-i-case-studies", locale)}">${ui.work}</a>
+          <a href="${localizedPath("cennik", locale)}">${ui.pricing}</a>
+          <a href="${localizedPath("poradnik", locale)}">${ui.guide}</a>
+          <a href="${localizedPath("polityka-prywatnosci", locale)}">${ui.privacy}</a>
         </nav>
         <div>
-          <p class="footer-title">Kontakt</p>
+          <p class="footer-title">${ui.contact}</p>
           <a href="tel:+48664496913">+48 664 496 913</a>
           <a href="mailto:biuro@platinus.pl">biuro@platinus.pl</a>
           <p>ul. Jugosłowiańska 17B lok. 97<br />03-984 Warszawa</p>
         </div>
       </div>
       <div class="container footer-bottom">
-        <p>© <span data-current-year>2026</span> Platinus.pl. Wszelkie prawa zastrzeżone.</p>
-        <a href="/">Strona główna <span aria-hidden="true">↑</span></a>
+        <p>© <span data-current-year>2026</span> Platinus.pl. ${ui.rights}</p>
+        <a href="${localizedPath("", locale)}">${ui.back} <span aria-hidden="true">↑</span></a>
       </div>
     </footer>`;
 }
 
-function renderBreadcrumbs(page) {
-  const items = page.breadcrumbs ?? [
-    { name: "Strona główna", url: "/" },
-    { name: page.shortTitle ?? page.h1, url: `/${page.slug}/` },
-  ];
+function renderBreadcrumbs(page, locale = "pl") {
+  const ui = localeConfig[locale];
+  const items =
+    locale === "pl" && page.breadcrumbs
+      ? page.breadcrumbs
+      : [
+          { name: ui.home, url: localizedPath("", locale) },
+          ...(page.kind === "article"
+            ? [
+                {
+                  name: ui.guide,
+                  url: localizedPath("poradnik", locale),
+                },
+              ]
+            : []),
+          {
+            name: page.shortTitle ?? page.h1,
+            url: localizedPath(page.slug, locale),
+          },
+        ];
 
-  return `<nav class="breadcrumbs" aria-label="Okruszki">
+  return `<nav class="breadcrumbs" aria-label="${ui.breadcrumb}">
     <ol>${items
       .map((item, index) => {
         const current = index === items.length - 1;
         return `<li>${
           current
             ? `<span aria-current="page">${escapeHtml(item.name)}</span>`
-            : `<a href="${escapeHtml(item.url)}">${escapeHtml(item.name)}</a>`
+            : `<a href="${escapeHtml(localizeHref(item.url, locale))}">${escapeHtml(item.name)}</a>`
         }</li>`;
       })
       .join("")}</ol>
   </nav>`;
 }
 
-function renderSection(section) {
+function renderSection(section, index) {
   const paragraphs = (section.paragraphs ?? [])
     .map((paragraph) => `<p>${paragraph}</p>`)
     .join("");
@@ -159,8 +360,9 @@ function renderSection(section) {
     : "";
 
   return `<section class="prose-section">
-    <h2>${escapeHtml(section.heading)}</h2>
-    ${paragraphs}${list}${steps}
+    <span class="prose-section__number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span>
+    <div><h2>${escapeHtml(section.heading)}</h2>
+    ${paragraphs}${list}${steps}</div>
   </section>`;
 }
 
@@ -172,13 +374,34 @@ function pageType(page) {
   return "WebPage";
 }
 
-function renderSchema(page) {
-  const canonical = `${siteUrl}/${page.slug}/`;
-  const breadcrumbs = page.breadcrumbs ?? [
-    { name: "Strona główna", url: "/" },
-    { name: page.shortTitle ?? page.h1, url: `/${page.slug}/` },
-  ];
-  const graph = [websiteNode, businessNode];
+function renderSchema(page, locale = "pl") {
+  const ui = localeConfig[locale];
+  const canonical = `${siteUrl}${localizedPath(page.slug, locale)}`;
+  const breadcrumbs =
+    locale === "pl" && page.breadcrumbs
+      ? page.breadcrumbs
+      : [
+          { name: ui.home, url: localizedPath("", locale) },
+          ...(page.kind === "article"
+            ? [
+                {
+                  name: ui.guide,
+                  url: localizedPath("poradnik", locale),
+                },
+              ]
+            : []),
+          {
+            name: page.shortTitle ?? page.h1,
+            url: localizedPath(page.slug, locale),
+          },
+        ];
+  const localizedWebsite = {
+    ...websiteNode,
+    "@id": `${siteUrl}${localizedPath("", locale)}#website`,
+    url: `${siteUrl}${localizedPath("", locale)}`,
+    inLanguage: ui.html,
+  };
+  const graph = [localizedWebsite, businessNode];
 
   const webpage = {
     "@type": pageType(page),
@@ -186,10 +409,10 @@ function renderSchema(page) {
     url: canonical,
     name: page.title,
     description: page.description,
-    isPartOf: { "@id": websiteId },
+    isPartOf: { "@id": localizedWebsite["@id"] },
     about: { "@id": businessId },
-    inLanguage: "pl-PL",
-    dateModified: page.updated ?? "2026-07-22",
+    inLanguage: ui.html,
+    dateModified: page.updated ?? "2026-07-23",
   };
 
   if (page.kind === "article") {
@@ -231,6 +454,7 @@ function renderSchema(page) {
         { "@type": "Country", name: "Polska" },
       ],
       serviceType: page.serviceType,
+      availableLanguage: ui.html,
     });
     webpage.about = { "@id": `${canonical}#service` };
   }
@@ -242,7 +466,9 @@ function renderSchema(page) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith("http") ? item.url : `${siteUrl}${item.url}`,
+      item: item.url.startsWith("http")
+        ? item.url
+        : `${siteUrl}${localizeHref(item.url, locale)}`,
     })),
   });
 
@@ -263,25 +489,26 @@ function renderSchema(page) {
     .replaceAll(">", "\\u003e");
 }
 
-function renderPage(page) {
-  const canonical = `${siteUrl}/${page.slug}/`;
+function renderPage(page, locale = "pl") {
+  const ui = localeConfig[locale];
+  const canonical = `${siteUrl}${localizedPath(page.slug, locale)}`;
   const articleMeta =
     page.kind === "article"
-      ? `<p class="article-meta">Autor: Platinus.pl · Opublikowano: 22 lipca 2026 · Aktualizacja: 22 lipca 2026</p>`
+      ? `<p class="article-meta">${ui.articleMeta}</p>`
       : "";
   const related = page.related?.length
-    ? `<aside class="page-aside" aria-label="Powiązane treści">
-        <p class="eyebrow">Zobacz także</p>
+    ? `<aside class="page-aside" aria-label="${ui.related}">
+        <p class="eyebrow">${ui.related}</p>
         <ul>${page.related
           .map(
             (item) =>
-              `<li><a href="${escapeHtml(item.url)}">${escapeHtml(item.label)}</a></li>`,
+              `<li><a href="${escapeHtml(localizeHref(item.url, locale))}">${escapeHtml(item.label)}</a></li>`,
           )
           .join("")}</ul>
       </aside>`
     : "";
   const highlights = page.highlights?.length
-    ? `<div class="page-highlights"><p>Najważniejsze informacje</p><ul>${page.highlights
+    ? `<div class="page-highlights"><p>${ui.highlights}</p><ul>${page.highlights
         .map((item) => `<li>${item}</li>`)
         .join("")}</ul></div>`
     : "";
@@ -292,19 +519,36 @@ function renderPage(page) {
           <div><p class="profile-panel__label">${escapeHtml(page.profile.label)}</p><p class="profile-panel__name">Andrzej Kowalczyk</p><p class="profile-panel__role">${escapeHtml(page.profile.role)}</p></div>
         </div>
         <ul>${page.profile.facts.map((item) => `<li>${item}</li>`).join("")}</ul>
-        ${page.profile.link ? `<a href="${escapeHtml(page.profile.link.url)}"${page.profile.link.external ? ' rel="external"' : ""}>${escapeHtml(page.profile.link.label)} <span aria-hidden="true">→</span></a>` : ""}
+        ${page.profile.link ? `<a href="${escapeHtml(page.profile.link.external ? page.profile.link.url : localizeHref(page.profile.link.url, locale))}"${page.profile.link.external ? ' rel="external"' : ""}>${escapeHtml(page.profile.link.label)} <span aria-hidden="true">→</span></a>` : ""}
       </aside>`
     : "";
   const cards = page.cards?.length
     ? `<section class="section page-card-section" aria-labelledby="page-cards-title">
         <div class="container">
-          <div class="section-heading section-heading--split"><div><p class="eyebrow">${escapeHtml(page.cardsEyebrow ?? "Wybierz temat")}</p><h2 id="page-cards-title">${escapeHtml(page.cardsTitle ?? "Znajdź właściwy zakres")}</h2></div><p>${escapeHtml(page.cardsLead ?? "Przejdź do strony, która najlepiej odpowiada sytuacji Twojej firmy.")}</p></div>
+          <div class="section-heading section-heading--split"><div><p class="eyebrow">${escapeHtml(page.cardsEyebrow ?? ui.cardsEyebrow)}</p><h2 id="page-cards-title">${escapeHtml(page.cardsTitle ?? ui.cardsTitle)}</h2></div><p>${escapeHtml(page.cardsLead ?? ui.cardsLead)}</p></div>
           <div class="topic-card-grid">${page.cards
             .map(
               (card, index) =>
-                `<article class="topic-card"><span class="topic-card__number">${String(index + 1).padStart(2, "0")}</span><p class="topic-card__label">${escapeHtml(card.label)}</p><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p><a class="text-link" href="${escapeHtml(card.url)}">${escapeHtml(card.linkLabel ?? "Dowiedz się więcej")} <span aria-hidden="true">→</span></a></article>`,
+                `<article class="topic-card"><span class="topic-card__number">${String(index + 1).padStart(2, "0")}</span><p class="topic-card__label">${escapeHtml(card.label)}</p><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p><a class="text-link" href="${escapeHtml(localizeHref(card.url, locale))}">${escapeHtml(card.linkLabel ?? ui.more)} <span aria-hidden="true">→</span></a></article>`,
             )
             .join("")}</div>
+        </div>
+      </section>`
+    : "";
+  const reviews = page.reviews?.length
+    ? `<section class="section reviews-section" aria-labelledby="reviews-title">
+        <div class="container">
+          <div class="reviews-heading">
+            <div><p class="eyebrow">${escapeHtml(page.reviewsEyebrow ?? "Google")}</p><h2 id="reviews-title">${escapeHtml(page.reviewsTitle)}</h2><p>${escapeHtml(page.reviewsLead)}</p></div>
+            <div class="reviews-score" role="img" aria-label="${escapeHtml(page.reviewsScoreLabel)}"><strong>5,0</strong><span aria-hidden="true">★★★★★</span><small>${escapeHtml(page.reviewsScoreText)}</small></div>
+          </div>
+          <div class="reviews-grid">${page.reviews
+            .map(
+              (review) =>
+                `<figure class="review-card"><div class="review-card__stars" role="img" aria-label="5 / 5">★★★★★</div><blockquote>“${escapeHtml(review.text)}”</blockquote><figcaption><strong>${escapeHtml(review.author)}</strong><span>${escapeHtml(review.meta)}</span></figcaption></figure>`,
+            )
+            .join("")}</div>
+          <div class="reviews-source"><p>${escapeHtml(page.reviewsNote)}</p><a class="text-link" href="${googleReviews}" target="_blank" rel="external noopener noreferrer">${escapeHtml(page.reviewsLink)} <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>`
     : "";
@@ -312,7 +556,7 @@ function renderPage(page) {
     ? `<section class="section page-faq" aria-labelledby="faq-title">
         <div class="container content-narrow">
           <p class="eyebrow">FAQ</p>
-          <h2 id="faq-title">Najczęstsze pytania</h2>
+          <h2 id="faq-title">${ui.faq}</h2>
           <div class="faq-list">${page.faq
             .map(
               (item) =>
@@ -324,7 +568,7 @@ function renderPage(page) {
     : "";
 
   return `<!doctype html>
-<html lang="pl">
+<html lang="${ui.html}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -332,7 +576,8 @@ function renderPage(page) {
     <meta name="description" content="${escapeHtml(page.description)}" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="${canonical}" />
-    <meta property="og:locale" content="pl_PL" />
+    ${renderLanguageAlternates(page.slug)}
+    <meta property="og:locale" content="${ui.og}" />
     <meta property="og:type" content="${page.kind === "article" ? "article" : "website"}" />
     <meta property="og:site_name" content="Platinus.pl" />
     <meta property="og:title" content="${escapeHtml(page.title)}" />
@@ -354,16 +599,16 @@ function renderPage(page) {
     <meta name="theme-color" content="#181313" />
     <link rel="stylesheet" href="/variables.css" />
     <link rel="stylesheet" href="/style.css" />
-    <script type="application/ld+json">${renderSchema(page)}</script>
+    <script type="application/ld+json">${renderSchema(page, locale)}</script>
   </head>
-  <body class="subpage subpage--${escapeHtml(page.kind)}">
-    <a class="skip-link" href="#main-content">Przejdź do treści</a>
-    <header class="site-header" data-header><div class="container header-inner">${renderNavigation()}</div></header>
+  <body class="subpage subpage--${escapeHtml(page.kind)} locale-${locale}">
+    <a class="skip-link" href="#main-content">${ui.skip}</a>
+    <header class="site-header" data-header><div class="container header-inner">${renderNavigation(locale, page.slug)}</div></header>
     <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
     <main id="main-content">
       <section class="page-hero">
         <div class="container">
-          ${renderBreadcrumbs(page)}
+          ${renderBreadcrumbs(page, locale)}
           <div class="page-hero__grid">
             <div>
               <p class="eyebrow eyebrow--light">${escapeHtml(page.eyebrow)}</p>
@@ -371,8 +616,8 @@ function renderPage(page) {
               <p class="page-lead">${page.lead}</p>
               ${articleMeta}
               <div class="hero-actions">
-                <a class="button" href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99">Napisz po wycenę</a>
-                <a class="button button--ghost" href="tel:+48664496913">Zadzwoń: 664 496 913</a>
+                <a class="button" href="${localizedPath("kontakt", locale)}">${ui.quote}</a>
+                <a class="button button--ghost" href="tel:+48664496913">${ui.call}</a>
               </div>
             </div>
             ${profile || highlights}
@@ -380,6 +625,7 @@ function renderPage(page) {
         </div>
       </section>
       ${cards}
+      ${reviews}
       <section class="section page-content">
         <div class="container content-layout">
           <article class="prose">${page.sections.map(renderSection).join("")}</article>
@@ -387,14 +633,22 @@ function renderPage(page) {
         </div>
       </section>
       ${faq}
+      <section class="trust-ribbon" aria-label="${ui.highlights}">
+        <div class="container trust-ribbon__inner">
+          <div><strong>2005</strong><span>${locale === "pl" ? "rok rozpoczęcia działalności" : locale === "en" ? "year established" : "Gründungsjahr"}</span></div>
+          <div><strong>10544/2005</strong><span>${locale === "pl" ? "certyfikat księgowy" : locale === "en" ? "accounting certificate" : "Buchhalterzertifikat"}</span></div>
+          <div><strong>PZU</strong><span>${locale === "pl" ? "ubezpieczenie OC wskazane w C.I.K." : locale === "en" ? "professional liability insurance listed by C.I.K." : "Berufshaftpflicht laut C.I.K."}</span></div>
+          <a href="${localizedPath("andrzej-kowalczyk", locale)}">${ui.owner} <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
       <section class="section page-cta" aria-labelledby="cta-title">
         <div class="container page-cta__inner">
-          <div><p class="eyebrow eyebrow--light">Porozmawiajmy</p><h2 id="cta-title">Potrzebujesz dopasowanej wyceny?</h2><p>Napisz, jaką działalność prowadzisz, ile dokumentów rozliczasz i jakiego zakresu obsługi potrzebujesz.</p></div>
-          <a class="button" href="mailto:biuro@platinus.pl?subject=Zapytanie%20o%20wycen%C4%99">Napisz na biuro@platinus.pl</a>
+          <div><p class="eyebrow eyebrow--light">${ui.talk}</p><h2 id="cta-title">${ui.ctaTitle}</h2><p>${ui.ctaText}</p></div>
+          <a class="button" href="${localizedPath("kontakt", locale)}">${ui.ctaButton}</a>
         </div>
       </section>
     </main>
-    ${renderFooter()}
+    ${renderFooter(locale)}
     <script src="/script.js" defer></script>
   </body>
 </html>`.replace(/^[ \t]+$/gm, "");
@@ -2165,7 +2419,33 @@ pages.push(
       "Działalność od 2005 roku",
       "Certyfikat księgowy nr 10544/2005",
       "OC potwierdzone w profilu C.I.K.",
-      "Jawny cennik i pełne dane firmy",
+      "Ocena 5,0 na podstawie 5 opinii Google",
+    ],
+    reviewsEyebrow: "Opinie klientów",
+    reviewsTitle: "Doświadczenia opisane w Google",
+    reviewsLead:
+      "Publiczne opinie zwracają uwagę na pomoc przy niejasnościach, dobrą współpracę oraz kompetentne wsparcie. Pokazujemy krótkie streszczenia i kierujemy do pełnego, zewnętrznego źródła.",
+    reviewsScoreLabel: "Ocena 5,0 na 5 w Google",
+    reviewsScoreText: "5 publicznych opinii",
+    reviewsNote:
+      "Stan opinii sprawdzony 23 lipca 2026 roku. Opinie są publikowane przez użytkowników Google i nie są weryfikowane przez Platinus.",
+    reviewsLink: "Zobacz wszystkie opinie w Google",
+    reviews: [
+      {
+        author: "Bartłomiej Szpak",
+        meta: "opinia Google · 5/5",
+        text: "Klient docenia solidną opiekę księgową, uczciwą cenę i pomoc w wyjaśnianiu niejasności.",
+      },
+      {
+        author: "Artur Sarba",
+        meta: "opinia Google · 5/5",
+        text: "Wieloletnia współpraca rozpoczęta wraz z założeniem działalności została oceniona jako bardzo dobra.",
+      },
+      {
+        author: "TELE-SERWIS Malbork",
+        meta: "opinia Google · 5/5",
+        text: "Autor opinii poleca kompetencje, doradztwo i porządek w dokumentach.",
+      },
     ],
     sections: [
       {
@@ -2176,10 +2456,10 @@ pages.push(
         ],
       },
       {
-        heading: "Opinie publikujemy tylko za zgodą",
+        heading: "Co mówią publiczne opinie Google",
         paragraphs: [
-          "Opinia ma wartość tylko wtedy, gdy pochodzi od prawdziwego klienta i została opublikowana za jego zgodą. Nie tworzymy przykładowych cytatów, nie przepisujemy ocen bez źródła i nie dodajemy danych strukturalnych aggregateRating bez widocznych, weryfikowalnych recenzji.",
-          "Jeżeli pojawią się referencje zaakceptowane przez klientów, zostaną pokazane wraz z kontekstem usługi i czytelnym źródłem. Do tego czasu opieramy tę stronę na informacjach o sposobie pracy oraz danych, które można niezależnie zweryfikować.",
+          `Profil Platinus w Google ma ocenę 5,0 na podstawie 5 publicznych opinii według stanu sprawdzonego 23 lipca 2026 roku. Autorzy opisują między innymi solidną opiekę księgową, pomoc przy niejasnościach, dobrą wieloletnią współpracę i porządek w dokumentach. <a href="${googleReviews}" rel="external">Pełne treści i aktualny stan można sprawdzić bezpośrednio w Google</a>.`,
+          "Pokazane wyżej teksty są krótkimi streszczeniami, nie nowymi referencjami przygotowanymi przez biuro. Nie publikujemy nazw klientów ani szczegółów ich rozliczeń poza informacjami, które sami udostępnili publicznie.",
         ],
       },
       {
@@ -2893,4 +3173,16 @@ pages.push(
   },
 );
 
-export { pages, renderPage, siteUrl };
+export {
+  googleReviews,
+  localeConfig,
+  localizedPath,
+  localizeHref,
+  pages,
+  renderFooter,
+  renderLanguageAlternates,
+  renderLanguageSwitcher,
+  renderNavigation,
+  renderPage,
+  siteUrl,
+};

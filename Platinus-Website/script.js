@@ -53,7 +53,7 @@ document.querySelectorAll("[data-current-year]").forEach((element) => {
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const glowTargets = document.querySelectorAll(
-  ".service-card, .price-card, .promo-card, .technology-logos a",
+  ".service-card, .price-card, .promo-card, .topic-card, .review-card, .technology-logos a",
 );
 const precisePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
 

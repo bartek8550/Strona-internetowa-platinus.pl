@@ -7,6 +7,7 @@ W katalogu `Platinus-Website` uruchom:
 ```sh
 npm install
 npm run lint
+npm run verify
 npm run build
 ```
 
@@ -23,6 +24,7 @@ Po rozpakowaniu bezpośrednio w katalogu domeny powinny znajdować się między 
 
 - `.htaccess`, `index.html`, `404.html`, `style.css`, `variables.css`, `script.js`;
 - `robots.txt`, `sitemap.xml`, `llms.txt`;
+- katalogi `en/` i `de/` z kompletem wersji językowych;
 - katalogi `icons/`, `photos/`, `uslugi/`, `ksiegowosc-online/`,
   `pelna-ksiegowosc/`, `vat-jpk-i-raportowanie/`, `zus-i-zgloszenia/`,
   `andrzej-kowalczyk/`, `poradnik/` oraz pozostałe podstrony.
@@ -46,8 +48,13 @@ usuwa `index.html` z adresów. Na hostingu nadal trzeba:
 
 1. Otwórz `https://platinus.pl/` oraz kilka podstron, np. `/o-nas/`,
    `/ksiegowosc-online/` i `/poradnik/`.
-2. Sprawdź `https://platinus.pl/sitemap.xml` — powinna zawierać 27 adresów.
+2. Sprawdź `https://platinus.pl/sitemap.xml` — powinna zawierać 81 adresów i
+   alternatywne wersje `pl`, `en`, `de`.
 3. Sprawdź faviconę i manifest w `/icons/`.
 4. Wejdź przez `http://`, wariant `www` i adres kończący się `index.html` — każdy
    powinien wykonać pojedyncze przekierowanie 301 do HTTPS bez `www`.
-5. Sprawdź przyciski e-mail. Na stronie nie ma formularza kontaktowego.
+5. Sprawdź przełącznik języka na stronie głównej i podstronie, np.
+   `/ksiegowosc-online/` → `/en/ksiegowosc-online/` →
+   `/de/ksiegowosc-online/`.
+6. Sprawdź przyciski wyceny — powinny prowadzić do odpowiedniej wersji strony
+   kontaktowej. Na stronie nie ma formularza kontaktowego.
