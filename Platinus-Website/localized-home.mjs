@@ -120,23 +120,19 @@ const homeContent = {
     reviewsEyebrow: "Client feedback",
     reviewsTitle: "A public 5.0 score on Google",
     reviewsLead:
-      "Five public reviews mention helpful explanations, dependable long-term cooperation and competent document support.",
+      "Below are short, direct excerpts from reviews available on Google.",
+    reviewsLabel: "Google reviews",
     reviewTexts: [
       [
         "Bartłomiej Szpak",
-        "Solid accounting support, fair pricing and help when something is unclear.",
+        "You can always count on help when something is unclear.",
       ],
-      [
-        "Artur Sarba",
-        "A long-term relationship that began when the business was launched is rated very positively.",
-      ],
+      ["Artur Sarba", "The cooperation is going very well."],
       [
         "TELE-SERWIS Malbork",
-        "Competent advice and an orderly approach to business documents.",
+        "Competent people in the right place — they will help and advise.",
       ],
     ],
-    reviewNote:
-      "Checked on 23 July 2026. Summaries translated from Polish; Google user reviews are not verified by Platinus.",
     reviewLink: "Read all reviews on Google",
     contactEyebrow: "Contact",
     contactTitle: "Tell us what your business needs",
@@ -261,23 +257,16 @@ const homeContent = {
     reviewsEyebrow: "Kundenstimmen",
     reviewsTitle: "Öffentliche Google-Bewertung von 5,0",
     reviewsLead:
-      "Fünf öffentliche Bewertungen erwähnen hilfreiche Erklärungen, verlässliche langjährige Zusammenarbeit und kompetente Dokumentenarbeit.",
+      "Nachfolgend finden Sie kurze, direkte Auszüge aus Google-Bewertungen.",
+    reviewsLabel: "Google-Bewertungen",
     reviewTexts: [
-      [
-        "Bartłomiej Szpak",
-        "Solide Betreuung, faire Preise und Hilfe bei unklaren Fragen.",
-      ],
-      [
-        "Artur Sarba",
-        "Die langjährige Zusammenarbeit seit der Gründung wird sehr positiv bewertet.",
-      ],
+      ["Bartłomiej Szpak", "Bei Unklarheiten kann man immer auf Hilfe zählen."],
+      ["Artur Sarba", "Die Zusammenarbeit läuft sehr gut."],
       [
         "TELE-SERWIS Malbork",
-        "Kompetente Beratung und ein geordneter Umgang mit Unterlagen.",
+        "Kompetente Menschen am richtigen Platz – sie helfen und beraten.",
       ],
     ],
-    reviewNote:
-      "Geprüft am 23. Juli 2026. Aus dem Polnischen zusammengefasst; Google-Nutzerbewertungen werden nicht von Platinus verifiziert.",
     reviewLink: "Alle Bewertungen bei Google lesen",
     contactEyebrow: "Kontakt",
     contactTitle: "Beschreiben Sie kurz den Bedarf Ihres Unternehmens",
@@ -449,10 +438,10 @@ function renderLocalizedHome(locale) {
         <div class="container">
           <div class="reviews-heading">
             <div><p class="eyebrow">${escapeHtml(text.reviewsEyebrow)}</p><h2 id="reviews-title">${escapeHtml(text.reviewsTitle)}</h2><p>${escapeHtml(text.reviewsLead)}</p></div>
-            <div class="reviews-score" role="img" aria-label="${escapeHtml(text.reviewsTitle)}"><strong>5,0</strong><span aria-hidden="true">★★★★★</span><small>5 Google reviews</small></div>
+            <div class="reviews-score" role="img" aria-label="${escapeHtml(text.reviewsTitle)}"><strong>5,0</strong><span aria-hidden="true">★★★★★</span><small>${escapeHtml(text.reviewsLabel)}</small></div>
           </div>
           <div class="reviews-grid">${text.reviewTexts.map(([author, review]) => `<figure class="review-card"><div class="review-card__stars" role="img" aria-label="5 / 5">★★★★★</div><blockquote>“${escapeHtml(review)}”</blockquote><figcaption><strong>${escapeHtml(author)}</strong><span>Google · 5/5</span></figcaption></figure>`).join("")}</div>
-          <div class="reviews-source"><p>${escapeHtml(text.reviewNote)}</p><a class="text-link" href="${googleReviews}" target="_blank" rel="external noopener noreferrer">${escapeHtml(text.reviewLink)} <span aria-hidden="true">↗</span></a></div>
+          <div class="reviews-source"><a class="text-link" href="${googleReviews}" target="_blank" rel="external noopener noreferrer">${escapeHtml(text.reviewLink)} <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>
 

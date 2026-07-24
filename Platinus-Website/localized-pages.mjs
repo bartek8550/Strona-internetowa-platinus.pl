@@ -246,7 +246,7 @@ const content = {
         "Operating since 2005",
         "Certificate no. 10544/2005",
         "Insurance listed by C.I.K.",
-        "Google score 5.0 from 5 reviews",
+        "Google score 5.0",
       ],
     },
     "polityka-prywatnosci": {
@@ -550,7 +550,7 @@ const content = {
         "Tätig seit 2005",
         "Zertifikat Nr. 10544/2005",
         "Versicherung laut C.I.K.",
-        "Google-Bewertung 5,0 aus 5 Rezensionen",
+        "Google-Bewertung 5,0",
       ],
     },
     "polityka-prywatnosci": {
@@ -963,27 +963,25 @@ function reviewContent(locale) {
         reviewsEyebrow: "Client feedback",
         reviewsTitle: "Experiences shared on Google",
         reviewsLead:
-          "Public reviews mention helpful explanations, dependable long-term cooperation and competent support. The summaries below link to the complete external source.",
+          "Below are short, direct excerpts from reviews available on Google.",
         reviewsScoreLabel: "Google score 5.0 out of 5",
-        reviewsScoreText: "5 public reviews",
-        reviewsNote:
-          "Checked on 23 July 2026. Summaries translated from Polish; Google user reviews are not verified by Platinus.",
+        reviewsScoreText: "Google reviews",
         reviewsLink: "View all reviews on Google",
         reviews: [
           {
             author: "Bartłomiej Szpak",
             meta: "Google review · 5/5",
-            text: "The client values solid accounting support, fair pricing and help with unclear matters.",
+            text: "You can always count on help when something is unclear.",
           },
           {
             author: "Artur Sarba",
             meta: "Google review · 5/5",
-            text: "A long-term relationship that began when the business was launched is described as very good.",
+            text: "The cooperation is going very well.",
           },
           {
             author: "TELE-SERWIS Malbork",
             meta: "Google review · 5/5",
-            text: "The reviewer recommends the team’s competence, advice and orderly handling of documents.",
+            text: "Competent people in the right place — they will help and advise.",
           },
         ],
       }
@@ -991,27 +989,25 @@ function reviewContent(locale) {
         reviewsEyebrow: "Kundenstimmen",
         reviewsTitle: "Erfahrungen aus Google-Bewertungen",
         reviewsLead:
-          "Öffentliche Bewertungen erwähnen hilfreiche Erklärungen, verlässliche langjährige Zusammenarbeit und kompetente Unterstützung. Die Zusammenfassungen führen zur vollständigen externen Quelle.",
+          "Nachfolgend finden Sie kurze, direkte Auszüge aus Google-Bewertungen.",
         reviewsScoreLabel: "Google-Bewertung 5,0 von 5",
-        reviewsScoreText: "5 öffentliche Bewertungen",
-        reviewsNote:
-          "Geprüft am 23. Juli 2026. Aus dem Polnischen zusammengefasst; Google-Nutzerbewertungen werden nicht von Platinus verifiziert.",
+        reviewsScoreText: "Google-Bewertungen",
         reviewsLink: "Alle Bewertungen bei Google ansehen",
         reviews: [
           {
             author: "Bartłomiej Szpak",
             meta: "Google-Bewertung · 5/5",
-            text: "Der Kunde schätzt solide Betreuung, faire Preise und Hilfe bei unklaren Fragen.",
+            text: "Bei Unklarheiten kann man immer auf Hilfe zählen.",
           },
           {
             author: "Artur Sarba",
             meta: "Google-Bewertung · 5/5",
-            text: "Die langjährige Zusammenarbeit seit der Unternehmensgründung wird als sehr gut beschrieben.",
+            text: "Die Zusammenarbeit läuft sehr gut.",
           },
           {
             author: "TELE-SERWIS Malbork",
             meta: "Google-Bewertung · 5/5",
-            text: "Die Bewertung empfiehlt Kompetenz, Beratung und einen geordneten Umgang mit Dokumenten.",
+            text: "Kompetente Menschen am richtigen Platz – sie helfen und beraten.",
           },
         ],
       };
@@ -1053,8 +1049,8 @@ function localizePage(sourcePage, locale) {
             : "Was öffentliche Bewertungen hervorheben",
         paragraphs: [
           locale === "en"
-            ? `The Google profile has a 5.0 score based on 5 public reviews as checked on 23 July 2026. Reviewers describe helpful explanations, a good long-term relationship and orderly document support. <a href="${googleReviews}" rel="external">The current score and full Polish texts are available on Google</a>.`
-            : `Das Google-Profil hat nach dem Stand vom 23. Juli 2026 eine Bewertung von 5,0 aus 5 öffentlichen Rezensionen. Genannt werden hilfreiche Erklärungen, gute langjährige Zusammenarbeit und geordnete Dokumentenarbeit. <a href="${googleReviews}" rel="external">Aktuelle Bewertung und vollständige polnische Texte finden Sie bei Google</a>.`,
+            ? `The Google profile displays a 5.0 rating. <a href="${googleReviews}" rel="external">Read the full original Polish texts on Google</a>.`
+            : `Das Google-Profil zeigt eine Bewertung von 5,0. <a href="${googleReviews}" rel="external">Die vollständigen polnischen Originaltexte finden Sie bei Google</a>.`,
         ],
       },
       {
@@ -1071,8 +1067,8 @@ function localizePage(sourcePage, locale) {
             : "Vertraulichkeit vor Marketing",
         paragraphs: [
           locale === "en"
-            ? "Client names, financial data and service details are not disclosed without clear permission. Public review summaries are kept separate from confidential accounting information."
-            : "Kundennamen, Finanzdaten und Leistungsdetails werden nicht ohne eindeutige Zustimmung veröffentlicht. Öffentliche Bewertungszusammenfassungen bleiben von vertraulichen Buchhaltungsdaten getrennt.",
+            ? "Client names, financial data and service details are not disclosed without clear permission. Public review excerpts are kept separate from confidential accounting information."
+            : "Kundennamen, Finanzdaten und Leistungsdetails werden nicht ohne eindeutige Zustimmung veröffentlicht. Öffentliche Bewertungsauszüge bleiben von vertraulichen Buchhaltungsdaten getrennt.",
         ],
       },
     ];

@@ -43,8 +43,8 @@ o rozwiązaniu: https://cti.org.pl/cti_optima_eszokbr.php
 - informacje o biurze: https://platinus.pl/o-nas/
 - profil właściciela: https://platinus.pl/andrzej-kowalczyk/
 - standard współpracy i zasady opinii: https://platinus.pl/opinie-i-case-studies/
-- publiczna ocena Google: 5,0 na podstawie 5 opinii, stan sprawdzony 2026-07-23
-- serwis pokazuje oznaczone streszczenia trzech opinii i odsyła do źródła Google;
+- publiczna ocena Google: 5,0
+- serwis pokazuje krótkie, dosłowne fragmenty trzech publicznych opinii i odsyła do źródła Google;
   nie publikuje danych strukturalnych aggregateRating
 
 ## Poradnik

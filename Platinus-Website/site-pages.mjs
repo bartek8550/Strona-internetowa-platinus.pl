@@ -548,7 +548,7 @@ function renderPage(page, locale = "pl") {
                 `<figure class="review-card"><div class="review-card__stars" role="img" aria-label="5 / 5">★★★★★</div><blockquote>“${escapeHtml(review.text)}”</blockquote><figcaption><strong>${escapeHtml(review.author)}</strong><span>${escapeHtml(review.meta)}</span></figcaption></figure>`,
             )
             .join("")}</div>
-          <div class="reviews-source"><p>${escapeHtml(page.reviewsNote)}</p><a class="text-link" href="${googleReviews}" target="_blank" rel="external noopener noreferrer">${escapeHtml(page.reviewsLink)} <span aria-hidden="true">↗</span></a></div>
+          <div class="reviews-source"><a class="text-link" href="${googleReviews}" target="_blank" rel="external noopener noreferrer">${escapeHtml(page.reviewsLink)} <span aria-hidden="true">↗</span></a></div>
         </div>
       </section>`
     : "";
@@ -2419,32 +2419,30 @@ pages.push(
       "Działalność od 2005 roku",
       "Certyfikat księgowy nr 10544/2005",
       "OC potwierdzone w profilu C.I.K.",
-      "Ocena 5,0 na podstawie 5 opinii Google",
+      "Ocena 5,0 w Google",
     ],
     reviewsEyebrow: "Opinie klientów",
     reviewsTitle: "Doświadczenia opisane w Google",
     reviewsLead:
-      "Publiczne opinie zwracają uwagę na pomoc przy niejasnościach, dobrą współpracę oraz kompetentne wsparcie. Pokazujemy krótkie streszczenia i kierujemy do pełnego, zewnętrznego źródła.",
+      "Poniżej publikujemy krótkie, dosłowne fragmenty opinii dostępnych w Google.",
     reviewsScoreLabel: "Ocena 5,0 na 5 w Google",
-    reviewsScoreText: "5 publicznych opinii",
-    reviewsNote:
-      "Stan opinii sprawdzony 23 lipca 2026 roku. Opinie są publikowane przez użytkowników Google i nie są weryfikowane przez Platinus.",
+    reviewsScoreText: "Opinie Google",
     reviewsLink: "Zobacz wszystkie opinie w Google",
     reviews: [
       {
         author: "Bartłomiej Szpak",
         meta: "opinia Google · 5/5",
-        text: "Klient docenia solidną opiekę księgową, uczciwą cenę i pomoc w wyjaśnianiu niejasności.",
+        text: "Można zawsze liczyć na pomoc w przypadku niejasności.",
       },
       {
         author: "Artur Sarba",
         meta: "opinia Google · 5/5",
-        text: "Wieloletnia współpraca rozpoczęta wraz z założeniem działalności została oceniona jako bardzo dobra.",
+        text: "Współpraca układa się bardzo dobrze.",
       },
       {
         author: "TELE-SERWIS Malbork",
         meta: "opinia Google · 5/5",
-        text: "Autor opinii poleca kompetencje, doradztwo i porządek w dokumentach.",
+        text: "Kompetentni ludzie na swoim miejscu, pomogą, doradzą.",
       },
     ],
     sections: [
@@ -2458,8 +2456,8 @@ pages.push(
       {
         heading: "Co mówią publiczne opinie Google",
         paragraphs: [
-          `Profil Platinus w Google ma ocenę 5,0 na podstawie 5 publicznych opinii według stanu sprawdzonego 23 lipca 2026 roku. Autorzy opisują między innymi solidną opiekę księgową, pomoc przy niejasnościach, dobrą wieloletnią współpracę i porządek w dokumentach. <a href="${googleReviews}" rel="external">Pełne treści i aktualny stan można sprawdzić bezpośrednio w Google</a>.`,
-          "Pokazane wyżej teksty są krótkimi streszczeniami, nie nowymi referencjami przygotowanymi przez biuro. Nie publikujemy nazw klientów ani szczegółów ich rozliczeń poza informacjami, które sami udostępnili publicznie.",
+          `Profil Platinus w Google ma ocenę 5,0. <a href="${googleReviews}" rel="external">Pełne treści opinii można przeczytać bezpośrednio w Google</a>.`,
+          "Powyżej pokazujemy dosłowne fragmenty publicznych opinii wraz z nazwami ich autorów. Nie publikujemy szczegółów ich rozliczeń ani innych poufnych informacji.",
         ],
       },
       {
